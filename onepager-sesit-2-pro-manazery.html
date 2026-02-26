@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budoucnost nepráce — Sešit 2: Pro manažery · Ukázka</title>
+    <style>
+        @page { size: A4; margin: 0; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 15px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            background: #f0f0f0;
+            color: #1a1a1a;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 794px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* === HERO === */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1a1a 100%);
+            color: #fff;
+            padding: 44px 48px 36px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: #E53935;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px; right: -60px;
+            width: 300px; height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(229,57,53,0.1) 0%, transparent 70%);
+        }
+        .hero-badges {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .hero-badge--primary {
+            background: #E53935;
+            color: #fff;
+        }
+        .hero-badge--secondary {
+            background: transparent;
+            color: #E53935;
+            border: 1px solid #E53935;
+        }
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+        .hero-title span { color: #E53935; }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+        .hero-desc {
+            font-size: 0.88rem;
+            color: #999;
+            line-height: 1.6;
+            max-width: 520px;
+        }
+
+        /* === STATS BAR === */
+        .stats-bar {
+            display: flex;
+            background: #E53935;
+            color: #fff;
+        }
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            padding: 14px 8px;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+        .stat-label {
+            font-size: 0.68rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+
+        /* === CONTENT AREA === */
+        .content-area {
+            padding: 28px 48px 20px;
+        }
+
+        /* === SECTION TITLE === */
+        .section-title {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #E53935;
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #E53935;
+            display: inline-block;
+        }
+
+        /* === WHO IS IT FOR === */
+        .audience-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .audience-card {
+            flex: 1;
+            padding: 14px 16px;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+            text-align: center;
+        }
+        .audience-icon { font-size: 1.6rem; margin-bottom: 4px; }
+        .audience-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 2px;
+        }
+        .audience-desc {
+            font-size: 0.7rem;
+            color: #888;
+            line-height: 1.3;
+        }
+
+        /* === BENEFITS === */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+        .benefit-item {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 10px 12px;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid #f0f0f0;
+        }
+        .benefit-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            line-height: 1;
+            margin-top: 1px;
+        }
+        .benefit-text {
+            font-size: 0.82rem;
+            color: #444;
+            line-height: 1.4;
+        }
+        .benefit-text strong {
+            display: block;
+            color: #1a1a1a;
+            font-size: 0.85rem;
+            margin-bottom: 1px;
+        }
+
+        /* === TABLE OF CONTENTS === */
+        .toc-list {
+            margin-bottom: 24px;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .toc-item {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            padding: 12px 18px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .toc-item:last-child { border-bottom: none; }
+        .toc-item:nth-child(even) { background: #fafafa; }
+        .toc-num {
+            width: 30px;
+            height: 30px;
+            background: #1a1a1a;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .toc-content { flex: 1; }
+        .toc-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.3;
+        }
+        .toc-desc {
+            font-size: 0.72rem;
+            color: #999;
+            line-height: 1.3;
+            margin-top: 1px;
+        }
+        .toc-meta {
+            font-size: 0.7rem;
+            color: #bbb;
+            white-space: nowrap;
+        }
+
+        /* === PREVIEW SECTION === */
+        .preview-section {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            border: 1px solid #eee;
+            position: relative;
+        }
+        .preview-section::before {
+            content: 'UKÁZKA CVIČENÍ';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #E53935;
+            color: #fff;
+            padding: 2px 12px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .preview-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            margin-top: 6px;
+        }
+        .preview-quote {
+            font-style: italic;
+            color: #666;
+            font-size: 0.82rem;
+            border-left: 3px solid #E53935;
+            padding-left: 12px;
+            margin-bottom: 10px;
+        }
+
+        .horizons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+        .horizon {
+            flex: 1;
+            padding: 10px 12px;
+            border-radius: 6px;
+            border: 1px solid #e5e5e5;
+            background: #fff;
+        }
+        .horizon-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #E53935;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .horizon-title {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 2px;
+        }
+        .horizon-desc {
+            font-size: 0.68rem;
+            color: #888;
+            line-height: 1.3;
+        }
+
+        .preview-cta {
+            font-size: 0.78rem;
+            color: #E53935;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        /* === TOOLS === */
+        .tools-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .tool-tag {
+            background: #f5f5f5;
+            border: 1px solid #e5e5e5;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #555;
+            white-space: nowrap;
+        }
+
+        /* === CTA === */
+        .cta-section {
+            background: #1a1a1a;
+            padding: 28px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+        .cta-text { color: #fff; }
+        .cta-text h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .cta-text p {
+            font-size: 0.82rem;
+            color: #999;
+            line-height: 1.4;
+        }
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #E53935;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px rgba(229,57,53,0.3);
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(229,57,53,0.4);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            text-align: center;
+            padding: 12px 48px;
+            background: #1a1a1a;
+            border-top: 1px solid #333;
+        }
+        .footer p {
+            font-size: 0.7rem;
+            color: #666;
+        }
+        .footer a { color: #E53935; text-decoration: none; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 600px) {
+            .hero { padding: 32px 24px 28px; }
+            .hero-title { font-size: 1.5rem; }
+            .content-area { padding: 24px 24px 16px; }
+            .audience-row { flex-direction: column; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .horizons { flex-direction: column; }
+            .cta-section { flex-direction: column; text-align: center; padding: 24px; }
+        }
+
+        @media print {
+            body { background: #fff; }
+            .page { box-shadow: none; max-width: 100%; }
+            .cta-button { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-badges">
+            <span class="hero-badge hero-badge--primary">Pro manažery &amp; leadery</span>
+            <span class="hero-badge hero-badge--secondary">Navazuje na Sešit 1</span>
+        </div>
+        <h1 class="hero-title">Budoucnost nepráce<br><span>(ne)pracovní sešit</span></h1>
+        <p class="hero-subtitle">Sešit 2 · Pro manažery — Od adopce k transformaci</p>
+        <p class="hero-desc">
+            6 strategických cvičení pro lídry, kteří chtějí systematicky zavést AI do práce svého týmu. Od mapování nástrojů přes budování automatizací až po měření ROI.
+        </p>
+    </div>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Cvičení</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Hodiny praxe</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">7</div>
+            <div class="stat-label">AI agentů</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Horizonty adopce</div>
+        </div>
+    </div>
+
+    <div class="content-area">
+
+        <!-- WHO IS IT FOR -->
+        <div class="section-title">Pro koho je sešit</div>
+        <div class="audience-row">
+            <div class="audience-card">
+                <div class="audience-icon">👔</div>
+                <div class="audience-title">Manažeři</div>
+                <div class="audience-desc">Řídíte tým a chcete zavést AI systematicky</div>
+            </div>
+            <div class="audience-card">
+                <div class="audience-icon">🚀</div>
+                <div class="audience-title">Team leadeři</div>
+                <div class="audience-desc">Chcete být AI champion ve svém oddělení</div>
+            </div>
+            <div class="audience-card">
+                <div class="audience-icon">🏢</div>
+                <div class="audience-title">Vedoucí oddělení</div>
+                <div class="audience-desc">Potřebujete měřit a prezentovat přínos AI</div>
+            </div>
+        </div>
+
+        <!-- WHAT YOU'LL LEARN -->
+        <div class="section-title">Co se naučíte</div>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">🗺️</div>
+                <div class="benefit-text">
+                    <strong>Mapa AI nástrojů</strong>
+                    Zjistěte, co máte, co chybí, kde jsou příležitosti
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">📈</div>
+                <div class="benefit-text">
+                    <strong>Adopční plán</strong>
+                    3 horizonty: quick wins → projekty → strategie
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">⚙️</div>
+                <div class="benefit-text">
+                    <strong>Automatizace pro tým</strong>
+                    Aplikace a workflow bez programování
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🤖</div>
+                <div class="benefit-text">
+                    <strong>AI agenti</strong>
+                    7 specializovaných asistentů pro manažery
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🔄</div>
+                <div class="benefit-text">
+                    <strong>Procesní automatizace</strong>
+                    Od reportingu po zpracování dat
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">📊</div>
+                <div class="benefit-text">
+                    <strong>ROI a metriky</strong>
+                    Změřte přínos a přesvědčte management
+                </div>
+            </div>
+        </div>
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="section-title">Obsah sešitu</div>
+        <div class="toc-list">
+            <div class="toc-item">
+                <div class="toc-num">1</div>
+                <div class="toc-content">
+                    <div class="toc-text">Zmapujte AI nástroje ve firmě</div>
+                    <div class="toc-desc">Licence, mezery, quick wins — kompletní přehled</div>
+                </div>
+                <div class="toc-meta">30–45 min</div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">2</div>
+                <div class="toc-content">
+                    <div class="toc-text">Nastartujte AI adopci v týmu</div>
+                    <div class="toc-desc">3 horizonty, bariéry, hotové materiály pro tým</div>
+                </div>
+                <div class="toc-meta">45–60 min</div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">3</div>
+                <div class="toc-content">
+                    <div class="toc-text">Vytvořte aplikaci pro tým</div>
+                    <div class="toc-desc">Kalkulačky, dashboardy, chatboty — bez kódu</div>
+                </div>
+                <div class="toc-meta">45–60 min</div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">4</div>
+                <div class="toc-content">
+                    <div class="toc-text">Práce s AI agenty</div>
+                    <div class="toc-desc">Expert Panel, WBS, Knowledge Extractor a další</div>
+                </div>
+                <div class="toc-meta">30–45 min</div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">5</div>
+                <div class="toc-content">
+                    <div class="toc-text">Automatizujte procesy</div>
+                    <div class="toc-desc">Reporting, data, workflow — krok po kroku</div>
+                </div>
+                <div class="toc-meta">45–60 min</div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">6</div>
+                <div class="toc-content">
+                    <div class="toc-text">Zhodnoťte pokrok a plánujte</div>
+                    <div class="toc-desc">ROI, příběhy úspěchů, prezentace pro management</div>
+                </div>
+                <div class="toc-meta">30–45 min</div>
+            </div>
+        </div>
+
+        <!-- PREVIEW -->
+        <div class="preview-section">
+            <div class="preview-title">Cvičení 2: Nastartujte AI adopci v týmu</div>
+            <div class="preview-quote">
+                „Rozběhněte AI adopci systematicky, měřitelně a bez odporu."
+            </div>
+            <div class="horizons">
+                <div class="horizon">
+                    <div class="horizon-label">Horizont 1</div>
+                    <div class="horizon-title">Tento týden</div>
+                    <div class="horizon-desc">Workshop, hotové prompty, první úspory</div>
+                </div>
+                <div class="horizon">
+                    <div class="horizon-label">Horizont 2</div>
+                    <div class="horizon-title">Tento měsíc</div>
+                    <div class="horizon-desc">Sdílení asistentů, automatizace, sdílení zkušeností</div>
+                </div>
+                <div class="horizon">
+                    <div class="horizon-label">Horizont 3</div>
+                    <div class="horizon-title">Tento kvartál</div>
+                    <div class="horizon-desc">AI guidelines, champions, měření ROI</div>
+                </div>
+            </div>
+            <div class="preview-cta">+ kompletní postup, šablony a FAQ v plném sešitu →</div>
+        </div>
+
+        <!-- TOOLS -->
+        <div class="section-title">Zmíněné nástroje a platformy</div>
+        <div class="tools-row">
+            <span class="tool-tag">Microsoft Copilot</span>
+            <span class="tool-tag">ChatGPT GPTs</span>
+            <span class="tool-tag">Claude Projects</span>
+            <span class="tool-tag">Replit</span>
+            <span class="tool-tag">Cursor</span>
+            <span class="tool-tag">Make.com</span>
+            <span class="tool-tag">Power Automate</span>
+            <span class="tool-tag">GitHub Copilot</span>
+            <span class="tool-tag">Gemini Gems</span>
+        </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+        <div class="cta-text">
+            <h3>Zaveďte AI do svého týmu</h3>
+            <p>6 cvičení • 7 AI agentů • hotové šablony a plány</p>
+        </div>
+        <a href="https://workbook-orcin.vercel.app/sesit-2-pro-manazery.html" class="cta-button">
+            Získat sešit →
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>Budoucnost nepráce — (ne)pracovní sešit · Pro manažery a leadery · © 2025 <a href="https://drimalka.com">Filip Dřímalka</a></p>
+    </div>
+
+</div>
+
+</body>
+</html>
