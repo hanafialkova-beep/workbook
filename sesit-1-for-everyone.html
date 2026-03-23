@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Future of No Work — Workbook · For everyone</title>
+    <style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; background: #f0f0f0; color: #1a1a1a; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+.page-container { max-width: 820px; margin: 0 auto; background: #fff; box-shadow: 0 0 40px rgba(0,0,0,0.08); min-height: 100vh; }
+.content { padding: 0 48px 60px; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: #1a1a1a; padding: 12px 48px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; border-bottom: 3px solid #E53935; }
+.nav a { color: #fff; text-decoration: none; font-size: 0.78rem; font-weight: 500; padding: 4px 10px; border-radius: 4px; transition: all 0.2s; white-space: nowrap; }
+.nav a:hover { background: #E53935; color: #fff; }
+.nav-brand { font-weight: 700; color: #E53935 !important; font-size: 0.85rem !important; margin-right: 12px; }
+
+/* COVER */
+.cover { background: #1a1a1a; color: #fff; padding: 60px 48px 50px; text-align: center; position: relative; overflow: hidden; }
+.cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #E53935; }
+.cover-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.5px; line-height: 1.2; }
+.cover-subtitle { font-size: 1.1rem; color: #ccc; font-weight: 300; margin-bottom: 24px; }
+.cover-line { width: 60px; height: 3px; background: #E53935; margin: 0 auto; }
+.cover-badge { display: inline-block; background: #E53935; color: #fff; padding: 6px 18px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-top: 18px; }
+
+/* PREFACE */
+.preface { background: #fafafa; border-left: 4px solid #E53935; padding: 32px 36px; margin: 40px 0; border-radius: 0 8px 8px 0; }
+.preface h3 { color: #E53935; font-size: 1.2rem; margin-bottom: 16px; }
+.preface p { color: #444; font-style: italic; line-height: 1.8; margin-bottom: 12px; }
+.preface .author { font-style: normal; font-weight: 600; color: #1a1a1a; margin-top: 16px; }
+
+/* ABOUT */
+.about-section { background: #f9f9f9; padding: 36px; border-radius: 12px; margin: 32px 0; border: 1px solid #eee; }
+.about-title { font-size: 1.5rem; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
+
+/* TOC */
+.toc-section { margin: 32px 0; padding: 36px; background: #fff; border: 2px solid #1a1a1a; border-radius: 12px; }
+.toc-title { font-size: 1.5rem; color: #1a1a1a; margin-bottom: 20px; text-align: center; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
+
+/* EXERCISE CARDS */
+.exercise-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 32px; margin: 28px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: box-shadow 0.2s; page-break-inside: avoid; }
+.exercise-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+.exercise-title { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
+.exercise-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+.exercise-meta span { font-size: 0.85rem; color: #666; }
+
+/* HEADINGS INSIDE CARDS */
+.detail-title { font-size: 1.05rem; font-weight: 700; color: #E53935; margin: 24px 0 12px; }
+.subsection-title { font-size: 1.1rem; font-weight: 700; color: #333; margin: 24px 0 12px; }
+
+/* SELLING LINE */
+.selling-line { background: #fef7f7; border-left: 4px solid #E53935; padding: 14px 20px; margin: 0 0 20px; border-radius: 0 8px 8px 0; font-style: italic; color: #555; }
+.selling-line p { margin: 0; }
+
+/* TYPOGRAPHY */
+p { margin-bottom: 14px; line-height: 1.7; color: #333; }
+strong { font-weight: 700; color: #1a1a1a; }
+em { font-style: italic; }
+a { color: #E53935; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+a:hover { border-bottom-color: #E53935; }
+.inline-code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono','Fira Code','Consolas',monospace; font-size: 0.88em; color: #E53935; border: 1px solid #e8e8e8; }
+
+/* LISTS */
+.bullet-list, .numbered-list { margin: 12px 0 16px 24px; }
+.bullet-list li, .numbered-list li { padding: 4px 0; line-height: 1.7; color: #333; }
+.bullet-list li::marker { color: #E53935; }
+.numbered-list li::marker { color: #E53935; font-weight: 600; }
+
+/* CHECKLISTS */
+.checklist { list-style: none; margin: 12px 0 16px 0; padding: 0; }
+.checklist-item { padding: 8px 12px; margin: 4px 0; background: #fafafa; border-radius: 6px; border: 1px solid #eee; }
+.checklist-item label { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+.checklist-item input[type="checkbox"] { margin-top: 4px; width: 18px; height: 18px; accent-color: #E53935; flex-shrink: 0; }
+
+/* CODE */
+.code-block { background: #1a1a2e; border-radius: 8px; margin: 16px 0; overflow-x: auto; border: 1px solid #333; }
+.code-block pre { padding: 20px; margin: 0; }
+.code-block code { font-family: 'SF Mono','Fira Code','Consolas',monospace; font-size: 0.85rem; color: #e0e0e0; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+
+/* TABLES */
+.table-wrapper { overflow-x: auto; margin: 16px 0; border-radius: 8px; border: 1px solid #e5e5e5; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.data-table th { background: #1a1a1a; color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; font-size: 0.85rem; }
+.data-table td { padding: 10px 16px; border-bottom: 1px solid #eee; color: #333; }
+.data-table tbody tr:hover { background: #fafafa; }
+.data-table tbody tr:nth-child(even) { background: #f9f9f9; }
+
+/* SPECIAL BLOCKS */
+.warning-block { background: #fff3e0; border-left: 4px solid #ff9800; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+.warning-block p { margin: 0; color: #e65100; font-weight: 500; }
+.tip-block { background: #e8f5e9; border-left: 4px solid #4caf50; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+.tip-block p { margin: 0; color: #2e7d32; font-weight: 500; }
+
+/* IMAGES */
+.accent-image { float: right; max-width: 120px; margin: -8px -12px 12px 20px; opacity: 0.55; transition: opacity 0.3s; }
+.accent-image:hover { opacity: 0.85; }
+.accent-image img { width: 100%; height: auto; }
+.accent-image-left { float: left; max-width: 110px; margin: -4px 20px 12px -12px; opacity: 0.50; transition: opacity 0.3s; }
+.accent-image-left:hover { opacity: 0.85; }
+.accent-image-left img { width: 100%; height: auto; }
+.diagram-image { text-align: center; margin: 24px auto; max-width: 380px; }
+.diagram-image img { width: 100%; height: auto; opacity: 0.85; border-radius: 4px; }
+.img-caption { font-size: 0.78rem; color: #aaa; text-align: center; margin-top: 4px; font-style: italic; }
+@media print { .accent-image, .accent-image-left { display: none; } }
+
+/* DIVIDERS */
+.divider { border: none; height: 1px; background: #e5e5e5; margin: 32px 0; }
+
+/* RESOURCES */
+.resources-section { margin: 40px 0; padding: 32px; background: #f9f9f9; border-radius: 12px; border: 1px solid #eee; }
+.resources-title { margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
+
+/* CONCLUSION */
+.conclusion-section { margin: 48px 0 0; padding: 48px 40px 40px; background: #fafafa; border-top: 3px solid #E53935; text-align: center; }
+.conclusion-icon { font-size: 2.4rem; margin-bottom: 8px; }
+.conclusion-heading { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; margin-bottom: 8px; letter-spacing: -0.3px; }
+.conclusion-lead { color: #555; font-size: 1.05rem; margin-bottom: 32px; }
+.conclusion-columns { display: flex; gap: 32px; text-align: left; max-width: 560px; margin: 0 auto 32px; }
+.conclusion-col { flex: 1; }
+.conclusion-col h4 { font-size: 0.9rem; font-weight: 700; color: #E53935; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #e0e0e0; }
+.conclusion-col p { font-size: 0.9rem; color: #555; margin-bottom: 8px; line-height: 1.5; }
+.conclusion-cta { font-size: 1rem; font-weight: 600; color: #1a1a1a; padding-top: 24px; border-top: 1px solid #e0e0e0; }
+
+/* FOOTER */
+.footer { text-align: center; padding: 24px; color: #999; font-size: 0.82rem; border-top: 1px solid #eee; margin-top: 40px; }
+
+/* RESPONSIVE */
+@media (max-width: 860px) {
+    .content { padding: 0 24px 40px; }
+    .nav { padding: 10px 24px; }
+    .cover { padding: 40px 24px; }
+    .exercise-card { padding: 24px; }
+    .about-section, .toc-section, .resources-section { padding: 24px; }
+    .accent-image, .accent-image-left { float: none; max-width: 80px; margin: 12px auto; }
+}
+@media (max-width: 480px) {
+    .content { padding: 0 16px 32px; }
+    .cover-title { font-size: 1.6rem; }
+    .nav { gap: 4px; }
+    .nav a { font-size: 0.7rem; padding: 3px 6px; }
+    .conclusion-columns { flex-direction: column; gap: 20px; }
+}
+
+/* PRINT */
+@page { size: A4; margin: 20mm 15mm 25mm 15mm; @bottom-center { content: counter(page); font-size: 9pt; color: #999; } }
+@media print {
+    body { background: #fff; }
+    .page-container { max-width: 100%; box-shadow: none; }
+    .nav { display: none; }
+    .content { padding: 0 10px 20px; }
+    .cover { padding: 40px 20px; page-break-after: always; }
+    .exercise-card { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+    .code-block { background: #f5f5f5 !important; border: 1px solid #ddd; }
+    .code-block code { color: #333 !important; }
+    a { color: #333 !important; }
+}
+
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <nav class="nav">
+        <a href="#" class="nav-brand">📖 For everyone</a>
+    <a href="#cviceni-1">Ex. 1</a>
+    <a href="#cviceni-2">Ex. 2</a>
+    <a href="#cviceni-3">Ex. 3</a>
+    <a href="#cviceni-4">Ex. 4</a>
+    <a href="#cviceni-5">Ex. 5</a>
+    <a href="#cviceni-6">Ex. 6</a>
+    <a href="#cviceni-7">Ex. 7</a>
+    <a href="#cviceni-8">Ex. 8</a>
+
+    </nav>
+
+    <div class="cover">
+        <h1 class="cover-title">The Future of No Work</h1>
+        <p class="cover-subtitle">Workbook — from theory to practice</p>
+        <div class="cover-line"></div>
+        <div class="cover-badge">For everyone</div>
+    </div>
+
+    <div class="content">
+        <div class="preface">
+
+            <h3>📝 Foreword</h3>
+            <p>Hi there,</p>
+            <p>When I wrote <strong>The Future of No Work</strong>, one thing was clear to me: reading alone won’t move you as fast as a single bold experiment. Ideas matter — but they click when you try them on your own files, your own inbox, and your own messy real-life context.</p>
+            <p>That’s why this workbook exists. It’s not more theory to “consume.” It’s a set of tasks you can actually do this afternoon: set up your tools, write a proper prompt, run the same task in two different assistants, or sketch a simple system for how you capture information. That’s what I do too — I’m constantly testing what’s real and what’s just hype.</p>
+            <p>You don’t have to follow the exercises in perfect order. Skip what you already know. Come back to what hurts. The point is to walk away with something <em>concrete</em> — a bookmark, a template, a working automation — not just the feeling that you “read something about AI.”</p>
+            <p>And if it doesn’t work on the first try? Totally normal. AI is a tool — and like any tool, you learn where it saves you time and where it steals your attention.</p>
+            <p>Here’s to small wins, a few surprises, and the habit of learning in practice.</p>
+            <p class="author">— Filip Dřímalka</p>
+
+        </div>
+
+        <div class="toc-section" id="obsah">
+<h2 class="toc-title">📋 Contents</h2>
+<ol class="numbered-list">
+  <li><a href="#cviceni-1">Exercise 1: Set up quick access to AI tools</a></li>
+  <li><a href="#cviceni-2">Exercise 2: Create an AI Prompt Generator</a></li>
+  <li><a href="#cviceni-3">Exercise 3: Find an AI tool for your needs</a></li>
+  <li><a href="#cviceni-4">Exercise 4: Compare two AI tools</a></li>
+  <li><a href="#cviceni-5">Exercise 5: Working with data and documents</a></li>
+  <li><a href="#cviceni-6">Exercise 6: Build your second brain (3C Framework)</a></li>
+  <li><a href="#cviceni-7">Exercise 7: Create your own AI assistant</a></li>
+  <li><a href="#cviceni-8">Exercise 8: Your personal AI setup</a></li>
+</ol>
+</div>
+
+
+        <hr class="divider">
+<div class="about-section" id="about-this-workbook">
+<h2 class="about-title">📖 About this workbook</h2>
+<p>This workbook is a practical companion to <strong>The Future of No Work</strong> by Filip Dřímalka. The book gives you the ideas and mental models for working with AI; this workbook walks you through hands-on exercises so you can:</p>
+<ul class="bullet-list">
+  <li>✅ Acquire practical skills of working with AI tools</li>
+  <li>✅ Try different approaches on real tasks</li>
+  <li>✅ Gradually develop your AI competencies</li>
+  <li>✅ Apply knowledge from the book in practice</li>
+</ul>
+<h3 class="subsection-title" id="how-to-work-with-the-notebook">🎯 How to work with the notebook</h3>
+<ol class="numbered-list">
+  <li><strong>Proceed systematically</strong> — the exercises are organized from basic to advanced</li>
+  <li><strong>Work at your own pace</strong> — each exercise has an estimated time, but don't rush</li>
+  <li><strong>Experiment</strong> — don't be afraid to try different approaches and tools</li>
+  <li><strong>Reflect</strong> — note what you learned after each exercise</li>
+  <li><strong>Share</strong> — discuss with colleagues and share experiences</li>
+</ol>
+<h3 class="subsection-title" id="exercise-overview">📋 Exercise overview</h3>
+<ol class="numbered-list">
+  <li><strong>Set up quick access to AI</strong> — All tools at one click</li>
+  <li><strong>Create AI Prompt Generator</strong> — Assistant for creating better prompts</li>
+  <li><strong>Find an AI Tool for Your Needs</strong> — Discover a tool that will save you hours</li>
+  <li><strong>Compare Two AI Tools</strong> — Find out which one works better for your job</li>
+  <li><strong>Working with data and documents</strong> — When is chat enough and when do you need more</li>
+  <li><strong>Build a second brain (3C Framework)</strong> — A system where important information does not get lost</li>
+  <li><strong>Create your own AI Assistant</strong> — AI that knows your work and style</li>
+  <li><strong>Your personal AI setup</strong> — A complete system tailored to your work</li>
+</ol>
+<hr class="divider">
+<div class="exercise-card" id="cviceni-1">
+<div class="accent-image"><img src="images/01.png" alt="" loading="lazy"></div>
+<h2 class="exercise-title">Exercise 1: Set up quick access to AI tools</h2>
+<div class="selling-line"><p><strong>💡 Have all AI tools at your fingertips — save minutes every day.</strong></p></div>
+<p><strong>⏱️ 15-20 minutes · Level: Basic</strong></p>
+<p><strong>Goal:</strong> Have all the important AI tools and materials at your fingertips. Register, set bookmarks and try the first tasks.</p>
+<h3 class="subsection-title" id="what-will-you-do">What will you do?</h3>
+<p>You'll sign up for four main AI tools, create an organized bookmark bar, and try your first hands-on tasks.</p>
+<h3 class="subsection-title" id="procedure">Procedure</h3>
+<p><strong>1. Show the bookmarks bar in the browser</strong></p>
+<ul class="bullet-list">
+  <li><strong>Chrome/Edge:</strong> <span class="inline-code">Ctrl + Shift + B</span> (Windows) or <span class="inline-code">Cmd + Shift + B</span> (Mac)</li>
+  <li><strong>Firefox:</strong> Right click on the top bar → Check "Bookmarks bar"</li>
+  <li><strong>Safari:</strong> View → Show favorites bar</li>
+</ul>
+<p><strong>2. Sign up for AI apps and add them to your bar</strong></p>
+<div class="table-wrapper"><table class="data-table">
+<thead><tr>
+  <th>Tool</th>
+  <th>What is it best for</th>
+  <th>Link</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td><strong>ChatGPT</strong></td>
+  <td>Universal Assistant — Writing, Brainstorming, Explaining</td>
+  <td><a href="https://chat.openai.com" target="_blank">https://chat.openai.com</a></td>
+</tr>
+<tr>
+  <td><strong>Claude</strong></td>
+  <td>Longer texts, detailed analyses, work with documents</td>
+  <td><a href="https://claude.ai" target="_blank">https://claude.ai</a></td>
+</tr>
+<tr>
+  <td><strong>Gemini</strong></td>
+  <td>Google integration, current information from the site</td>
+  <td><a href="https://gemini.google.com" target="_blank">https://gemini.google.com</a></td>
+</tr>
+<tr>
+  <td><strong>NotebookLM</strong></td>
+  <td>Analysis of PDF files and documents</td>
+  <td><a href="https://notebooklm.google.com" target="_blank">https://notebooklm.google.com</a></td>
+</tr>
+</tbody></table></div>
+<div class="warning-block"><p>⚠️ <strong>SECURITY:</strong></p></div>
+<ul class="bullet-list">
+  <li>Use a personal email (Gmail, Outlook, etc.), not your work email</li>
+  <li>NEVER enter sensitive company data into public AI tools</li>
+  <li>Use approved tools for company data (Microsoft Copilot, Google Workspace AI)</li>
+</ul>
+<p><strong>3. Create a folder for materials</strong></p>
+<p>Right-click on the bookmarks bar → "Add folder" → name it "📁 AI Materials". Save links to materials, tips, and other resources in your folder.</p>
+<p><strong>4. Try the first tasks</strong> (10 minutes)</p>
+<p>Open ChatGPT or Claude and try:</p>
+<ul class="bullet-list">
+  <li><strong>Email:</strong> <em>"Write a professional email to my colleague that I cannot attend tomorrow's meeting. The email should be polite and brief."</em></li>
+  <li><strong>Summary:</strong> Find an article, copy the text to the AI and ask: <em>"Summarize it for me in 5 key points."</em></li>
+  <li><strong>Presentation:</strong> <em>"Give me the structure of a 10-minute presentation on [your topic]. Introduction, 3 main points, conclusion."</em></li>
+</ul>
+<h3 class="subsection-title" id="output">Output</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Four AI tools registered and bookmarked</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Materials folder created</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Attempted at least one practical task</label></li>
+</ul>
+<h3 class="detail-title" id="reflection">💭 Reflection</h3>
+<ul class="bullet-list">
+  <li>Which tool interested you the most?</li>
+  <li>Which tool do you plan to use first?</li>
+  <li>What surprised you about the quality of the outputs?</li>
+</ul>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<div class="exercise-card" id="cviceni-2">
+<div class="accent-image-left"><img src="images/05.png" alt="" loading="lazy"></div>
+<h2 class="exercise-title">Exercise 2: Create an AI Prompt Generator</h2>
+<div class="selling-line"><p><strong>💡 Create an assistant that will make you do much better prompts.</strong></p></div>
+<p><strong>⏱️ 15-20 minutes · Level: Basic</strong></p>
+<p><strong>Goal:</strong> Have your own "assignment generator" that will create professional prompts for any AI tool.</p>
+<h3 class="subsection-title" id="what-will-you-do">What will you do?</h3>
+<p>You create a specialized AI assistant (or save a template) that will create a complete assignment for the AI tools for you. Instead of thinking about the formulation, you leave this work to the generator.</p>
+<h3 class="subsection-title" id="why-is-it-important">Why is it important?</h3>
+<ul class="bullet-list">
+  <li>Input quality = output quality</li>
+  <li>You don't have to think about the structure, you just describe what you need</li>
+  <li>Consistent quality of all your AI submissions</li>
+  <li>Works in any AI tool (ChatGPT, Claude, Copilot, Gemini)</li>
+</ul>
+<h3 class="subsection-title" id="procedure">Procedure</h3>
+<p><strong>1. Get Prompt</strong></p>
+<p>You can use the <strong>ready-made Elite Prompt Engineer</strong> (download from <a href="https://drimalka.com/wp-content/uploads/2025/09/Elite-Prompt-Engineer_CZ.md" target="_blank">https://drimalka.com/wp-content/uploads/2025/09/Elite-Prompt-Engineer_CZ.md</a> — Czech; ask your AI to translate the instructions if you need English) — or copy this basic prompt:</p>
+<div class="code-block"><pre><code>You are my AI Prompt Generator. Your job is to write professional, complete prompts for AI assistants and agents.
+
+When I tell you what I need, do this:
+
+1. FIRST ask for the key details:
+   - What is the context and goal?
+   - Who is the audience or end user?
+   - What output format do we need?
+   - Any specific requirements?
+
+2. THEN produce a complete prompt that includes:
+   - A clear role and context
+   - Concrete tasks and responsibilities
+   - Expected style and tone
+   - Output format
+   - Examples (if helpful)
+
+3. EXPLAIN how to use the prompt:
+   - Where to run it (ChatGPT, Claude, Copilot, Gemini…)
+   - How to tweak it
+   - How to turn it into an assistant (GPT, Project, Gem, Agent)
+
+Your outputs should be professional, detailed, and ready to paste.
+
+Do you understand your role? Can we start?</code></pre></div>
+<div class="table-wrapper"><table class="data-table">
+<thead><tr>
+  <th>The way</th>
+  <th>For whom</th>
+  <th>How to</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td><strong>Text in Notes</strong></td>
+  <td>The easiest start</td>
+  <td>Paste into OneNote / Notion / Google Keep. When using copy → paste into a new chat.</td>
+</tr>
+<tr>
+  <td><strong>Specialized Assistant</strong></td>
+  <td>Frequent use</td>
+  <td><strong>ChatGPT:</strong> My GPTs → Create a GPT. <strong>Claude:</strong> Projects → New Project. <strong>Gemini:</strong> Gems → New Gem. <strong>Copilot:</strong> Create Agent. Always put a prompt in instructions.</td>
+</tr>
+<tr>
+  <td><strong>Hotkey</strong></td>
+  <td>Power users</td>
+  <td><strong>Mac:</strong> Settings → Keyboard → Text Shortcuts → <span class="inline-code">;;prompt</span>. <strong>Windows:</strong> PowerToys → Text Expander.</td>
+</tr>
+</tbody></table></div>
+<p><strong>3. Test</strong></p>
+<p>Enter your Prompt Generator:```</p>
+<p>Create a prompt for an AI assistant that will analyze meeting transcripts.</p>
+<div class="code-block"><pre><code>
+### Output
+
+- [ ] AI Prompt Generator saved (in notes / as an assistant / as a shortcut)
+- [ ] Tried on one test prompt
+- [ ] Functional — creates usable inputs for the AI
+
+### 💭 Reflection
+
+- Which storage method suits you best?
+- What type of prompts will you need most often?
+
+---
+
+## Exercise 3: Find an AI tool for your needs
+
+&gt; **💡 Discover a tool that saves you hours of work per week — ask AI instead of Google.**
+
+**⏱️ 10-15 minutes · Level: Basic**
+
+**Goal:** Find and test an AI tool that solves your specific work problem.
+
+### What will you do?
+
+You identify a specific problem from your work, ask the AI for recommendations, and try out the recommended tool.
+
+### Procedure
+
+**1. Identify the problem**
+
+What's holding you back the most at work? Write it as specifically as possible:
+
+**Examples:**
+- "I need to quickly edit videos for Instagram"
+- "I have to write a lot of similar emails"
+- "I want to automatically generate meeting notes"
+- "I need to analyze Excel data"
+- "I'm looking for a presentation tool"
+
+💡 **Tip:** The more specific you are, the better recommendations you will get from the AI!
+
+**2. Ask AI for recommendations**
+
+Open ChatGPT, Claude, Copilot or Perplexity and use a prompt like:
+</code></pre></div>
+<p>I need a tool to edit video for social media.</p>
+<p>I want to:</p>
+<ul class="bullet-list">
+  <li>Automatically split a long video into shorter clips</li>
+  <li>Add captions</li>
+  <li>Optimize for Instagram and TikTok</li>
+</ul>
+<p>Which AI tool do you recommend? Give me the top 3 options</p>
+<p>with pricing and main features.</p>
+<div class="code-block"><pre><code>
+Other example prompts:
+</code></pre></div>
+<p>Every week I write similar offer emails to customers.</p>
+<p>It takes 5+ hours. Is there an AI tool that could help?</p>
+<p>I prefer something with a free tier or affordable pricing.</p>
+<div class="code-block"><pre><code></code></pre></div>
+<p>I heard about Gamma, Beautiful.ai, and Tome for presentations.</p>
+<p>Which is best for [your use case]? Compare them on</p>
+<p>price, features, and ease of use.</p>
+<div class="code-block"><pre><code>
+The AI will usually suggest 2–5 tools with a short description, pricing, and who each tool fits best.
+
+**3. Try the tool** (5-10 minutes)
+
+1. Open the website of the recommended tool → Sign up / Get started
+2. Try on a **specific task** from your job (not in general!)
+3. Evaluate: Is a paid plan worth it? Could the whole team benefit? How often will you use it?
+
+⚠️ **Safety:** Use public examples and sample data for test tools. Do not put sensitive company data in them.
+
+### Output
+
+- [ ] Specific problem identified
+- [ ] List of recommended tools from AI
+- [ ] Tried at least one tool on a real task
+
+### 💭 Reflection
+
+- Which tool suited you best and why?
+- What other problem would you like to solve?
+
+---
+
+## Exercise 4: Compare two AI tools
+
+&gt; **💡 Find out which AI tool is right for you — with a concrete example from your work.**
+
+**⏱️ 20-30 minutes · Level: Basic**
+
+**Goal:** To test two AI tools with the same assignment and see which one works better for your type of work.
+
+### What will you do?
+
+You choose a work task, prepare a prompt and enter it into two different AI tools. You compare the results and find out when to use which tool.
+
+### Procedure
+
+**1. Select a task from your job**
+
+Choose one type of task that you really need to solve:
+
+- **Content creation** — AI helps you write texts, emails, presentations
+- **Finding a solution** — you need to find a solution to a problem, choose a system, plan a process
+- **Strategic Discussion** — "What would you do in my situation if you wanted to solve/achieve xyz..."
+
+💡 **Tip:** Choose a task that you really need to solve — you will get experience and a useful result.
+
+**2. Prepare prompt**
+
+Write the input that you will use in both tools. You can create one using the AI ​​Prompt Generator from Exercise 2, or write your own — be specific, include the context, and what you expect.
+
+**Important:** Use the **exact same prompt** in both tools.
+
+**3. Test in two tools**
+
+| Tool | Specialty |
+|---------|-----------|
+| **ChatGPT** | Universal, fast, structured |
+| **Claude** | Better for long texts, analyses, complex problems |
+| **Gemini** | Access to the site, integration with Google |
+| **Microsoft Copilot** | For users of the Microsoft ecosystem |
+
+Open two different tools, put the same prompt and watch:
+
+| Criterion | What to watch |
+|-----------|-------------|
+| ⏱️ Speed ​​| How fast will you get a response? |
+| 📝 Structure | Is the output clear? |
+| 🎯 Relevance | Does it exactly match your requirement? |
+| 💡 Usefulness | Can you use it straight away? |
+| 🧠 Depth | How detailed does the tool elaborate on the topic? |
+
+💡 **Tip:** Take a screenshot or copy the answers to compare.
+
+**4. Rate it**
+
+- Which output was of better quality and required less editing?
+- Which would save you more time?
+- For this type of task — which tool will you use next?
+
+💡 **Trust your intuition** — it's your job and you know best what works for you.
+
+### Output
+
+- [ ] Same task tested in two AI tools
+- [ ] Comparison of results
+- [ ] Deciding which tool to use for what
+
+### 💭 Reflection
+
+- What types of tasks would you entrust to which tool?
+- What surprised you about the differences?
+
+---
+
+## Exercise 5: Working with data and documents
+
+&gt; **💡 Learn to decide when chat is enough and when you need advanced tools — save time and nerves.**
+
+**⏱️ 20-30 minutes · Level: Medium**
+
+**Goal:** Understand the differences between simple chat and advanced tools for working with data and documents. Try both approaches.
+
+### What will you do?
+
+You'll walk through a decision matrix, test chat on a simple task, and identify where you need advanced tools in your work.
+
+### When is chat enough vs. when you need more
+
+| | **Chat** (ChatGPT, Claude, Gemini) | **Advanced Tools** (Cursor, Scripts, Automation) |
+|---|---|---|
+| **Data** | 1-2 small tables (up to ~1000 rows), one-time analysis, clean data, basic operations | 5+ Tables, Clean and Transform, Repeat Regularly, Thousands+ Rows || **Documents** | 1-2 short documents (up to ~50 pages), single summary, PDF/Word/TXT | Dozens-hundreds of documents, various formats, searching the entire database, tracking changes |
+
+### Procedure
+
+**1. Try the chat on a simple task**
+
+- **With data:** Find a small table (up to 100 rows), upload to ChatGPT/Claude and ask: *"Analyze this data and tell me 3 key findings."*
+- **With Document:** Find a short document (PDF or text), upload to AI and ask: *"Summarize this document into 5 key points."*
+
+**2. Identify Advanced Needs**
+
+Think about your work:
+- Do you have repetitive tasks with data or documents?
+- Do you work with a large number of files?
+- Do you need to automate processing?
+
+If so — there are tools that can handle it. **Cursor** is not only for programmers: it can convert formats (PDF→Markdown, CSV→JSON, Excel→PDF), download data from the web, organize files, and all this based on commands in Czech.
+
+**Other advanced tools:**
+- **Replit** (https://replit.com) — rapid application prototyping, calculators, dashboards
+- **Lovable** (https://lovable.dev) — similar functionality as Replit, different interface
+- **Cursor** (https://cursor.sh) — AI agent for knowledge work and automation
+- **GitHub Copilot** (https://github.com/features/copilot) — AI assistant in the code editor
+
+💡 **Corporate tip:** GitHub Copilot is often included in the corporate license. Ask IT.
+
+⚠️ **SECURITY:** These tools are for experimentation and learning. Use trial or public information for testing. Solve sensitive company data in company AI tools.
+
+### Output
+
+- [ ] Tested chat on a simple task (data or document)
+- [ ] Understanding the differences between chat and advanced tools
+- [ ] Identified cases where you need advanced tools
+
+### 💭 Reflection
+
+- Which approach suits you better?
+- What tasks would you like to automate?
+
+---
+
+## Exercise 6: Build your second brain (3C Framework)
+
+&gt; **💡 Build a system where no information falls by the wayside — capture, process, connect.**
+
+**⏱️ 45-60 minutes · Level: Medium**
+
+**Goal:** Set up a complete system for working with information according to the 3C Framework: **Capture** (capture) → **Clean** (process) → **Connect** (connect).
+
+### What will you do?
+
+You will go through the three pillars of working with information, choose appropriate tools and set up a working system.
+
+---
+
+### Step 1: CAPTURE — Capturing information
+
+Goal: Have a system where you can quickly store anything important.
+
+**Tools for quick tasks (to-do):**
+- **Apple Reminders** — for the Apple ecosystem
+- **Google Tasks** — integration with Gmail and Google Calendar
+- **Microsoft To Do** — integration with Outlook and M365
+
+**Notepads:**
+- **Evernote** — the pioneer of digital notes
+- **OneNote** — Microsoft notepad
+- **Notion** — all-in-one workspace
+- **Obsidian** — local note system
+
+**Meeting Transcripts:**
+- **Microsoft Teams Copilot** — integrated in Teams
+- **TLDV** — for Google Meet and Zoom
+- **Fireflies.ai** — AI assistant for transcribing meetings
+
+**Web scraping and data extraction (advanced):**
+- **Firecrawl** — Web crawling API
+- **Exa** — AI-powered search engine
+- **Apify** — web scraping platform
+
+**Your task:**
+1. Choose one to-do tool and one notebook
+2. Install on both phone and computer
+3. Save the first 3 things (link, note, task)
+4. Create a basic folder structure:```
+📁 Projects
+  📁 Project A
+  📁 Project B
+📁 Reference
+  📁 Articles
+  📁 Tools
+📁 Personal
+  📁 Ideas
+  📁 Learning</code></pre></div>
+<h3 class="subsection-title" id="step-2-clean-processing-information">Step 2: CLEAN — Processing information</h3>
+<p>Goal: Learn how to efficiently process stored information using AI.</p>
+<p><strong>Format conversion:</strong></p>
+<ul class="bullet-list">
+  <li>PDF → Markdown: Upload PDF to Claude/ChatGPT, request conversion</li>
+  <li>Excel → CSV: Use Cursor or ChatGPT Code Interpreter</li>
+</ul>
+<p><strong>Processing Appointments:</strong></p>
+<p>Upload the meeting transcript to AI and request:</p>
+<p><em>"Create from this transcript: summary of main points, list of action points with assigned people, key decisions."</em></p>
+<p><strong>Creating Templates:</strong></p>
+<ol class="numbered-list">
+  <li>Find 3-5 similar documents (emails, reports)</li>
+  <li>Upload to AI</li>
+  <li>Request: <em>"Create a template based on these documents that captures their structure and style."</em></li>
+</ol>
+<p><strong>File organization (advanced):</strong></p>
+<p>In Cursor you can: <em>"Organize these files into folders by type and date"</em> — on a copy of the data first!</p>
+<p><strong>Your task:</strong></p>
+<ol class="numbered-list">
+  <li>Try to convert at least one format</li>
+  <li>Process the meeting transcript (if available)</li>
+  <li>Create a template from existing documents</li>
+</ol>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<h3 class="subsection-title" id="step-3-connect-connecting-information">Step 3: CONNECT — Connecting information</h3>
+<p>Goal: Link stored information using AI assistants and knowledge bases.</p>
+<p><strong>Create an AI assistant with your documents:</strong></p>
+<div class="table-wrapper"><table class="data-table">
+<thead><tr>
+  <th>Platform</th>
+  <th>How to</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td><strong>ChatGPT GPTs</strong></td>
+  <td>Explore GPTs → Create → in "Knowledge" upload documents → in "Instructions" describe how it should work</td>
+</tr>
+<tr>
+  <td><strong>Claude Projects</strong></td>
+  <td>Projects → New Project → add documents → start a conversation</td>
+</tr>
+<tr>
+  <td><strong>NotebookLM</strong></td>
+  <td>Upload documents → ask about content</td>
+</tr>
+</tbody></table></div>
+<p><strong>Your task:</strong></p>
+<ol class="numbered-list">
+  <li>Create an assistant/project with 3-5 of your documents</li>
+  <li>Ask for specific information from the documents</li>
+  <li>Check that the answers correspond to the content</li>
+  <li>Optional: create an FAQ chatbot — collect FAQs and answers, create a GPT/Project/Gem from them</li>
+</ol>
+<h3 class="subsection-title" id="output-of-the-entire-exercise">Output of the entire exercise</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Set system for capturing information (to-do + notes)</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Tried processing (format conversion or template)</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Created AI assistant with your documents</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Basic structure of information organization</label></li>
+</ul>
+<h3 class="detail-title" id="reflection">💭 Reflection</h3>
+<ul class="bullet-list">
+  <li>Which tools suit you best?</li>
+  <li>What type of information do you store most often?</li>
+  <li>How would you like to expand the system?</li>
+</ul>
+<hr class="divider">
+<div class="exercise-card" id="cviceni-7">
+<div class="accent-image-left"><img src="images/20.png" alt="" loading="lazy"></div>
+<h2 class="exercise-title">Exercise 7: Create your own AI assistant</h2>
+<div class="selling-line"><p><strong>💡 Create an AI that knows your work, your style, and your needs — and use it every day.</strong></p></div>
+<p><strong>⏱️ 30-45 minutes · Level: Medium</strong></p>
+<p><strong>Goal:</strong> Create a specialized AI assistant that solves a specific task from your work.</p>
+<h3 class="subsection-title" id="what-will-you-do">What will you do?</h3>
+<p>You create your own AI assistant in one of the main tools. The assistant will be focused on a specific task — from analyzing reports to writing emails to brainstorming.</p>
+<h3 class="subsection-title" id="why-is-it-important">Why is it important?</h3>
+<ul class="bullet-list">
+  <li><strong>Specialization</strong> — the assistant is focused on your specific task</li>
+  <li><strong>Consistency</strong> — same style and approach every time</li>
+  <li><strong>Time saving</strong> — you don't have to repeat the instructions</li>
+  <li><strong>Sharing</strong> — you can share the assistant with the team</li>
+</ul>
+<h3 class="subsection-title" id="procedure">Procedure</h3>
+<p><strong>1. Choose a platform</strong></p>
+<div class="table-wrapper"><table class="data-table">
+<thead><tr>
+  <th>Platform</th>
+  <th>Advantage</th>
+  <th>How to get started</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td><strong>ChatGPT GPTs</strong></td>
+  <td>The easiest start, GPT Store for sharing</td>
+  <td>My GPTs → Create a GPT → put the instructions in Instructions</td>
+</tr>
+<tr>
+  <td><strong>Claude Projects</strong></td>
+  <td>Great for working with documents, large context (200k tokens), Artifacts</td>
+  <td>Projects → New Project → Custom Instructions + Documents</td>
+</tr>
+<tr>
+  <td><strong>Gemini Gems</strong></td>
+  <td>Integration with Google Workspace</td>
+  <td>Gems → New Gem → insert instructions</td>
+</tr>
+<tr>
+  <td><strong>Microsoft Copilot Agents</strong></td>
+  <td>Integration with M365</td>
+  <td>Create Agent → insert instructions</td>
+</tr>
+</tbody></table></div>
+<p><strong>2. Define the purpose of the assistant</strong></p>
+<p>Think about it:</p>
+<ul class="bullet-list">
+  <li>What specific task does it have to solve? (analysis of reports, writing emails, brainstorming, code review...)</li>
+  <li>What style of communication do you prefer?</li>
+  <li>What information does he need to know? (you can upload documents)</li>
+</ul>
+<p><strong>3. Build and Test</strong></p>
+<ol class="numbered-list">
+  <li>Open the selected platform</li>
+  <li>Create a new assistant with instructions describing its role</li>
+  <li>Upload relevant documents (if needed)</li>
+  <li>Try it on several tasks</li>
+  <li>Modify the instructions until you are satisfied</li>
+</ol>
+<div class="tip-block"><p>💡 <strong>Tip:</strong> Iterate — the first version won't be perfect. Gradually refine the instructions based on how the assistant responds.</p></div>
+<h3 class="subsection-title" id="output">Output</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Created custom AI assistant on one of the platforms</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Tested on real tasks</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Tailored to your needs</label></li>
+</ul>
+<h3 class="detail-title" id="reflection">💭 Reflection</h3>
+<ul class="bullet-list">
+  <li>What type of assistant suits you best?</li>
+  <li>What other assistants would you like to create?</li>
+</ul>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<div class="exercise-card" id="cviceni-8">
+<div class="accent-image"><img src="images/24.png" alt="" loading="lazy"></div>
+<h2 class="exercise-title">Exercise 8: Your personal AI setup</h2>
+<div class="selling-line"><p><strong>💡 Build a complete AI setup tailored to your work — and be clear when to use what.</strong></p></div>
+<p><strong>⏱️ 30-45 minutes · Level: All</strong></p>
+<p><strong>Goal:</strong> Create a complete personal system of AI tools and assistants for your work. Combine everything from the previous exercises.</p>
+<h3 class="subsection-title" id="what-will-you-do">What will you do?</h3>
+<p>You will map out your work needs, compile a list of tools, link them into a functional workflow and create documentation of your setup.</p>
+<h3 class="subsection-title" id="procedure">Procedure</h3>
+<p><strong>1. Map the job needs</strong></p>
+<ul class="bullet-list">
+  <li>What types of tasks do you do most often?</li>
+  <li>Where do you waste the most time?</li>
+  <li>What information do you need to store and process?</li>
+  <li>Who do you work with and how do you communicate?</li>
+</ul>
+<p><strong>2. Build a list of tools</strong></p>
+<p>Based on the experience of the previous exercises, make a list:</p>
+<ul class="bullet-list">
+  <li>Basic AI tools (ChatGPT, Claude, Gemini — which ones do you use?)</li>
+  <li>Specialized tools for your tasks</li>
+  <li>Information storage tools (from Exercise 6)</li>
+  <li>Custom assistants (from Exercise 7)</li>
+</ul>
+<p><strong>3. Set up a workflow</strong></p>
+<p>Define clear rules:</p>
+<ul class="bullet-list">
+  <li>When to use which tool?</li>
+  <li>How do you organize stored information?</li>
+  <li>How do you automate repetitive tasks?</li>
+</ul>
+<p><strong>4. Reflect and Plan</strong></p>
+<p>Go through all the exercises:</p>
+<ul class="bullet-list">
+  <li>Which ones have you finished? What did you learn?</li>
+  <li>What are you good at? What do you want to improve?</li>
+  <li>What tools do you want to explore more?</li>
+  <li>What automations do you want to create?</li>
+</ul>
+<p>Create a plan for the next 3 months — specific steps, what you want to try.</p>
+<p><strong>5. Share experiences</strong></p>
+<p>Discuss what you have learned with your colleagues. Inspire each other.</p>
+<h3 class="subsection-title" id="output">Output</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Complete list of your AI tools and their purpose</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Set workflow — when to use what</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Plan for further development</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Shared experiences with others</label></li>
+</ul>
+<h3 class="detail-title" id="reflection">💭 Reflection</h3>
+<ul class="bullet-list">
+  <li>What is your ideal AI setup?</li>
+  <li>What are you missing?</li>
+  <li>How do you plan to expand the system?</li>
+</ul>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<div class="resources-section" id="more-resources">
+<h2 class="resources-title">📚 More resources</h2>
+<h3 class="subsection-title" id="guide-to-ai-tools">Guide to AI tools</h3>
+<ul class="bullet-list">
+  <li><strong>ChatGPT GPTs</strong> — Complete guide to creating your own GPTs</li>
+  <li><strong>Claude Projects</strong> — Complete guide to working with Claude Projects</li>
+  <li><strong>Gemini Gems</strong> — Complete guide to creating Gems</li>
+  <li><strong>Microsoft Copilot Agents</strong> — A complete guide to working with Copilot Agents</li>
+</ul>
+<h3 class="subsection-title" id="3c-framework-detailed-materials">3C Framework — detailed materials</h3>
+<ul class="bullet-list">
+  <li><strong>CAPTURE</strong> — Saving information (5 exercises)</li>
+  <li><strong>CLEAN</strong> — Information processing (6 exercises)</li>
+  <li><strong>CONNECT</strong> — Connecting information (6 exercises)</li>
+</ul>
+<h3 class="subsection-title" id="specialized-ai-agents">Specialized AI agents</h3>
+<ul class="bullet-list">
+  <li><strong>Context Builder</strong> — Creating context documents</li>
+  <li><strong>Knowledge Extractor</strong> — Knowledge extraction from documents</li>
+  <li><strong>Product Architect</strong> — Product architecture</li>
+  <li><strong>Prompt Architect</strong> — Creation of prompts</li>
+  <li><strong>Research to Prompt</strong> — Research and create prompts</li>
+  <li><strong>Expert Panel</strong> — A panel of experts for discussion</li>
+  <li><strong>Work Breakdown Structure</strong> — Breakdown of projects</li>
+</ul>
+<h3 class="subsection-title" id="methodologies">Methodologies</h3>
+<ul class="bullet-list">
+  <li><strong>When to use chat vs. scripts</strong> — Deciding on tools for data and documents</li>
+  <li><strong>How to second brain with AI</strong> — Complete overview of tools</li>
+</ul>
+</div><!-- /resources -->
+<hr class="divider">
+<div class="conclusion-section" id="conclusion">
+<div class="conclusion-icon">🎓</div>
+<h2 class="conclusion-heading">Conclusion</h2>
+<p>Congratulations — you've made it through the entire (non)workbook.</p>
+<p><strong>Remember:</strong></p>
+<ul class="bullet-list">
+  <li>AI is a tool, not a replacement — use it to augment your capabilities</li>
+  <li>Start small — even small automations add value</li>
+  <li>Experiment — the best way to learn is by doing</li>
+  <li>Share — experiences with others are valuable</li>
+</ul>
+<p><strong>Next steps:</strong></p>
+<ul class="bullet-list">
+  <li>Continue experimenting with AI</li>
+  <li>Expand your skills and share experiences with the team</li>
+  <li>Create new automations and assistants</li>
+  <li>Consider advanced tools (Replit, Cursor) for larger projects</li>
+</ul>
+<p>Good luck on your AI journey.</p>
+<hr class="divider">
+<p><em>The Future of No Work — Workbook · For everyone · © 2025 Filip Dřímalka</em></p>
+    </div>
+
+    <div class="footer">
+        <p>The Future of No Work — Workbook · For everyone · From theory to practice</p>
+        <p>© 2025 Filip Dřímalka · All rights reserved</p>
+    </div>
+</div>
+</body>
+</html>

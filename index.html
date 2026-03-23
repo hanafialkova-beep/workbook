@@ -57,8 +57,18 @@
             background: #E53935;
             margin: 20px auto 0;
         }
+        .section-label {
+            padding: 0 40px;
+            margin-top: 8px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #E53935;
+        }
+        .section-label:first-of-type { margin-top: 0; }
         .cards {
-            padding: 40px;
+            padding: 16px 40px 32px;
             display: flex;
             gap: 24px;
         }
@@ -139,20 +149,36 @@
         <p>(ne)pracovní sešity — od teorie k praxi</p>
         <div class="line"></div>
     </div>
+    <p class="section-label">Česky</p>
     <div class="cards">
         <a href="sesit-1-pro-kazdeho.html" class="card">
             <div class="card-icon">🧑‍💻</div>
             <h2>Sešit 1</h2>
             <p>Osobní produktivita, AI nástroje, prompt engineering, 3C Framework, vlastní asistenti</p>
             <span class="badge">Pro každého · 8 cvičení</span>
-            <span class="preview-link" onclick="event.preventDefault(); event.stopPropagation(); window.location.href='onepager-sesit-1-pro-kazdeho.html';">📄 Stáhnout ukázku (PDF)</span>
+            <span class="preview-link" onclick="event.preventDefault(); event.stopPropagation(); window.location.href='onepager-sesit-1-pro-kazdeho.html';">📄 Krátká ukázka (1 strana)</span>
         </a>
         <a href="sesit-2-pro-manazery.html" class="card">
             <div class="card-icon">🏢</div>
             <h2>Sešit 2</h2>
             <p>AI adopce v týmu, automatizace procesů, AI agenti, měření úspěchu</p>
             <span class="badge">Pro manažery · 6 cvičení</span>
-            <span class="preview-link" onclick="event.preventDefault(); event.stopPropagation(); window.location.href='onepager-sesit-2-pro-manazery.html';">📄 Stáhnout ukázku (PDF)</span>
+            <span class="preview-link" onclick="event.preventDefault(); event.stopPropagation(); window.location.href='onepager-sesit-2-pro-manazery.html';">📄 Krátká ukázka (1 strana)</span>
+        </a>
+    </div>
+    <p class="section-label">English</p>
+    <div class="cards">
+        <a href="sesit-1-for-everyone.html" class="card">
+            <div class="card-icon">🧑‍💻</div>
+            <h2>Workbook 1</h2>
+            <p>Personal productivity, AI tools, prompts, 3C Framework, custom assistants</p>
+            <span class="badge">For everyone · 8 exercises</span>
+        </a>
+        <a href="sesit-2-for-managers.html" class="card">
+            <div class="card-icon">🏢</div>
+            <h2>Workbook 2</h2>
+            <p>Team AI adoption, automation, agents, measuring progress</p>
+            <span class="badge">For managers · 6 exercises</span>
         </a>
     </div>
     <div class="footer">
