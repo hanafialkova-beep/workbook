@@ -564,22 +564,20 @@ a:hover { border-bottom-color: #E53935; }
   <li>Define the expected output</li>
 </ul>
 <p><strong>3. Try an agent</strong></p>
-<p><strong>Example with Work Breakdown Structure:</strong>```</p>
-<p>I need to break this project into tasks:</p>
-<ul class="bullet-list">
-  <li>Project: Rolling out AI tools in the marketing department (10 people)</li>
-  <li>Deadline: 3 months</li>
-  <li>Budget: 50,000 CZK for tools</li>
-  <li>Goal: Every team member uses AI actively at least once a day</li>
-</ul>
-<p>Create a WBS with:</p>
-<ul class="bullet-list">
-  <li>Main phases</li>
-  <li>Concrete tasks and subtasks</li>
-  <li>Time estimates</li>
-  <li>Dependencies</li>
-  <li>Milestones</li>
-</ul>
+<p><strong>Example with Work Breakdown Structure:</strong></p>
+<div class="code-block"><pre><code>I need to break this project into tasks:
+- Project: Rolling out AI tools in the marketing department (10 people)
+- Deadline: 3 months
+- Budget: 50,000 CZK for tools
+- Goal: Every team member uses AI actively at least once a day
+
+Create a WBS with:
+- Main phases
+- Concrete tasks and subtasks
+- Time estimates
+- Dependencies
+- Milestones</code></pre></div>
+<p><strong>Example with Expert Panel:</strong></p>
 <div class="code-block"><pre><code>I need a discussion on: Should we invest in our own AI stack
 or use SaaS tools?
 
@@ -587,6 +585,7 @@ Context: Mid-size company, 200 employees, IT team of 8,
 budget 500k CZK per year for AI.
 
 I want perspectives from: CTO, CFO, CISO, Head of HR, Line Manager.</code></pre></div>
+<div class="tip-block"><p>💡 <strong>Tip:</strong> You can use agents in ChatGPT (as GPTs), in Claude (as Projects), or simply insert their instructions into a new chat.</p></div>
 <h3 class="subsection-title" id="output">Output</h3>
 <ul class="checklist">
   <li class="checklist-item"><label><input type="checkbox"> Selected agent for a specific management task</label></li>
@@ -671,15 +670,171 @@ I want perspectives from: CTO, CFO, CISO, Head of HR, Line Manager.</code></pre>
 <p><strong>3. Start with one step</strong></p>
 <p>Don't automate everything at once. Choose one step and automate it:</p>
 <p><strong>Example — Automatic report:</strong></p>
-<p>Upload the raw data to ChatGPT (Code Interpreter) and request:```</p>
-<p>Analyze this data and produce:</p>
-<ol class="numbered-list">
-  <li>A table of key KPIs (revenue, MoM growth, number of customers)</li>
-  <li>Charts: revenue by month, top 5 products</li>
-  <li>A short commentary for each KPI (2–3 sentences)</li>
-</ol>
-<p>Format: HTML report I can paste into a slide deck.</p>
+<p>Upload the raw data to ChatGPT (Code Interpreter) and request:</p>
+<div class="code-block"><pre><code>Analyze this data and produce:
+1. A table of key KPIs (revenue, MoM growth, number of customers)
+2. Charts: revenue by month, top 5 products
+3. A short commentary for each KPI (2–3 sentences)
+Format: HTML report I can paste into a slide deck.</code></pre></div>
+<p><strong>4. Gradually expand</strong></p>
+<p>Once one step works, add another. Gradually connect the steps to the workflow.</p>
+<div class="tip-block"><p>💡 <strong>Tip:</strong> Document each automated step — who created it, how it works, what to do if it fails.</p></div>
+<div class="warning-block"><p>⚠️ <strong>SECURITY:</strong></p></div>
+<ul class="bullet-list">
+  <li>Automation with company data must be approved by IT</li>
+  <li>Always check AI outputs before sending</li>
+  <li>Have a backup manual procedure in case of an outage</li>
+</ul>
+<h3 class="subsection-title" id="output">Output</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Mapped step-by-step process</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Identified steps for automation</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Automated at least one step</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Procedure documentation</label></li>
+</ul>
+<h3 class="detail-title" id="reflection">💭 Reflection</h3>
+<ul class="bullet-list">
+  <li>How much time does automation save?</li>
+  <li>What other processes would you like to automate?</li>
+</ul>
 </div><!-- /exercise-card -->
+<hr class="divider">
+<div class="exercise-card" id="cviceni-6">
+<div class="accent-image-left"><img src="images/26.png" alt="" loading="lazy"></div>
+<h2 class="exercise-title">Exercise 6: Assess progress and plan</h2>
+<div class="selling-line"><p><strong>💡 Measure what AI has brought and plan the next steps — the data will convince even the biggest skeptics.</strong></p></div>
+<p><strong>⏱️ 30-45 minutes · Level: Manager</strong></p>
+<p><strong>Goal:</strong> To evaluate AI adoption to date, measure benefits and create a plan for further development.</p>
+<h3 class="subsection-title" id="what-will-you-do">What will you do?</h3>
+<p>You review the results of all previous exercises, quantify the benefits and create a plan for the next quarter.</p>
+<h3 class="subsection-title" id="procedure">Procedure</h3>
+<p><strong>1. Rate Team Adoption</strong></p>
+<ul class="bullet-list">
+  <li>How many people on the team are actively using AI?</li>
+  <li>What tools have taken over? What not?</li>
+  <li>What barriers still exist?</li>
+  <li>Where are the biggest successes?</li>
+</ul>
+<p><strong>2. Quantify the benefits</strong></p>
+<p>Try to guess:</p>
+<ul class="bullet-list">
+  <li>How many hours per week does AI save individuals?</li>
+  <li>How many hours does it save the whole team?</li>
+  <li>Has the quality of the outputs improved? (less mistakes, faster delivery...)</li>
+  <li>What is the return on investment? (license vs time saved)</li>
+</ul>
+<div class="tip-block"><p>💡 <strong>Tip:</strong> Even a rough estimate is better than none. For example: <em>"Meeting summary in Teams Copilot saves 15 minutes per meeting × 8 meetings per week × 10 people = 20 hours/week."</em></p></div>
+<p><strong>3. Collect success stories</strong></p>
+<p>Concrete stories are stronger than numbers:</p>
+<ul class="bullet-list">
+  <li>Who has solved a problem that would otherwise take hours thanks to AI?</li>
+  <li>What tool or procedure did the team appreciate the most?</li>
+  <li>What was the biggest "aha" moment?</li>
+</ul>
+<p><strong>4. Create a plan for the next quarter</strong></p>
+<p>Based on experience, define:</p>
+<p><strong>What Works — Continued:</strong></p>
+<ul class="bullet-list">
+  <li>Tools and procedures that have proven themselves</li>
+  <li>Sharing experiences that motivate</li>
+</ul>
+<p><strong>What doesn't work — edit:</strong></p>
+<ul class="bullet-list">
+  <li>Tools that didn't take off (why? an alternative?)</li>
+  <li>Processes that are too complex (simplify?)</li>
+</ul>
+<p><strong>What's missing — add:</strong></p>
+<ul class="bullet-list">
+  <li>New tools or licenses</li>
+  <li>Training for advanced technicians</li>
+  <li>Automation for other processes</li>
+</ul>
+<p><strong>5. Present the results</strong></p>
+<p>Prepare a short presentation (5 minutes) for management:</p>
+<ul class="bullet-list">
+  <li>What we tried</li>
+  <li>What it brought (figures + stories)</li>
+  <li>What are we planning next?</li>
+  <li>What we need (license, time, support)</li>
+</ul>
+<h3 class="subsection-title" id="output">Output</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Overview of adoption in the team (who, what, how)</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Quantified benefits (hours, quality, ROI)</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Success stories</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Plan for the next quarter</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Presentation for management</label></li>
+</ul>
+<h3 class="detail-title" id="reflection">💭 Reflection</h3>
+<ul class="bullet-list">
+  <li>What surprised you during the evaluation?</li>
+  <li>What is your strongest argument for expanding AI?</li>
+  <li>Where do you see the greatest potential for the next quarter?</li>
+</ul>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<div class="resources-section" id="more-resources">
+<h2 class="resources-title">📚 More resources</h2>
+<h3 class="subsection-title" id="for-managerial-work">For managerial work</h3>
+<ul class="bullet-list">
+  <li><strong>AI Adoption Framework</strong> — A complete framework for introducing AI in a company</li>
+  <li><strong>ROI Calculator</strong> — How to calculate AI ROI</li>
+  <li><strong>AI Guidelines template</strong> — Template for company guidelines for working with AI</li>
+</ul>
+<h3 class="subsection-title" id="advanced-tools">Advanced tools</h3>
+<ul class="bullet-list">
+  <li><strong>Replit</strong> (<a href="https://replit.com" target="_blank">https://replit.com</a>) — Rapid prototyping of applications</li>
+  <li><strong>Lovable</strong> (<a href="https://lovable.dev" target="_blank">https://lovable.dev</a>) — No-code application development</li>
+  <li><strong>Cursor</strong> (<a href="https://cursor.sh" target="_blank">https://cursor.sh</a>) — AI agent for knowledge work</li>
+  <li><strong>GitHub Copilot</strong> (<a href="https://github.com/features/copilot" target="_blank">https://github.com/features/copilot</a>) — AI assistant for code</li>
+  <li><strong>Make.com</strong> / <strong>Zapier</strong> / <strong>n8n</strong> — Workflow automation</li>
+  <li><strong>Power Automate</strong> — Automation in the Microsoft ecosystem</li>
+</ul>
+<h3 class="subsection-title" id="specialized-ai-agents-complete-list">Specialized AI Agents (Complete List)</h3>
+<ul class="bullet-list">
+  <li><strong>Context Builder</strong> — Creating context documents for AI</li>
+  <li><strong>Knowledge Extractor</strong> — Knowledge extraction from documents</li>
+  <li><strong>Product Architect</strong> — Architecture of products and systems</li>
+  <li><strong>Prompt Architect</strong> — Creation of advanced prompts</li>
+  <li><strong>Research to Prompt</strong> — Converting research into AI prompts</li>
+  <li><strong>Expert Panel</strong> — A panel of experts for discussion</li>
+  <li><strong>Work Breakdown Structure</strong> — Breakdown of projects into tasks</li>
+</ul>
+<h3 class="subsection-title" id="methodologies">Methodologies</h3>
+<ul class="bullet-list">
+  <li><strong>3C Framework</strong> — Capture → Clean → Connect</li>
+  <li><strong>When to use chat vs. scripts</strong> — Deciding on tools for data</li>
+  <li><strong>How to second brain with AI</strong> — Complete overview of tools</li>
+</ul>
+<h3 class="subsection-title" id="public-links">Public links</h3>
+<ul class="bullet-list">
+  <li><strong>Elite Prompt Engineer (Markdown, Czech):</strong> <a href="https://drimalka.com/wp-content/uploads/2025/09/Elite-Prompt-Engineer_CZ.md" target="_blank">https://drimalka.com/wp-content/uploads/2025/09/Elite-Prompt-Engineer_CZ.md</a></li>
+  <li><strong>Filip Dřímalka — website:</strong> <a href="https://www.drimalka.com" target="_blank">https://www.drimalka.com</a></li>
+</ul>
+<p><em>Note:</em> Full agent prompts, tool guides, and extended manager tasks are in the internal knowledge base (e.g. workbook source materials / FAIL). This workbook is a shortened, practical slice.</p>
+</div><!-- /resources -->
+<hr class="divider">
+<div class="conclusion-section" id="conclusion">
+<div class="conclusion-icon">🎓</div>
+<h2 class="conclusion-heading">Conclusion</h2>
+<p>Congratulations — you've gone through the entire management (non)workbook.</p>
+<p><strong>Remember:</strong></p>
+<ul class="bullet-list">
+  <li>AI adoption is a marathon, not a sprint — consistency gets results</li>
+  <li>People are more important than technology — invest in training and support</li>
+  <li>Measure and share — data and stories will convince even skeptics</li>
+  <li>Safety first — clear rules protect the company and employees</li>
+</ul>
+<p><strong>Next steps:</strong></p>
+<ul class="bullet-list">
+  <li>Implement the plan from Exercise 6</li>
+  <li>Expand automation</li>
+  <li>Share experiences across the organization</li>
+  <li>Follow new tools and trends</li>
+</ul>
+<p>Good luck on your AI journey.</p>
+<hr class="divider">
+<p><em>The Future of No Work — Workbook · For managers and leaders · © 2025 Filip Dřímalka</em></p>
     </div>
 
     <div class="footer">

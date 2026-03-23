@@ -292,7 +292,9 @@ The quality of the output depends on the quality of the input:
 
 **3. Try an agent**
 
-**Example with Work Breakdown Structure:**```
+**Example with Work Breakdown Structure:**
+
+```
 I need to break this project into tasks:
 - Project: Rolling out AI tools in the marketing department (10 people)
 - Deadline: 3 months
@@ -305,7 +307,11 @@ Create a WBS with:
 - Time estimates
 - Dependencies
 - Milestones
-```**Example with Expert Panel:**```
+```
+
+**Example with Expert Panel:**
+
+```
 I need a discussion on: Should we invest in our own AI stack
 or use SaaS tools?
 
@@ -313,7 +319,9 @@ Context: Mid-size company, 200 employees, IT team of 8,
 budget 500k CZK per year for AI.
 
 I want perspectives from: CTO, CFO, CISO, Head of HR, Line Manager.
-```💡 **Tip:** You can use agents in ChatGPT (as GPTs), in Claude (as Projects), or simply insert their instructions into a new chat.
+```
+
+💡 **Tip:** You can use agents in ChatGPT (as GPTs), in Claude (as Projects), or simply insert their instructions into a new chat.
 
 ### Output
 
@@ -385,13 +393,17 @@ For each step, evaluate:
 Don't automate everything at once. Choose one step and automate it:
 
 **Example — Automatic report:**
-Upload the raw data to ChatGPT (Code Interpreter) and request:```
+Upload the raw data to ChatGPT (Code Interpreter) and request:
+
+```
 Analyze this data and produce:
 1. A table of key KPIs (revenue, MoM growth, number of customers)
 2. Charts: revenue by month, top 5 products
 3. A short commentary for each KPI (2–3 sentences)
 Format: HTML report I can paste into a slide deck.
-```**4. Gradually expand**
+```
+
+**4. Gradually expand**
 
 Once one step works, add another. Gradually connect the steps to the workflow.
 
