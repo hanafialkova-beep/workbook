@@ -645,6 +645,12 @@ Discuss what you have learned with your colleagues. Inspire each other.
 - **When to use chat vs. scripts** — Deciding on tools for data and documents
 - **How to second brain with AI** — Complete overview of tools
 
+### Public links
+- **Elite Prompt Engineer (Markdown, Czech):** https://drimalka.com/wp-content/uploads/2025/09/Elite-Prompt-Engineer_CZ.md — use with the “AI Prompt Generator” exercise (translate or adapt the instructions in English in your AI tool)
+- **Filip Dřímalka — website:** https://www.drimalka.com
+
+*Note:* Full-length tool guides, methodology write-ups, and agent prompt packs live in the extended knowledge base / FAIL program materials. This workbook lists names and tasks; use the full documents when you build assistants.
+
 ---
 
 ## 🎓 Conclusion

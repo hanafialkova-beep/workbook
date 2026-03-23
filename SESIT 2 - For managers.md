@@ -519,9 +519,16 @@ Prepare a short presentation (5 minutes) for management:
 - **Expert Panel** — A panel of experts for discussion
 - **Work Breakdown Structure** — Breakdown of projects into tasks
 
-### Methodologies- **3C Framework** — Capture → Clean → Connect
+### Methodologies
+- **3C Framework** — Capture → Clean → Connect
 - **When to use chat vs. scripts** — Deciding on tools for data
 - **How to second brain with AI** — Complete overview of tools
+
+### Public links
+- **Elite Prompt Engineer (Markdown, Czech):** https://drimalka.com/wp-content/uploads/2025/09/Elite-Prompt-Engineer_CZ.md
+- **Filip Dřímalka — website:** https://www.drimalka.com
+
+*Note:* Full agent prompts, tool guides, and extended manager tasks are in the internal knowledge base (e.g. workbook source materials / FAIL). This workbook is a shortened, practical slice.
 
 ---
 

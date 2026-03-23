@@ -539,6 +539,12 @@ Připravte krátkou prezentaci (5 minut) pro management:
 - **Kdy použít chat vs. skripty** — Rozhodování o nástrojích pro data
 - **Jak na druhý mozek s AI** — Kompletní přehled nástrojů
 
+### Odkazy k doplnění (veřejně dostupné)
+- **Elite Prompt Engineer (Markdown, CZ):** https://drimalka.com/wp-content/uploads/2025/09/Elite-Prompt-Engineer_CZ.md
+- **Filip Dřímalka — web:** https://www.drimalka.com
+
+*Poznámka:* Kompletní agentní prompty, průvodce nástroji a rozšířené manažerské úkoly jsou v interní znalostní bázi (např. složka s podklady k workbooku / materiály FAIL); tento sešit z nich vychází zkrácenou, praktickou formou.
+
 ---
 
 ## 🎓 Závěr

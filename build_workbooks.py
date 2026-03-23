@@ -627,10 +627,10 @@ def main():
     html2 = convert_md_to_html(
         md2,
         images_map=SESIT2_IMAGES,
-        title='Budoucnost nepráce — (ne)pracovní sešit · Pro manažery a leadery',
-        subtitle='(ne)pracovní sešit — pro manažery a leadery',
+        title='Budoucnost nepráce — (ne)pracovní sešit · Pro manažery a lídry',
+        subtitle='(ne)pracovní sešit — pro manažery a lídry',
         badge='Pro manažery',
-        footer_text='Budoucnost nepráce — (ne)pracovní sešit · Pro manažery a leadery · Od teorie k praxi'
+        footer_text='Budoucnost nepráce — (ne)pracovní sešit · Pro manažery a lídry · Od teorie k praxi'
     )
 
     out2 = base / 'SESIT 2 - Pro manazery - KOMPLETNI.html'

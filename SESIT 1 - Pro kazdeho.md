@@ -656,6 +656,12 @@ Diskutujte s kolegy o tom, co jste se naučili. Inspirujte se navzájem.
 - **Kdy použít chat vs. skripty** — Rozhodování o nástrojích pro data a dokumenty
 - **Jak na druhý mozek s AI** — Kompletní přehled nástrojů
 
+### Odkazy k doplnění (veřejně dostupné)
+- **Elite Prompt Engineer (Markdown, CZ):** https://drimalka.com/wp-content/uploads/2025/09/Elite-Prompt-Engineer_CZ.md — k cvičení „AI Prompt Generator“
+- **Filip Dřímalka — web s články a materiály k AI:** https://www.drimalka.com
+
+*Poznámka:* Rozšířené texty průvodců (ChatGPT GPTs, Claude Projects, Gemini Gems, Copilot Agents), metodiky a agentní prompty máte v interní znalostní bázi / balíčku k programu FAIL — v tomto sešitu jsou názvy a úkoly; plné dokumenty používejte jako podklady při práci s asistenty.
+
 ---
 
 ## 🎓 Závěr
