@@ -680,6 +680,26 @@ def main():
     out2.write_text(html2, encoding='utf-8')
     print(f'✅ Sešit 2: {out2}  ({len(html2)} chars, {html2.count(chr(10))} lines)')
 
+    # Build Sešit 2 v2
+    md2v2_path = base / 'SESIT 2 - Pro manazery - v2.md'
+    html2v2 = None
+    if md2v2_path.is_file():
+        md2v2 = md2v2_path.read_text(encoding='utf-8')
+        html2v2 = convert_md_to_html(
+            md2v2,
+            images_map=SESIT2_IMAGES,
+            title='Budoucnost nepráce — (ne)pracovní sešit · Pro manažery a lídry · v2',
+            subtitle='(ne)pracovní sešit — pro manažery a lídry · vylepšená verze',
+            badge='Pro manažery · v2',
+            footer_text='Budoucnost nepráce — (ne)pracovní sešit · Pro manažery a lídry · v2 · Od teorie k praxi'
+        )
+        out2v2 = base / 'SESIT 2 - Pro manazery - v2 - KOMPLETNI.html'
+        out2v2.write_text(html2v2, encoding='utf-8')
+        print(f'✅ Sešit 2 v2: {out2v2}  ({len(html2v2)} chars, {html2v2.count(chr(10))} lines)')
+        deploy_v2_2 = base / 'sesit-2-pro-manazery-v2.html'
+        deploy_v2_2.write_text(_html_for_repo_deploy(html2v2), encoding='utf-8')
+        print(f'📎 Deploy: {deploy_v2_2.name}')
+
     # English HTML (from SESIT 1 - For everyone.md / SESIT 2 - For managers.md)
     md1_en = base / 'SESIT 1 - For everyone.md'
     md2_en = base / 'SESIT 2 - For managers.md'
