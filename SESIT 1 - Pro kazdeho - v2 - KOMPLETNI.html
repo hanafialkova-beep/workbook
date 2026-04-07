@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budoucnost nepráce — (ne)pracovní sešit · Pro každého · v2</title>
+    <style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; background: #f0f0f0; color: #1a1a1a; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+.page-container { max-width: 820px; margin: 0 auto; background: #fff; box-shadow: 0 0 40px rgba(0,0,0,0.08); min-height: 100vh; }
+.content { padding: 0 48px 60px; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: #1a1a1a; padding: 12px 48px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; border-bottom: 3px solid #E53935; }
+.nav a { color: #fff; text-decoration: none; font-size: 0.78rem; font-weight: 500; padding: 4px 10px; border-radius: 4px; transition: all 0.2s; white-space: nowrap; }
+.nav a:hover { background: #E53935; color: #fff; }
+.nav-brand { font-weight: 700; color: #E53935 !important; font-size: 0.85rem !important; margin-right: 12px; }
+
+/* COVER */
+.cover { background: #1a1a1a; color: #fff; padding: 60px 48px 50px; text-align: center; position: relative; overflow: hidden; }
+.cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #E53935; }
+.cover-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.5px; line-height: 1.2; }
+.cover-subtitle { font-size: 1.1rem; color: #ccc; font-weight: 300; margin-bottom: 24px; }
+.cover-line { width: 60px; height: 3px; background: #E53935; margin: 0 auto; }
+.cover-badge { display: inline-block; background: #E53935; color: #fff; padding: 6px 18px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-top: 18px; }
+
+/* PREFACE */
+.preface { background: #fafafa; border-left: 4px solid #E53935; padding: 32px 36px; margin: 40px 0; border-radius: 0 8px 8px 0; }
+.preface h3 { color: #E53935; font-size: 1.2rem; margin-bottom: 16px; }
+.preface p { color: #444; font-style: italic; line-height: 1.8; margin-bottom: 12px; }
+.preface .author { font-style: normal; font-weight: 600; color: #1a1a1a; margin-top: 16px; }
+
+/* ABOUT */
+.about-section { background: #f9f9f9; padding: 36px; border-radius: 12px; margin: 32px 0; border: 1px solid #eee; }
+.about-title { font-size: 1.5rem; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
+
+/* TOC */
+.toc-section { margin: 32px 0; padding: 36px; background: #fff; border: 2px solid #1a1a1a; border-radius: 12px; }
+.toc-title { font-size: 1.5rem; color: #1a1a1a; margin-bottom: 20px; text-align: center; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
+
+/* EXERCISE CARDS */
+.exercise-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 32px; margin: 28px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: box-shadow 0.2s; page-break-inside: avoid; }
+.exercise-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+.exercise-title { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
+.exercise-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+.exercise-meta span { font-size: 0.85rem; color: #666; }
+
+/* HEADINGS INSIDE CARDS */
+.detail-title { font-size: 1.05rem; font-weight: 700; color: #E53935; margin: 24px 0 12px; }
+.subsection-title { font-size: 1.1rem; font-weight: 700; color: #333; margin: 24px 0 12px; }
+
+/* SELLING LINE */
+.selling-line { background: #fef7f7; border-left: 4px solid #E53935; padding: 14px 20px; margin: 0 0 20px; border-radius: 0 8px 8px 0; font-style: italic; color: #555; }
+.selling-line p { margin: 0; }
+
+/* TYPOGRAPHY */
+p { margin-bottom: 14px; line-height: 1.7; color: #333; }
+strong { font-weight: 700; color: #1a1a1a; }
+em { font-style: italic; }
+a { color: #E53935; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+a:hover { border-bottom-color: #E53935; }
+.inline-code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono','Fira Code','Consolas',monospace; font-size: 0.88em; color: #E53935; border: 1px solid #e8e8e8; }
+
+/* LISTS */
+.bullet-list, .numbered-list { margin: 12px 0 16px 24px; }
+.bullet-list li, .numbered-list li { padding: 4px 0; line-height: 1.7; color: #333; }
+.bullet-list li::marker { color: #E53935; }
+.numbered-list li::marker { color: #E53935; font-weight: 600; }
+
+/* CHECKLISTS */
+.checklist { list-style: none; margin: 12px 0 16px 0; padding: 0; }
+.checklist-item { padding: 8px 12px; margin: 4px 0; background: #fafafa; border-radius: 6px; border: 1px solid #eee; }
+.checklist-item label { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+.checklist-item input[type="checkbox"] { margin-top: 4px; width: 18px; height: 18px; accent-color: #E53935; flex-shrink: 0; }
+
+/* CODE */
+.code-block { background: #1a1a2e; border-radius: 8px; margin: 16px 0; overflow-x: auto; border: 1px solid #333; }
+.code-block pre { padding: 20px; margin: 0; }
+.code-block code { font-family: 'SF Mono','Fira Code','Consolas',monospace; font-size: 0.85rem; color: #e0e0e0; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+
+/* TABLES */
+.table-wrapper { overflow-x: auto; margin: 16px 0; border-radius: 8px; border: 1px solid #e5e5e5; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.data-table th { background: #1a1a1a; color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; font-size: 0.85rem; }
+.data-table td { padding: 10px 16px; border-bottom: 1px solid #eee; color: #333; }
+.data-table tbody tr:hover { background: #fafafa; }
+.data-table tbody tr:nth-child(even) { background: #f9f9f9; }
+
+/* SPECIAL BLOCKS */
+.warning-block { background: #fff3e0; border-left: 4px solid #ff9800; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+.warning-block p { margin: 0; color: #e65100; font-weight: 500; }
+.tip-block { background: #e8f5e9; border-left: 4px solid #4caf50; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+.tip-block p { margin: 0; color: #2e7d32; font-weight: 500; }
+
+/* IMAGES */
+.accent-image { float: right; max-width: 120px; margin: -8px -12px 12px 20px; opacity: 0.55; transition: opacity 0.3s; }
+.accent-image:hover { opacity: 0.85; }
+.accent-image img { width: 100%; height: auto; }
+.accent-image-left { float: left; max-width: 110px; margin: -4px 20px 12px -12px; opacity: 0.50; transition: opacity 0.3s; }
+.accent-image-left:hover { opacity: 0.85; }
+.accent-image-left img { width: 100%; height: auto; }
+.diagram-image { text-align: center; margin: 24px auto; max-width: 380px; }
+.diagram-image img { width: 100%; height: auto; opacity: 0.85; border-radius: 4px; }
+.img-caption { font-size: 0.78rem; color: #aaa; text-align: center; margin-top: 4px; font-style: italic; }
+@media print { .accent-image, .accent-image-left { display: none; } }
+
+/* DIVIDERS */
+.divider { border: none; height: 1px; background: #e5e5e5; margin: 32px 0; }
+
+/* RESOURCES */
+.resources-section { margin: 40px 0; padding: 32px; background: #f9f9f9; border-radius: 12px; border: 1px solid #eee; }
+.resources-title { margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
+
+/* CONCLUSION */
+.conclusion-section { margin: 48px 0 0; padding: 48px 40px 40px; background: #fafafa; border-top: 3px solid #E53935; text-align: center; }
+.conclusion-icon { font-size: 2.4rem; margin-bottom: 8px; }
+.conclusion-heading { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; margin-bottom: 8px; letter-spacing: -0.3px; }
+.conclusion-lead { color: #555; font-size: 1.05rem; margin-bottom: 32px; }
+.conclusion-columns { display: flex; gap: 32px; text-align: left; max-width: 560px; margin: 0 auto 32px; }
+.conclusion-col { flex: 1; }
+.conclusion-col h4 { font-size: 0.9rem; font-weight: 700; color: #E53935; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #e0e0e0; }
+.conclusion-col p { font-size: 0.9rem; color: #555; margin-bottom: 8px; line-height: 1.5; }
+.conclusion-cta { font-size: 1rem; font-weight: 600; color: #1a1a1a; padding-top: 24px; border-top: 1px solid #e0e0e0; }
+
+/* FOOTER */
+.footer { text-align: center; padding: 24px; color: #999; font-size: 0.82rem; border-top: 1px solid #eee; margin-top: 40px; }
+
+/* RESPONSIVE */
+@media (max-width: 860px) {
+    .content { padding: 0 24px 40px; }
+    .nav { padding: 10px 24px; }
+    .cover { padding: 40px 24px; }
+    .exercise-card { padding: 24px; }
+    .about-section, .toc-section, .resources-section { padding: 24px; }
+    .accent-image, .accent-image-left { float: none; max-width: 80px; margin: 12px auto; }
+}
+@media (max-width: 480px) {
+    .content { padding: 0 16px 32px; }
+    .cover-title { font-size: 1.6rem; }
+    .nav { gap: 4px; }
+    .nav a { font-size: 0.7rem; padding: 3px 6px; }
+    .conclusion-columns { flex-direction: column; gap: 20px; }
+}
+
+/* PRINT */
+@page { size: A4; margin: 20mm 15mm 25mm 15mm; @bottom-center { content: counter(page); font-size: 9pt; color: #999; } }
+@media print {
+    body { background: #fff; }
+    .page-container { max-width: 100%; box-shadow: none; }
+    .nav { display: none; }
+    .content { padding: 0 10px 20px; }
+    .cover { padding: 40px 20px; page-break-after: always; }
+    .exercise-card { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+    .code-block { background: #f5f5f5 !important; border: 1px solid #ddd; }
+    .code-block code { color: #333 !important; }
+    a { color: #333 !important; }
+}
+
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <nav class="nav">
+        <a href="workbook-repo/index.html" class="nav-brand">📖 Pro každého · v2</a>
+    <a href="#cviceni-0">Cv. 0</a>
+    <a href="#cviceni-1">Cv. 1</a>
+    <a href="#cviceni-2">Cv. 2</a>
+    <a href="#cviceni-3">Cv. 3</a>
+    <a href="#cviceni-4">Cv. 4</a>
+    <a href="#cviceni-5">Cv. 5</a>
+    <a href="#cviceni-6">Cv. 6</a>
+    <a href="#cviceni-7">Cv. 7</a>
+    <a href="#cviceni-8">Cv. 8</a>
+    <a href="#cviceni-9">Cv. 9</a>
+
+    </nav>
+
+    <div class="cover">
+        <h1 class="cover-title">Budoucnost nepráce</h1>
+        <p class="cover-subtitle">(ne)pracovní sešit — od teorie k praxi · vylepšená verze</p>
+        <div class="cover-line"></div>
+        <div class="cover-badge">Pro každého · v2</div>
+    </div>
+
+    <div class="content">
+        <div class="preface">
+
+            <h3>📝 Předmluva</h3>
+            <p>Milí čtenáři,</p>
+            <p>když jsem psal knihu <strong>Budoucnost nepráce</strong>, měl jsem jednu věc jasnou: samotné čtení vás neposune tak rychle jako jeden odvážný experiment. Teorie je důležitá — ale teprve když si něco zkusíte na vlastní soubory, vlastní emaily a vlastní chaos v hlavě, začne to dávat smysl.</p>
+            <p>Proto existuje tento (ne)pracovní sešit. Není to další teorie. Jsou to úkoly, které můžete udělat dnes odpoledne: nastavit si nástroje, napsat první pořádný prompt, porovnat dva chatboty na stejném zadání, nebo si postavit mini-systém pro informace. Přesně to dělám i já — neustále zkouším, co funguje, a co je jen hype.</p>
+            <p>Nemusíte jít cvičení za cvičením jako po přesném seznamu. Klidně přeskočte, co už umíte, a vracejte se k tomu, co vás pálí. Důležité je, abyste si odnášeli <em>konkrétní výsledek</em> — záložku, šablonu, fungující automatizaci, ne jen pocit, že jste „něco četli o AI“.</p>
+            <p>A když to nepůjde napoprvé? Normální. AI je nástroj — a jako každý nástroj ho musíte chytit za správný konec. Čím víc si budete hrát, tím dřív zjistíte, kde vám šetří čas a kde vám naopak bere pozornost.</p>
+            <p>Přeji vám hodně malých vítězství, pár překvapení a hlavně chuť to zkoušet v praxi.</p>
+            <p class="author">— Filip Dřímalka</p>
+
+        </div>
+
+        <div class="toc-section" id="obsah">
+<h2 class="toc-title">📋 Obsah</h2>
+<ol class="numbered-list">
+  <li><a href="#cviceni-0">Cvičení 0: Vyřešte svůj první problém s AI</a></li>
+  <li><a href="#cviceni-1">Cvičení 1: Nastavte si rychlý přístup k AI nástrojům</a></li>
+  <li><a href="#cviceni-2">Cvičení 2: Vytvořte si AI Prompt Generator</a></li>
+  <li><a href="#cviceni-3">Cvičení 3: Když AI lže — naučte se to poznat</a></li>
+  <li><a href="#cviceni-4">Cvičení 4: Najděte AI nástroj pro vaše potřeby</a></li>
+  <li><a href="#cviceni-5">Cvičení 5: Porovnejte dva AI nástroje</a></li>
+  <li><a href="#cviceni-6">Cvičení 6: Práce s daty a dokumenty</a></li>
+  <li><a href="#cviceni-7">Cvičení 7: Vybudujte si druhý mozek (3C Framework)</a></li>
+  <li><a href="#cviceni-8">Cvičení 8: Vytvořte si vlastního AI asistenta</a></li>
+  <li><a href="#cviceni-9">Cvičení 9: Sestavte si svůj osobní AI setup</a></li>
+</ol>
+</div>
+
+
+        <hr class="divider">
+<div class="about-section" id="o-tomto-sešitu">
+<h2 class="about-title">📖 O tomto sešitu</h2>
+<p>Tento (ne)pracovní sešit je praktickým doplňkem ke knize <strong>„Budoucnost nepráce"</strong>. Text každého cvičení <strong>vychází z reálných úkolů</strong> připravených pro program FAIL — jsou uložené ve složce <strong><span class="inline-code">podklady-workbook</span></strong> (stejné názvy souborů jako níže u cvičení). Zatímco kniha poskytuje teoretické základy a rámce, tento sešit vás provede úkoly, které v podkladech najdete v plné délce i s rychlými variantami „pro pokročilé".</p>
+<ul class="bullet-list">
+  <li>✅ Osvojit si praktické dovednosti práce s AI nástroji</li>
+  <li>✅ Vyzkoušet si různé přístupy na reálných úkolech</li>
+  <li>✅ Postupně rozvíjet své AI kompetence</li>
+  <li>✅ Aplikovat poznatky z knihy v praxi</li>
+</ul>
+<h3 class="subsection-title" id="jak-se-sešitem-pracovat">🎯 Jak se sešitem pracovat</h3>
+<ol class="numbered-list">
+  <li><strong>Začněte Cvičením 0</strong> — zažijte AI na vlastní kůži dřív, než se pustíte do nastavování</li>
+  <li><strong>Postupujte vlastním tempem</strong> — každé cvičení má odhadovaný čas, ale nespěchejte</li>
+  <li><strong>Experimentujte</strong> — nebojte se zkoušet různé přístupy a nástroje (FAIL = First Attempt In Learning)</li>
+  <li><strong>Ukládejte si, co funguje</strong> — prompty, šablony, pravidla. Na konci z toho složíte svůj AI toolkit</li>
+  <li><strong>Sdílejte</strong> — diskutujte s kolegy a sdílejte zkušenosti (IES framework: Inspirace → Experiment → Sdílení)</li>
+</ol>
+<h3 class="subsection-title" id="zlaté-pravidlo-bezpečnosti">🔒 Zlaté pravidlo bezpečnosti</h3>
+<div class="selling-line"><p>Pro experimenty v tomto sešitu používejte veřejná data a soukromý email (Gmail, Seznam apod.). Citlivá firemní data patří jen do nástrojů schválených vaší firmou (Microsoft Copilot, Google Workspace AI apod.). Toto pravidlo platí pro všechna cvičení — dále ho nebudeme opakovat.</p></div>
+<h3 class="subsection-title" id="přehled-cvičení">📋 Přehled cvičení</h3>
+<div class="table-wrapper"><table class="data-table">
+<thead><tr>
+  <th>#</th>
+  <th>Cvičení</th>
+  <th>Koncept z knihy</th>
+  <th>Čas</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>0</td>
+  <td><strong>Vyřešte svůj první problém s AI</strong></td>
+  <td>Three Levels of AI Use</td>
+  <td>5–10 min</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td><strong>Nastavte si rychlý přístup k AI nástrojům</strong></td>
+  <td>AI-first mindset</td>
+  <td>15–20 min</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><strong>Vytvořte si AI Prompt Generator</strong></td>
+  <td>Vibe Working</td>
+  <td>15–20 min</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><strong>Když AI lže — naučte se to poznat</strong></td>
+  <td>FAIL = First Attempt In Learning</td>
+  <td>10–15 min</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><strong>Najděte AI nástroj pro vaše potřeby</strong></td>
+  <td>Just-in-time Learning</td>
+  <td>10–15 min</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><strong>Porovnejte dva AI nástroje</strong></td>
+  <td>IES — Experiment</td>
+  <td>20–30 min</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><strong>Práce s daty a dokumenty</strong></td>
+  <td>OHIO — Only Handle It Once</td>
+  <td>30–45 min</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><strong>Vybudujte si druhý mozek (3C Framework)</strong></td>
+  <td>3C — Capture, Clean, Connect</td>
+  <td>30–45 min</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><strong>Vytvořte si vlastního AI asistenta</strong></td>
+  <td>Superpowered Professionals</td>
+  <td>20–30 min</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><strong>Sestavte si svůj osobní AI setup</strong></td>
+  <td>Digital Leader</td>
+  <td>20–30 min</td>
+</tr>
+</tbody></table></div>
+<h3 class="subsection-title" id="mapování-cvičení-soubor-v-podklady-workbook">Mapování: cvičení → soubor v <span class="inline-code">podklady-workbook</span></h3>
+<div class="table-wrapper"><table class="data-table">
+<thead><tr>
+  <th>Cvičení</th>
+  <th>Zdrojový úkol (název souboru)</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>0</td>
+  <td>nové cvičení (bez podkladu — čtenář řeší svůj vlastní problém)</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td><span class="inline-code">Nastavte si rychlý přístup k AI nástrojům - úkol 1.md</span></td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><span class="inline-code">Vytvořte si AI Prompt Generator - úkol 2.md</span></td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>nové cvičení (vychází z FAIL modul 03 — Symbióza s AI: „možnosti a limity")</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><span class="inline-code">Najděte AI nástroj pro vaše potřeby - úkol 4.md</span></td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><span class="inline-code">🚀 Porovnejte dva AI nástroje na konkrétním projektu - úkol pro všechny.md</span></td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><span class="inline-code">Zaregistrujte se do pokročilých nástrojů - úkol 3 (pro pokročilé).md</span> + <span class="inline-code">metodika-data-dokumenty.md</span></td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><span class="inline-code">Přehled nástrojů_ Jak na druhý mozek s AI.md</span> (nástroje a rámec 3C dle knihy / FAIL)</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><span class="inline-code">ChatGPT GPTs - Kompletní průvodce.md</span> a související průvodce (Claude, Gemini, Copilot)</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td>syntéza cvičení 0–8; viz též agentní prompty v <span class="inline-code">podklady-workbook</span></td>
+</tr>
+</tbody></table></div>
+<hr class="divider">
+<div class="exercise-card" id="cviceni-0">
+<h2 class="exercise-title">Cvičení 0: Vyřešte svůj první problém s AI</h2>
+<div class="selling-line"><p><strong>💡 Než se pustíte do nastavování, zažijte na vlastní kůži, co AI umí — na problému, který řešíte právě dnes.</strong></p></div>
+<p>></p>
+<div class="selling-line"><p>📚 <em>Koncept z knihy: Three Levels of AI Use — Level 1 (osobní produktivita)</em></p></div>
+<p><strong>⏱️ 5–10 minut · Úroveň: Základní</strong></p>
+<h3 class="subsection-title" id="co-uděláte">Co uděláte</h3>
+<p>Otevřete jakýkoliv AI nástroj a vyřešíte s ním problém, který máte právě dnes na stole. Nemusíte umět formulovat „dokonalý prompt" — prostě napište, co potřebujete, jako byste to říkali kolegovi.</p>
+<div class="selling-line"><p><em>„S AI se dá pracovat jednoduše, komplexně, nemusíme to všechno dělat my — ale je potřeba znát praktické využití. Bez toho to zkrátka nejde."</em> — Filip Dřímalka, FAIL modul 1</p></div>
+<h3 class="subsection-title" id="postup">Postup</h3>
+<p><strong>1. Otevřete AI nástroj</strong></p>
+<p>Jděte na <a href="https://chat.openai.com" target="_blank">https://chat.openai.com</a> (funguje i s Google účtem) nebo <a href="https://claude.ai." target="_blank">https://claude.ai.</a> Pokud už máte účet v jiném nástroji, použijte ten.</p>
+<p><strong>2. Napište AI o problému, který právě řešíte</strong></p>
+<p>Jakémkoliv. Nemusíte přemýšlet nad formátem — prostě popište situaci:</p>
+<p><strong>Příklady, jak začít:</strong></p>
+<ul class="bullet-list">
+  <li><em>„Pomoz mi napsat odpověď na tento email od klienta: [vložte email]"</em></li>
+  <li><em>„Mám prezentaci za 2 hodiny na téma X. Navrhni mi strukturu."</em></li>
+  <li><em>„Potřebuji shrnout tento článek do 3 vět: [vložte text]"</em></li>
+  <li><em>„Jak nejlépe odmítnout nabídku spolupráce zdvořile, ale jasně?"</em></li>
+  <li><em>„Připrav mi osnovu porady na téma [vaše téma], 30 minut, 5 účastníků."</em></li>
+  <li><em>„Napiš mi profesionální email kolegovi, že se nemůžu zúčastnit zítřejší schůzky. Email má být zdvořilý a stručný."</em></li>
+</ul>
+<p><strong>3. Přečtěte si odpověď — a iterujte</strong></p>
+<p>Tohle je klíčová dovednost: pokud vám odpověď nepomohla na 100 %, <strong>napište AI, co chybí nebo co byste chtěli jinak</strong>. Toto „tam-a-zpět" je základ práce s AI. Nebojte se říct:</p>
+<ul class="bullet-list">
+  <li><em>„Zkrať to na polovinu."</em></li>
+  <li><em>„Tón je příliš formální, napiš to víc přátelsky."</em></li>
+  <li><em>„Přidej k tomu konkrétní čísla."</em></li>
+  <li><em>„To není úplně to, co jsem myslel. Spíš potřebuji..."</em></li>
+</ul>
+<h3 class="subsection-title" id="váš-výstup">Váš výstup</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Použitelný výsledek pro dnešní práci (email, struktura, shrnutí, plán...)</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> První zkušenost s tím, jak AI reaguje na váš úkol a jak „iterovat"</label></li>
+</ul>
+<h3 class="subsection-title" id="ies-co-si-odnášíte">IES — Co si odnášíte</h3>
+<ul class="bullet-list">
+  <li>💡 <strong>Inspirace:</strong> Co mě zaujalo:</li>
+  <li>🧪 <strong>Experiment:</strong> Co zkusím zítra v práci:</li>
+  <li>💬 <strong>Sdílení:</strong> Komu o tom řeknu:</li>
+</ul>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<div class="exercise-card" id="cviceni-1">
+<div class="accent-image"><img src="images/01.png" alt="" loading="lazy"></div>
+<h2 class="exercise-title">Cvičení 1: Nastavte si rychlý přístup k AI nástrojům</h2>
+<div class="selling-line"><p><strong>Zdroj:</strong> <span class="inline-code">podklady-workbook/Nastavte si rychlý přístup k AI nástrojům - úkol 1.md</span></p></div>
+<p>></p>
+<div class="selling-line"><p><strong>💡 Mějte všechny AI nástroje na dosah jednoho kliknutí — ušetříte si minuty každý den.</strong></p></div>
+<p>></p>
+<div class="selling-line"><p>📚 <em>Koncept z knihy: AI-first mindset — mít AI jako první volbu, ne poslední možnost</em></p></div>
+<p><strong>⏱️ 15–20 minut · Úroveň: Základní</strong></p>
+<p><strong>Cíl:</strong> Mít všechny důležité AI nástroje a materiály na dosah jednoho kliknutí. Zaregistrovat se, nastavit záložky a být připraveni na další cvičení.</p>
+<h3 class="subsection-title" id="co-uděláte">Co uděláte</h3>
+<p>V Cvičení 0 jste zažili, co AI umí. Teď si připravíte nástroje tak, abyste je mohli používat rychle a pohodlně — každý den.</p>
+<h3 class="subsection-title" id="postup">Postup</h3>
+<p><strong>1. Zobrazte záložkovou lištu v prohlížeči</strong></p>
+<p>Stiskněte <span class="inline-code">Ctrl + Shift + B</span> (Windows) nebo <span class="inline-code">Cmd + Shift + B</span> (Mac). Pokud používáte Firefox nebo Safari, postup najdete v boxu „Tipy navíc" níže.</p>
+<p><strong>2. Zaregistrujte se do AI aplikací a přidejte je na lištu</strong></p>
+<div class="table-wrapper"><table class="data-table">
+<thead><tr>
+  <th>Nástroj</th>
+  <th>Na co je nejlepší</th>
+  <th>Odkaz</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td><strong>ChatGPT</strong></td>
+  <td>Univerzální asistent — psaní, brainstorming, vysvětlování</td>
+  <td><a href="https://chat.openai.com" target="_blank">https://chat.openai.com</a></td>
+</tr>
+<tr>
+  <td><strong>Claude</strong></td>
+  <td>Delší texty, detailní analýzy, práce s dokumenty</td>
+  <td><a href="https://claude.ai" target="_blank">https://claude.ai</a></td>
+</tr>
+<tr>
+  <td><strong>Gemini</strong></td>
+  <td>Google integrace, aktuální informace z webu</td>
+  <td><a href="https://gemini.google.com" target="_blank">https://gemini.google.com</a></td>
+</tr>
+<tr>
+  <td><strong>NotebookLM</strong></td>
+  <td>Analýza PDF souborů a dokumentů</td>
+  <td><a href="https://notebooklm.google.com" target="_blank">https://notebooklm.google.com</a></td>
+</tr>
+</tbody></table></div>
+<p><strong>3. Vytvořte si složku pro materiály</strong></p>
+<p>Klikněte pravým tlačítkem na záložkovou lištu → „Přidat složku". Pojmenujte ji <strong>„📁 FAIL 2025"</strong> nebo <strong>„📁 AI Materiály"</strong> — uložíte sem odkazy na materiály, tipy na aplikace a další zdroje.</p>
+<p><strong>4. Vyzkoušejte první úkoly</strong> (pokud jste neprocházeli Cvičení 0)</p>
+<p>Otevřete ChatGPT nebo Claude a vyzkoušejte:</p>
+<ul class="bullet-list">
+  <li><strong>Email:</strong> <em>"Napiš mi profesionální email kolegovi, že se nemůžu zúčastnit zítřejší schůzky. Email má být zdvořilý a stručný."</em></li>
+  <li><strong>Shrnutí:</strong> Najděte článek, zkopírujte text do AI a požádejte: <em>"Shrň mi to do 5 klíčových bodů."</em></li>
+  <li><strong>Prezentace:</strong> <em>"Vytvoř mi strukturu 10minutové prezentace na téma [vaše téma]. Úvod, 3 hlavní body, závěr."</em></li>
+</ul>
+<h3 class="subsection-title" id="váš-výstup">Váš výstup</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Čtyři AI nástroje zaregistrované a na záložkové liště</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Složka pro materiály vytvořená</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Vyzkoušený alespoň jeden praktický úkol (z Cvičení 0 nebo teď)</label></li>
+</ul>
+<div class="selling-line"><p>📦 <strong>Tipy navíc</strong></p></div>
+<div class="selling-line"><p>- <strong>Firefox:</strong> Pravý klik na horní lištu → Zaškrtněte „Lišta záložek"</p></div>
+<div class="selling-line"><p>- <strong>Safari:</strong> Zobrazení → Zobrazit lištu oblíbených</p></div>
+<div class="selling-line"><p>- Podrobný postup s obrázky najdete v <span class="inline-code">podklady-workbook/Nastavte si rychlý přístup k AI nástrojům - úkol 1.md</span></p></div>
+<h3 class="subsection-title" id="ies-co-si-odnášíte">IES — Co si odnášíte</h3>
+<ul class="bullet-list">
+  <li>💡 <strong>Inspirace:</strong> Co mě zaujalo:</li>
+  <li>🧪 <strong>Experiment:</strong> Co zkusím zítra v práci:</li>
+  <li>💬 <strong>Sdílení:</strong> Komu o tom řeknu:</li>
+</ul>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<div class="exercise-card" id="cviceni-2">
+<div class="accent-image-left"><img src="images/05.png" alt="" loading="lazy"></div>
+<h2 class="exercise-title">Cvičení 2: Vytvořte si AI Prompt Generator</h2>
+<div class="selling-line"><p><strong>Zdroj:</strong> <span class="inline-code">podklady-workbook/Vytvořte si AI Prompt Generator - úkol 2.md</span></p></div>
+<p>></p>
+<div class="selling-line"><p><strong>💡 Vytvořte si asistenta, díky kterému budete dělat daleko lepší prompty — a naučte se klíčovou dovednost: iteraci.</strong></p></div>
+<p>></p>
+<div class="selling-line"><p>📚 <em>Koncept z knihy: Vibe Working — spolupráce s AI jako s kolegou</em></p></div>
+<p><strong>⏱️ 15–20 minut · Úroveň: Základní</strong></p>
+<p><strong>Cíl:</strong> Mít vlastního „generátora zadání", který vám bude vytvářet profesionální prompty pro jakýkoliv AI nástroj.</p>
+<h3 class="subsection-title" id="co-uděláte">Co uděláte</h3>
+<p>Vytvoříte si specializovaného AI asistenta (nebo uložíte šablonu), který za vás bude vytvářet kompletní zadání pro AI nástroje. Místo přemýšlení nad formulací necháte tuto práci na generátoru.</p>
+<h3 class="subsection-title" id="proč-je-to-důležité">Proč je to důležité</h3>
+<ul class="bullet-list">
+  <li>Kvalita zadání = kvalita výstupu</li>
+  <li>Nemusíte přemýšlet nad strukturou, jen popíšete, co potřebujete</li>
+  <li>Konzistentní kvalita všech vašich AI zadání</li>
+  <li>Funguje v jakémkoliv AI nástroji (ChatGPT, Claude, Copilot, Gemini)</li>
+</ul>
+<h3 class="subsection-title" id="postup">Postup</h3>
+<p><strong>1. Získejte prompt</strong></p>
+<p>Doporučujeme stáhnout <strong>hotový Elite Prompt Engineer</strong> z <a href="https://drimalka.com/wp-content/uploads/2025/09/Elite-Prompt-Engineer_CZ.md" target="_blank">https://drimalka.com/wp-content/uploads/2025/09/Elite-Prompt-Engineer_CZ.md</a> — je podrobnější a prověřený z programu FAIL.</p>
+<p>Pokud chcete jednodušší verzi, zkopírujte tento základní prompt:</p>
+<div class="code-block"><pre><code>Jsi můj AI Prompt Generator. Tvoje role je vytvářet profesionální, kompletní zadání (prompty) pro AI asistenty a agenty.
+
+Když ti řeknu, co potřebuji, uděláš toto:
+
+1. NEJDŘÍV SE ZEPTÁŠ na klíčové detaily:
+   - Jaký je kontext a cíl?
+   - Kdo je cílová skupina/uživatel?
+   - Jaký formát výstupu je potřeba?
+   - Jaké specifické požadavky existují?
+
+2. PAK VYTVOŘÍŠ kompletní zadání obsahující:
+   - Jasnou roli a kontext
+   - Konkrétní úkoly a odpovědnosti
+   - Očekávaný styl a tón
+   - Formát výstupu
+   - Příklady (pokud jsou relevantní)
+
+3. VYSVĚTLÍŠ, jak zadání použít:
+   - Kde ho aplikovat (ChatGPT, Claude, Copilot, Gemini...)
+   - Jak ho upravit podle potřeby
+   - Jak z něj vytvořit asistenta (GPT, Project, Gem, Agent)
+
+Tvoje výstupy budou profesionální, detailní a přímo použitelné.
+
+Chápeš svou roli? Můžeme začít?</code></pre></div>
+<p><strong>2. Uložte si prompt</strong></p>
+<p>Nejjednodušší cesta: vložte prompt do <strong>Claude Projects</strong> (Projects → New Project → Custom Instructions) nebo do <strong>ChatGPT GPTs</strong> (My GPTs → Create a GPT → Instructions). Tím získáte asistenta, ke kterému se můžete kdykoliv vrátit.</p>
+<p><strong>3. Otestujte</strong></p>
+<p>Zadejte svému Prompt Generátoru:</p>
+<div class="code-block"><pre><code>Udělej mi zadání pro AI asistenta, který mi bude analyzovat přepisy porad.</code></pre></div>
+<p>Prompt Generator by měl: zeptat se na detaily → vytvořit kompletní zadání → vysvětlit, jak ho použít.</p>
+<p><strong>4. Iterujte — vylepšete výstup</strong></p>
+<p>Podívejte se na vygenerované zadání a řekněte generátoru, co chcete upravit:</p>
+<ul class="bullet-list">
+  <li><em>„Přidej do zadání, že výstup má být vždy v češtině."</em></li>
+  <li><em>„Chci, aby asistent vždy začal shrnutím do 3 vět."</em></li>
+  <li><em>„Zjednoduš to — má to být stručnější."</em></li>
+</ul>
+<p>Toto „tam-a-zpět" je klíčová dovednost práce s AI (stejně jako v Cvičení 0).</p>
+<h3 class="subsection-title" id="váš-výstup">Váš výstup</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> AI Prompt Generator uložený (v poznámkách, jako asistent, nebo jako zkratka)</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Vyzkoušený na jednom testovacím promptu</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Funkční — vytváří použitelná zadání pro AI</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> 📌 <strong>Uložte si vygenerovaný prompt</strong> — budete ho potřebovat v dalších cvičeních</label></li>
+</ul>
+<div class="selling-line"><p>📦 <strong>Tipy navíc</strong></p></div>
+<div class="selling-line"><p>- <strong>Text v poznámkách:</strong> Vložte do OneNote / Notion / Google Keep. Při použití zkopírovat → vložit do nového chatu.</p></div>
+<div class="selling-line"><p>- <strong>Gemini Gems:</strong> Gems → New Gem → vložte prompt do instrukcí.</p></div>
+<div class="selling-line"><p>- <strong>Copilot Agents:</strong> Create Agent → vložte prompt do instrukcí.</p></div>
+<div class="selling-line"><p>- <strong>Klávesová zkratka:</strong> Mac: Nastavení → Klávesnice → Textové zkratky → <span class="inline-code">;;prompt</span>. Windows: PowerToys → Text Expander.</p></div>
+<h3 class="subsection-title" id="ies-co-si-odnášíte">IES — Co si odnášíte</h3>
+<ul class="bullet-list">
+  <li>💡 <strong>Inspirace:</strong> Co mě zaujalo:</li>
+  <li>🧪 <strong>Experiment:</strong> Co zkusím zítra v práci:</li>
+  <li>💬 <strong>Sdílení:</strong> Komu o tom řeknu:</li>
+</ul>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<div class="exercise-card" id="cviceni-3">
+<div class="accent-image"><img src="images/09.png" alt="" loading="lazy"></div>
+<h2 class="exercise-title">Cvičení 3: Když AI lže — naučte se to poznat</h2>
+<div class="selling-line"><p><strong>💡 AI vám vždy odpoví sebejistě. Naučte se rozlišit, kdy říká pravdu a kdy si vymýšlí — to je nejdůležitější dovednost práce s AI.</strong></p></div>
+<p>></p>
+<div class="selling-line"><p>📚 <em>Koncept z knihy: FAIL = First Attempt In Learning — selhání je cenná data</em></p></div>
+<p><strong>⏱️ 10–15 minut · Úroveň: Základní</strong></p>
+<h3 class="subsection-title" id="proč-je-to-důležité">Proč je to důležité</h3>
+<div class="selling-line"><p><em>„Pokaždé, když spolupracujeme s AI, tak nejenom, že děláme lepší práci, ale zároveň se sami zlepšujeme. Ale zároveň, a to je možná ještě důležitější, ukazuje nám to možnosti a limity."</em> — Filip Dřímalka, FAIL modul 3</p></div>
+<p>AI je nástroj, ne autorita. Klíčová dovednost není „umět zadat prompt" — je to umět vyhodnotit výstup. Bez toho nemůžete AI důvěřovat v práci.</p>
+<h3 class="subsection-title" id="co-uděláte">Co uděláte</h3>
+<p>Záměrně otestujete, kde je AI přesné a kde si vymýšlí. Naučíte se rozpoznávat tzv. „halucinace" — situace, kdy AI generuje pravděpodobný, ale nepravdivý text.</p>
+<h3 class="subsection-title" id="postup">Postup</h3>
+<p><strong>1. Zeptejte se na něco, co znáte (3 min)</strong></p>
+<p>Otevřete ChatGPT nebo Claude a zeptejte se na faktickou otázku z vašeho oboru, kde ZNÁTE správnou odpověď:</p>
+<ul class="bullet-list">
+  <li><em>„Jaké jsou hlavní povinnosti [vaše pozice] v České republice?"</em></li>
+  <li><em>„Jaké zákony upravují [oblast vašeho oboru]?"</em></li>
+  <li><em>„Kdo je [známá osobnost ve vašem oboru] a čím se proslavil/a?"</em></li>
+</ul>
+<p>Zkontrolujte odpověď. Pravděpodobně bude dobrá — AI je silné v obecných znalostech.</p>
+<p><strong>2. Zeptejte se na něco specifického (3 min)</strong></p>
+<p>Teď se zeptejte na něco, kde tušíte, že AI bude hádat:</p>
+<ul class="bullet-list">
+  <li><em>„Jaký byl obrat firmy [vaše firma] v roce 2024?"</em></li>
+  <li><em>„Kdo napsal [méně známou knihu z vašeho oboru]?"</em></li>
+  <li><em>„Kolik přesně zaměstnanců má [vaše firma]?"</em></li>
+</ul>
+<p>Zkontrolujte odpověď. Pravděpodobně obsahuje chyby — ale AI je sdělí se <strong>stejnou sebejistotou</strong> jako správné informace.</p>
+<p><strong>3. Zkuste záměrně falešnou premisu (3 min)</strong></p>
+<p>Zadejte AI něco, co není pravda, a sledujte, zda vás opraví:</p>
+<ul class="bullet-list">
+  <li><em>„Souhlasíš, že zákon č. 999/2025 o digitální transformaci vyžaduje, aby každá firma měla Chief AI Officera?"</em></li>
+  <li><em>„Můžeš mi říct víc o knize [vymyšlený název] od [existující autor]?"</em></li>
+</ul>
+<p>Většina AI modelů vám odpoví, jako by to byla pravda. To je tzv. <strong>halucinace</strong> — AI generuje pravděpodobný text, ne pravdivý text.</p>
+<p><strong>4. Shrňte si pravidla (3 min)</strong></p>
+<p>Na základě toho, co jste zjistili, napište si 3 pravidla pro práci s AI výstupy. Příklady:</p>
+<ul class="bullet-list">
+  <li><em>„Vždy ověřím fakta, čísla a citace z nezávislého zdroje."</em></li>
+  <li><em>„Když mi AI tvrdí něco konkrétního o naší firmě, zkontroluji to."</em></li>
+  <li><em>„Sebejistý tón AI neznamená, že je odpověď správná."</em></li>
+</ul>
+<h3 class="subsection-title" id="váš-výstup">Váš výstup</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Vyzkoušený AI na otázce, kde znáte odpověď</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Odhalená alespoň jedna halucinace nebo nepřesnost</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> 📌 <strong>3 vlastní pravidla pro ověřování AI výstupů</strong> — uložte si je, budete je potřebovat vždy</label></li>
+</ul>
+<h3 class="subsection-title" id="ies-co-si-odnášíte">IES — Co si odnášíte</h3>
+<ul class="bullet-list">
+  <li>💡 <strong>Inspirace:</strong> Co mě zaujalo:</li>
+  <li>🧪 <strong>Experiment:</strong> Co zkusím zítra v práci:</li>
+  <li>💬 <strong>Sdílení:</strong> Komu o tom řeknu:</li>
+</ul>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<div class="exercise-card" id="cviceni-4">
+<h2 class="exercise-title">Cvičení 4: Najděte AI nástroj pro vaše potřeby</h2>
+<div class="selling-line"><p><strong>Zdroj:</strong> <span class="inline-code">podklady-workbook/Najděte AI nástroj pro vaše potřeby - úkol 4.md</span> <em>(v podkladech jako „úkol 4")</em></p></div>
+<p>></p>
+<div class="selling-line"><p><strong>💡 Objevte nástroj, který vám ušetří hodiny práce týdně — místo googlu se zeptejte AI.</strong></p></div>
+<p>></p>
+<div class="selling-line"><p>📚 <em>Koncept z knihy: Just-in-time Learning — učte se to, co potřebujete právě teď</em></p></div>
+<p><strong>⏱️ 10–15 minut · Úroveň: Základní</strong></p>
+<p><strong>Cíl:</strong> Najít a vyzkoušet AI nástroj, který vyřeší váš konkrétní pracovní problém.</p>
+<h3 class="subsection-title" id="co-uděláte">Co uděláte</h3>
+<p>Identifikujete konkrétní problém z vaší práce, zeptáte se AI na doporučení a vyzkoušíte si doporučený nástroj.</p>
+<h3 class="subsection-title" id="postup">Postup</h3>
+<p><strong>1. Identifikujte problém</strong></p>
+<p>Co vás v práci nejvíc zdržuje? Napište to co nejkonkrétněji:</p>
+<p><strong>Příklady:</strong></p>
+<ul class="bullet-list">
+  <li>„Potřebuji rychle editovat videa pro Instagram"</li>
+  <li>„Musím psát hodně obdobných e-mailů"</li>
+  <li>„Chci automaticky generovat meeting notes"</li>
+  <li>„Potřebuji analyzovat Excel data"</li>
+  <li>„Hledám nástroj na tvorbu prezentací"</li>
+</ul>
+<div class="tip-block"><p>💡 <strong>Tip:</strong> Čím konkrétnější, tím lepší doporučení od AI dostanete!</p></div>
+<p><strong>2. Zeptejte se AI na doporučení</strong></p>
+<p>Otevřete ChatGPT, Claude, Copilot nebo Perplexity a použijte prompt jako:</p>
+<div class="code-block"><pre><code>Potřebuji nástroj na editaci videí pro sociální sítě.
+Chci:
+- Automaticky rozdělit dlouhé video na kratší klipy
+- Přidat titulky
+- Optimalizovat pro Instagram a TikTok
+
+Jaký AI nástroj doporučuješ? Uveď 3 nejlepší možnosti
+s cenami a hlavními funkcemi.</code></pre></div>
+<p>Další příklady promptů:</p>
+<div class="code-block"><pre><code>Každý týden píšu podobné e-maily zákazníkům s nabídkami.
+Zabírá mi to 5+ hodin. Existuje AI nástroj, který by mi s tím
+pomohl? Preferuji něco s českou podporou nebo aspoň s free verzí.</code></pre></div>
+<div class="code-block"><pre><code>Slyšel jsem o nástrojích Gamma, Beautiful.ai a Tome na tvorbu
+prezentací. Který je nejlepší pro [tvůj případ]? Porovnej je
+z hlediska ceny, funkcí a jednoduchosti použití.</code></pre></div>
+<p>AI vám obvykle doporučí 2–5 nástrojů s popisem, cenami a pro koho se hodí.</p>
+<p>⚡ <strong>Nezapomeňte na Cvičení 3:</strong> AI může doporučit nástroj, který neexistuje nebo má jiné funkce. Ověřte si doporučení na webu nástroje.</p>
+<p><strong>3. Vyzkoušejte nástroj</strong> (5–10 minut)</p>
+<ol class="numbered-list">
+  <li>Otevřete web doporučeného nástroje → Sign up / Get started</li>
+  <li>Vyzkoušejte na <strong>konkrétním úkolu</strong> z vaší práce (ne obecně!)</li>
+  <li>Zhodnoťte: Stojí za to platit premium? Mohl by z něj těžit celý tým? Jak často to budu používat?</li>
+</ol>
+<h3 class="subsection-title" id="váš-výstup">Váš výstup</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Identifikovaný konkrétní problém</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Seznam doporučených nástrojů od AI (ověřený — viz Cvičení 3)</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Vyzkoušený alespoň jeden nástroj na reálném úkolu</label></li>
+</ul>
+<h3 class="subsection-title" id="ies-co-si-odnášíte">IES — Co si odnášíte</h3>
+<ul class="bullet-list">
+  <li>💡 <strong>Inspirace:</strong> Co mě zaujalo:</li>
+  <li>🧪 <strong>Experiment:</strong> Co zkusím zítra v práci:</li>
+  <li>💬 <strong>Sdílení:</strong> Komu o tom řeknu:</li>
+</ul>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<div class="exercise-card" id="cviceni-5">
+<div class="accent-image-left"><img src="images/14.png" alt="" loading="lazy"></div>
+<h2 class="exercise-title">Cvičení 5: Porovnejte dva AI nástroje</h2>
+<div class="selling-line"><p><strong>Zdroj:</strong> <span class="inline-code">podklady-workbook/🚀 Porovnejte dva AI nástroje na konkrétním projektu - úkol pro všechny.md</span></p></div>
+<p>></p>
+<div class="selling-line"><p><strong>💡 Zjistěte, který AI nástroj je pro vás ten pravý — na konkrétním příkladu z vaší práce.</strong></p></div>
+<p>></p>
+<div class="selling-line"><p>📚 <em>Koncept z knihy: IES Framework — Experiment: vyzkoušejte si to na reálném úkolu</em></p></div>
+<p><strong>⏱️ 20–30 minut · Úroveň: Základní</strong></p>
+<p><strong>Cíl:</strong> Otestovat dva AI nástroje se stejným zadáním a zjistit, který funguje lépe pro váš typ práce.</p>
+<h3 class="subsection-title" id="co-uděláte">Co uděláte</h3>
+<p>Vyberete si pracovní úkol, připravíte prompt a zadáte ho do dvou různých AI nástrojů. Porovnáte výsledky a zjistíte, kdy který nástroj použít.</p>
+<h3 class="subsection-title" id="postup">Postup</h3>
+<p><strong>1. Vyberte úkol z vaší práce</strong></p>
+<p>Zvolte jeden typ úkolu, který reálně potřebujete řešit:</p>
+<ul class="bullet-list">
+  <li><strong>Tvorba obsahu</strong> — AI vám pomáhá psát texty, emaily, prezentace</li>
+  <li><strong>Hledání řešení</strong> — potřebujete najít řešení problému, vybrat systém, naplánovat proces</li>
+  <li><strong>Strategická diskuse</strong> — „Co bys dělal v mé situaci, kdybys chtěl vyřešit/dosáhnout xyz…"</li>
+</ul>
+<div class="tip-block"><p>💡 <strong>Tip:</strong> Vyberte si úkol, který skutečně potřebujete vyřešit — dostanete zkušenost i užitečný výsledek.</p></div>
+<p><strong>2. Připravte prompt</strong></p>
+<p>Napište zadání, které použijete v obou nástrojích. Můžete ho vytvořit pomocí AI Prompt Generátoru z Cvičení 2, nebo si napište vlastní — buďte konkrétní, uveďte kontext a co očekáváte.</p>
+<p><strong>Důležité:</strong> Použijte <strong>přesně stejný prompt</strong> v obou nástrojích.</p>
+<p><strong>3. Otestujte ve dvou nástrojích</strong></p>
+<div class="table-wrapper"><table class="data-table">
+<thead><tr>
+  <th>Nástroj</th>
+  <th>Specialita</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td><strong>ChatGPT</strong></td>
+  <td>Univerzální, rychlý, strukturovaný</td>
+</tr>
+<tr>
+  <td><strong>Claude</strong></td>
+  <td>Lepší na dlouhé texty, analýzy, komplexní problémy</td>
+</tr>
+<tr>
+  <td><strong>Gemini</strong></td>
+  <td>Přístup k webu, integrace s Google</td>
+</tr>
+<tr>
+  <td><strong>Microsoft Copilot</strong></td>
+  <td>Pro uživatele Microsoft ekosystému</td>
+</tr>
+</tbody></table></div>
+<p>Otevřete dva různé nástroje, vložte stejný prompt a sledujte:</p>
+<div class="table-wrapper"><table class="data-table">
+<thead><tr>
+  <th>Kritérium</th>
+  <th>Co sledovat</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>⏱️ Rychlost</td>
+  <td>Jak rychle dostanete odpověď?</td>
+</tr>
+<tr>
+  <td>📝 Struktura</td>
+  <td>Je výstup přehledný?</td>
+</tr>
+<tr>
+  <td>🎯 Relevance</td>
+  <td>Odpovídá to přesně vašemu požadavku?</td>
+</tr>
+<tr>
+  <td>💡 Užitečnost</td>
+  <td>Můžete to použít rovnou?</td>
+</tr>
+<tr>
+  <td>🧠 Hloubka</td>
+  <td>Jak detailně nástroj téma rozvádí?</td>
+</tr>
+</tbody></table></div>
+<div class="tip-block"><p>💡 <strong>Tip:</strong> Udělejte si screenshot nebo zkopírujte odpovědi, abyste mohli porovnat.</p></div>
+<p><strong>4. Vyhodnoťte</strong></p>
+<ul class="bullet-list">
+  <li>Který výstup byl kvalitnější a vyžadoval méně úprav?</li>
+  <li>Který by vám ušetřil více času?</li>
+  <li>Pro tento typ úkolu — který nástroj použijete příště?</li>
+</ul>
+<div class="tip-block"><p>💡 <strong>Důvěřujte své intuici</strong> — je to váš pracovní úkol a vy nejlépe víte, co vám pomáhá.</p></div>
+<h3 class="subsection-title" id="váš-výstup">Váš výstup</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Stejný úkol otestovaný ve dvou AI nástrojích</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Porovnání výsledků</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> 📌 <strong>Rozhodnutí: kdy který nástroj použít</strong> — uložte si to, využijete v Cvičení 9</label></li>
+</ul>
+<h3 class="subsection-title" id="ies-co-si-odnášíte">IES — Co si odnášíte</h3>
+<ul class="bullet-list">
+  <li>💡 <strong>Inspirace:</strong> Co mě zaujalo:</li>
+  <li>🧪 <strong>Experiment:</strong> Co zkusím zítra v práci:</li>
+  <li>💬 <strong>Sdílení:</strong> Komu o tom řeknu:</li>
+</ul>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<div class="exercise-card" id="cviceni-6">
+<div class="accent-image"><img src="images/17.png" alt="" loading="lazy"></div>
+<h2 class="exercise-title">Cvičení 6: Práce s daty a dokumenty</h2>
+<div class="selling-line"><p><strong>Zdroj:</strong> <span class="inline-code">podklady-workbook/Zaregistrujte se do pokročilých nástrojů - úkol 3 (pro pokročilé).md</span> a <span class="inline-code">podklady-workbook/metodika-data-dokumenty.md</span></p></div>
+<p>></p>
+<div class="selling-line"><p><strong>💡 Naučte se rozhodnout, kdy stačí chat a kdy potřebujete víc — a připravte si pokročilé nástroje.</strong></p></div>
+<p>></p>
+<div class="selling-line"><p>📚 <em>Koncept z knihy: OHIO — Only Handle It Once (zpracujte informaci jednou a správně)</em></p></div>
+<p><strong>⏱️ 30–45 minut · Úroveň: Střední / pokročilé</strong></p>
+<p><strong>Cíl:</strong> Vyzkoušet si práci s daty a dokumenty v chatu, pochopit kdy potřebujete pokročilé nástroje, a připravit si je.</p>
+<h3 class="subsection-title" id="co-uděláte">Co uděláte</h3>
+<p>Nejdřív si vyzkoušíte, co zvládne obyčejný chat (ChatGPT, Claude). Pak se podíváte na metodiku rozhodování „kdy chat, kdy víc". A nakonec si připravíte pokročilé nástroje pro složitější úkoly.</p>
+<h3 class="subsection-title" id="postup">Postup</h3>
+<p><strong>1. Vyzkoušejte chat na vlastním dokumentu (10 min)</strong></p>
+<p>Než se podíváte na metodiku, zkuste to sami:</p>
+<ul class="bullet-list">
+  <li><strong>S daty:</strong> Najděte malou tabulku (do 100 řádků), nahrajte do ChatGPT/Claude a požádejte: <em>"Analyzuj tato data a řekni mi 3 klíčové zjištění."</em></li>
+  <li><strong>S dokumentem:</strong> Najděte krátký dokument (PDF nebo text), nahrajte do AI a požádejte: <em>"Shrň tento dokument do 5 klíčových bodů."</em></li>
+</ul>
+<p>⚡ <strong>Nezapomeňte na Cvičení 3:</strong> Ověřte si klíčová zjištění — AI může data interpretovat chybně.</p>
+<p><strong>2. Pochopte rozdíly: kdy chat, kdy víc</strong></p>
+<div class="table-wrapper"><table class="data-table">
+<thead><tr>
+  <th></th>
+  <th><strong>Chat</strong> (ChatGPT, Claude, Gemini)</th>
+  <th><strong>Pokročilé nástroje</strong> (Cursor, skripty, automatizace)</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td><strong>Data</strong></td>
+  <td>1–2 malé tabulky (do ~1000 řádků), jednorázová analýza, čistá data, základní operace</td>
+  <td>5+ tabulek, čištění a transformace, pravidelné opakování, tisíce+ řádků</td>
+</tr>
+<tr>
+  <td><strong>Dokumenty</strong></td>
+  <td>1–2 krátké dokumenty (do ~50 stran), jednorázová sumarizace, PDF/Word/TXT</td>
+  <td>Desítky–stovky dokumentů, různé formáty, prohledávání celé báze, sledování změn</td>
+</tr>
+</tbody></table></div>
+<p>Zamyslete se nad svou prací:</p>
+<ul class="bullet-list">
+  <li>Máte opakující se úkoly s daty nebo dokumenty?</li>
+  <li>Pracujete s větším množstvím souborů?</li>
+  <li>Potřebujete automatizovat zpracování?</li>
+</ul>
+<p>Pokud ano — pokračujte krokem 3.</p>
+<p><strong>3. Připravte si pokročilé nástroje</strong></p>
+<p><strong>Tvorba aplikací — Replit nebo Lovable:</strong></p>
+<ol class="numbered-list">
+  <li>Zaregistrujte se do <strong>Replit</strong> (<a href="https://replit.com" target="_blank">https://replit.com</a>) nebo <strong>Lovable</strong> (<a href="https://lovable.dev" target="_blank">https://lovable.dev</a>)</li>
+  <li>Vyzkoušejte vygenerovat jednoduchou věc (např. kalkulačku nebo to-do list)</li>
+</ol>
+<p><strong>Znalostní práce a automatizace — Cursor:</strong></p>
+<ol class="numbered-list">
+  <li>Nainstalujte <strong>Cursor</strong> (<a href="https://cursor.sh" target="_blank">https://cursor.sh</a>) nebo použijte <strong>GitHub Copilot</strong></li>
+  <li>Vyzkoušejte agenta: přetáhněte PDF do Cursoru a napište <em>„Převeď tento PDF na markdown formát"</em></li>
+  <li>Příkazy můžete psát česky!</li>
+</ol>
+<div class="tip-block"><p>💡 <strong>Cursor</strong> vypadá jako editor kódu, ale nemusíte umět programovat. Stačí psát příkazy přirozeným jazykem.</p></div>
+<div class="tip-block"><p>💡 <strong>Tip pro korporát:</strong> GitHub Copilot je často součástí firemní licence. Zeptejte se IT.</p></div>
+<p><strong>Volitelně:</strong> <strong>Relay.app</strong> nebo <strong>n8n</strong> pro workflow automatizace — jen pokud vás zajímá propojování aplikací.</p>
+<h3 class="subsection-title" id="váš-výstup">Váš výstup</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Vyzkoušený chat na vlastním dokumentu nebo datech</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Pochopení rozdílů mezi chatem a pokročilými nástroji</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Vyzkoušený Replit nebo Lovable <strong>a</strong> Cursor nebo Copilot (nebo poznámka, že se k tomu vrátíte)</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Identifikované případy z vaší práce, kde potřebujete víc než chat</label></li>
+</ul>
+<div class="selling-line"><p>📦 <strong>Tipy navíc</strong></p></div>
+<div class="selling-line"><p>- Podrobný postup pro Replit, Cursor a další nástroje najdete v <span class="inline-code">podklady-workbook/Zaregistrujte se do pokročilých nástrojů - úkol 3 (pro pokročilé).md</span></p></div>
+<div class="selling-line"><p>- Detailní rozhodovací matici najdete v <span class="inline-code">podklady-workbook/metodika-data-dokumenty.md</span></p></div>
+<h3 class="subsection-title" id="ies-co-si-odnášíte">IES — Co si odnášíte</h3>
+<ul class="bullet-list">
+  <li>💡 <strong>Inspirace:</strong> Co mě zaujalo:</li>
+  <li>🧪 <strong>Experiment:</strong> Co zkusím zítra v práci:</li>
+  <li>💬 <strong>Sdílení:</strong> Komu o tom řeknu:</li>
+</ul>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<div class="exercise-card" id="cviceni-7">
+<div class="accent-image-left"><img src="images/20.png" alt="" loading="lazy"></div>
+<h2 class="exercise-title">Cvičení 7: Vybudujte si druhý mozek (3C Framework)</h2>
+<div class="selling-line"><p><strong>Zdroj:</strong> <span class="inline-code">podklady-workbook/Přehled nástrojů_ Jak na druhý mozek s AI.md</span> (nástroje a rámec 3C dle knihy / FAIL)</p></div>
+<p>></p>
+<div class="selling-line"><p><strong>💡 Vybudujte si systém, kde žádná informace nezapadne — zachyťte, zpracujte, propojte.</strong></p></div>
+<p>></p>
+<div class="selling-line"><p>📚 <em>Koncept z knihy: 3C Framework — Capture, Clean, Connect</em></p></div>
+<p><strong>⏱️ 30–45 minut · Úroveň: Střední</strong></p>
+<p><strong>Cíl:</strong> Nastavit si kompletní systém pro práci s informacemi podle 3C Frameworku: <strong>Capture</strong> (zachytit) → <strong>Clean</strong> (zpracovat) → <strong>Connect</strong> (propojit).</p>
+<div class="selling-line"><p><em>„Neexistuje jeden ‚správný' nástroj — každý má jiný styl práce a preference. Je důležité vyzkoušet si různé možnosti a vybrat si ten, který nejlépe vyhovuje vašemu způsobu myšlení a práce."</em> — z podkladu Přehled nástrojů</p></div>
+<h3 class="subsection-title" id="co-uděláte">Co uděláte</h3>
+<p>Projdete si tři pilíře práce s informacemi, vyberete si vhodné nástroje a nastavíte si fungující systém. Na začátek: vzpomínáte si na prompty a pravidla z předchozích cvičení? Ty budou první věci, které do svého systému uložíte.</p>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<h3 class="subsection-title" id="krok-1-capture-zachycení-informací">Krok 1: CAPTURE — Zachycení informací</h3>
+<p>Cíl: Mít systém, kam rychle uložíte cokoliv důležitého.</p>
+<p><strong>Vyberte si nástroje:</strong></p>
+<div class="table-wrapper"><table class="data-table">
+<thead><tr>
+  <th>Kategorie</th>
+  <th>Nástroje</th>
+  <th>Tip</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td><strong>To-do listy</strong></td>
+  <td>Apple Reminders, Google Tasks, Microsoft To Do</td>
+  <td>Vyberte podle ekosystému, který používáte</td>
+</tr>
+<tr>
+  <td><strong>Poznámkové bloky</strong></td>
+  <td>Notion, OneNote, Evernote, Obsidian, Google Keep</td>
+  <td>Jeden hlavní stačí — nezapomeňte mít i osobní (nejen firemní)</td>
+</tr>
+<tr>
+  <td><strong>Přepisy schůzek</strong></td>
+  <td>Microsoft Teams Copilot, TLDV, Fireflies.ai</td>
+  <td>Vyzkoušejte na jedné testovací schůzce</td>
+</tr>
+</tbody></table></div>
+<p><strong>Váš úkol:</strong></p>
+<ol class="numbered-list">
+  <li>Vyberte si jeden nástroj pro to-do a jeden poznámkový blok</li>
+  <li>Nainstalujte na telefon i počítač</li>
+  <li>Uložte si první 3 věci — a začněte tím, co už máte:</li>
+</ol>
+<ul class="bullet-list">
+  <li>📌 Pravidla pro ověřování AI z Cvičení 3</li>
+  <li>📌 Prompt, který vám fungoval z Cvičení 2 nebo 5</li>
+  <li>📌 Rozhodnutí „kdy který nástroj" z Cvičení 5</li>
+</ul>
+<ol class="numbered-list">
+  <li>Vytvořte si základní strukturu složek:</li>
+</ol>
+<div class="code-block"><pre><code>📁 Projekty
+  📁 Projekt A
+  📁 Projekt B
+📁 Reference
+  📁 Články
+  📁 Nástroje
+  📁 AI Prompty ← sem ukládejte, co funguje
+📁 Osobní
+  📁 Nápady
+  📁 Učení</code></pre></div>
+<hr class="divider">
+<h3 class="subsection-title" id="krok-2-clean-zpracování-informací">Krok 2: CLEAN — Zpracování informací</h3>
+<p>Cíl: Naučit se efektivně zpracovávat uložené informace pomocí AI.</p>
+<p><strong>Převod formátů:</strong></p>
+<ul class="bullet-list">
+  <li>PDF → Markdown: Nahrajte PDF do Claude/ChatGPT, požádejte o převod</li>
+  <li>Excel → CSV: Použijte Cursor nebo ChatGPT Code Interpreter</li>
+</ul>
+<p><strong>Zpracování schůzek:</strong></p>
+<p>Nahrajte přepis schůzky do AI a požádejte:</p>
+<p><em>"Vytvoř z tohoto přepisu: shrnutí hlavních bodů, seznam akčních bodů s přiřazenými lidmi, klíčová rozhodnutí."</em></p>
+<p><strong>Vytváření šablon:</strong></p>
+<ol class="numbered-list">
+  <li>Najděte 3–5 podobných dokumentů (emaily, reporty)</li>
+  <li>Nahrajte do AI</li>
+  <li>Požádejte: <em>"Vytvoř šablonu na základě těchto dokumentů, která zachytí jejich strukturu a styl."</em></li>
+</ol>
+<p><strong>Organizace souborů (pro pokročilé):</strong></p>
+<p>V Cursoru můžete: <em>"Organizuj tyto soubory do složek podle typu a data"</em> — nejdřív na kopii dat!</p>
+<p><strong>Váš úkol:</strong></p>
+<ol class="numbered-list">
+  <li>Vyzkoušejte převod alespoň jednoho formátu</li>
+  <li>Zpracujte přepis schůzky (pokud máte k dispozici)</li>
+  <li>Vytvořte šablonu z existujících dokumentů</li>
+</ol>
+<hr class="divider">
+<h3 class="subsection-title" id="krok-3-connect-propojení-informací">Krok 3: CONNECT — Propojení informací</h3>
+<p>Cíl: Propojit uložené informace pomocí AI asistentů a znalostních bází.</p>
+<p><strong>Vytvořte AI asistenta s vašimi dokumenty:</strong></p>
+<div class="table-wrapper"><table class="data-table">
+<thead><tr>
+  <th>Platforma</th>
+  <th>Jak na to</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td><strong>ChatGPT GPTs</strong></td>
+  <td>Explore GPTs → Create → v „Knowledge" nahrajte dokumenty → v „Instructions" popište, jak má pracovat</td>
+</tr>
+<tr>
+  <td><strong>Claude Projects</strong></td>
+  <td>Projects → New Project → přidejte dokumenty → začněte konverzaci</td>
+</tr>
+<tr>
+  <td><strong>NotebookLM</strong></td>
+  <td>Nahrajte dokumenty → ptejte se na obsah</td>
+</tr>
+</tbody></table></div>
+<p><strong>Váš úkol:</strong></p>
+<ol class="numbered-list">
+  <li>Vytvořte asistenta/projekt s 3–5 vašimi dokumenty</li>
+  <li>Zeptejte se na konkrétní informace z dokumentů</li>
+  <li>Zkontrolujte, zda odpovědi odpovídají obsahu (Cvičení 3!)</li>
+  <li>Volitelně: vytvořte FAQ chatbot — shromážděte FAQ a odpovědi, vytvořte z nich GPT/Project/Gem</li>
+</ol>
+<h3 class="subsection-title" id="výstup-celého-cvičení">Výstup celého cvičení</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Nastavený systém pro zachycení informací (to-do + poznámky)</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Uložené výstupy z předchozích cvičení (prompty, pravidla, rozhodnutí)</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Vyzkoušené zpracování (převod formátu nebo šablona)</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Vytvořený AI asistent s vašimi dokumenty</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Základní struktura organizace informací</label></li>
+</ul>
+<div class="selling-line"><p>📦 <strong>Tipy navíc</strong></p></div>
+<div class="selling-line"><p>- Kompletní přehled nástrojů pro druhý mozek: <span class="inline-code">podklady-workbook/Přehled nástrojů_ Jak na druhý mozek s AI.md</span></p></div>
+<div class="selling-line"><p>- Pokročilé nástroje pro web scraping a extrakci dat: Firecrawl, Exa, Apify</p></div>
+<div class="selling-line"><p>- Podrobné 3C materiály: CAPTURE (5 cvičení), CLEAN (6 cvičení), CONNECT (6 cvičení) — v interní znalostní bázi FAIL</p></div>
+<h3 class="subsection-title" id="ies-co-si-odnášíte">IES — Co si odnášíte</h3>
+<ul class="bullet-list">
+  <li>💡 <strong>Inspirace:</strong> Co mě zaujalo:</li>
+  <li>🧪 <strong>Experiment:</strong> Co zkusím zítra v práci:</li>
+  <li>💬 <strong>Sdílení:</strong> Komu o tom řeknu:</li>
+</ul>
+<hr class="divider">
+<div class="exercise-card" id="cviceni-8">
+<div class="accent-image"><img src="images/24.png" alt="" loading="lazy"></div>
+<h2 class="exercise-title">Cvičení 8: Vytvořte si vlastního AI asistenta</h2>
+<div class="selling-line"><p><strong>Zdroj:</strong> <span class="inline-code">podklady-workbook/ChatGPT GPTs - Kompletní průvodce.md</span> a dle platformy také <span class="inline-code">Claude Projects - Kompletní průvodce.md</span>, <span class="inline-code">Gemini Gems - Kompletní průvodce.md</span>, <span class="inline-code">Microsoft Copilot Agents - Kompletní průvodce.md</span></p></div>
+<p>></p>
+<div class="selling-line"><p><strong>💡 Vytvořte si AI, který zná vaši práci, váš styl a vaše potřeby — a používejte ho každý den.</strong></p></div>
+<p>></p>
+<div class="selling-line"><p>📚 <em>Koncept z knihy: Superpowered Professionals — profesionálové se superschopnostmi díky AI</em></p></div>
+<p><strong>⏱️ 20–30 minut · Úroveň: Střední</strong></p>
+<p><strong>Cíl:</strong> Vytvořit specializovaného AI asistenta, který řeší konkrétní úkol z vaší práce.</p>
+<h3 class="subsection-title" id="co-uděláte">Co uděláte</h3>
+<p>Vytvoříte si vlastního AI asistenta v jednom z hlavních nástrojů. Asistent bude zaměřený na konkrétní úkol — od analýzy reportů přes psaní emailů až po brainstorming.</p>
+<h3 class="subsection-title" id="proč-je-to-důležité">Proč je to důležité</h3>
+<ul class="bullet-list">
+  <li><strong>Specializace</strong> — asistent je zaměřený na váš konkrétní úkol</li>
+  <li><strong>Konzistence</strong> — stejný styl a přístup pokaždé</li>
+  <li><strong>Úspora času</strong> — nemusíte opakovat instrukce</li>
+  <li><strong>Sdílení</strong> — můžete asistenta sdílet s týmem</li>
+</ul>
+<h3 class="subsection-title" id="postup">Postup</h3>
+<p><strong>1. Vyberte si platformu</strong></p>
+<p>Doporučujeme začít s <strong>ChatGPT GPTs</strong> — je to nejjednodušší: My GPTs → Create a GPT → vložte instrukce do Instructions.</p>
+<p><strong>2. Definujte účel asistenta</strong></p>
+<p>Zamyslete se:</p>
+<ul class="bullet-list">
+  <li>Jaký konkrétní úkol má řešit? (analýza reportů, psaní emailů, brainstorming, code review…)</li>
+  <li>Jaký styl komunikace preferujete?</li>
+  <li>Jaké informace potřebuje znát? (můžete nahrát dokumenty)</li>
+</ul>
+<div class="tip-block"><p>💡 <strong>Tip:</strong> Můžete použít Prompt Generator z Cvičení 2 — zadejte mu, jakého asistenta chcete, a on vám vytvoří instrukce.</p></div>
+<p><strong>3. Vytvořte a otestujte</strong></p>
+<ol class="numbered-list">
+  <li>Otevřete vybranou platformu</li>
+  <li>Vytvořte nového asistenta s instrukcemi popisujícími jeho roli</li>
+  <li>Nahrajte relevantní dokumenty (pokud jsou potřeba)</li>
+  <li>Vyzkoušejte na několika úkolech</li>
+</ol>
+<p><strong>4. Iterujte — vylepšete instrukce</strong></p>
+<p>Tohle je nejdůležitější krok. První verze nebude dokonalá. Všimněte si:</p>
+<ul class="bullet-list">
+  <li>Kde asistent odpovídá dobře?</li>
+  <li>Kde odpovídá špatně nebo vágně?</li>
+  <li>Co mu chybí?</li>
+</ul>
+<p>Upravte instrukce a zkuste znovu. Opakujte, dokud nebudete spokojeni.</p>
+<h3 class="subsection-title" id="váš-výstup">Váš výstup</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Vytvořený vlastní AI asistent na jedné z platforem</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Vyzkoušený na reálných úkolech</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Vylepšený alespoň jednou iterací instrukcí</label></li>
+</ul>
+<div class="selling-line"><p>📦 <strong>Tipy navíc</strong></p></div>
+<div class="selling-line"><p>- <strong>Claude Projects:</strong> Skvělé pro práci s dokumenty, velký kontext (200k tokenů), Artifacts. Projects → New Project → Custom Instructions + dokumenty.</p></div>
+<div class="selling-line"><p>- <strong>Gemini Gems:</strong> Integrace s Google Workspace. Gems → New Gem → vložte instrukce.</p></div>
+<div class="selling-line"><p>- <strong>Microsoft Copilot Agents:</strong> Integrace s M365. Create Agent → vložte instrukce.</p></div>
+<div class="selling-line"><p>- Podrobné průvodce pro každou platformu najdete v <span class="inline-code">podklady-workbook/</span> (ChatGPT GPTs, Claude Projects, Gemini Gems, Copilot Agents).</p></div>
+<h3 class="subsection-title" id="ies-co-si-odnášíte">IES — Co si odnášíte</h3>
+<ul class="bullet-list">
+  <li>💡 <strong>Inspirace:</strong> Co mě zaujalo:</li>
+  <li>🧪 <strong>Experiment:</strong> Co zkusím zítra v práci:</li>
+  <li>💬 <strong>Sdílení:</strong> Komu o tom řeknu:</li>
+</ul>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<div class="exercise-card" id="cviceni-9">
+<div class="accent-image-left"><img src="images/03.png" alt="" loading="lazy"></div>
+<h2 class="exercise-title">Cvičení 9: Sestavte si svůj osobní AI setup</h2>
+<div class="selling-line"><p><strong>Zdroj:</strong> syntéza cvičení 0–8; doplňkově agentní prompty v <span class="inline-code">podklady-workbook/</span> (např. <span class="inline-code">agent-context-builder (kopie).md</span>, <span class="inline-code">work-breakdown-structure-agent.md</span> a související <span class="inline-code">agent-*.md</span>)</p></div>
+<p>></p>
+<div class="selling-line"><p><strong>💡 Shrňte vše, co jste se naučili, do jednoho přehledu — vašeho osobního AI toolkitu, který budete používat každý den.</strong></p></div>
+<p>></p>
+<div class="selling-line"><p>📚 <em>Koncept z knihy: Digital Leader — člověk, který spojí expertízu s technologiemi</em></p></div>
+<p><strong>⏱️ 20–30 minut · Úroveň: Všechny</strong></p>
+<p><strong>Cíl:</strong> Projít si výstupy ze všech předchozích cvičení a sestavit kompletní přehled vašeho AI setupu — jaké nástroje používáte, na co, jaké prompty vám fungují, jakého asistenta máte.</p>
+<h3 class="subsection-title" id="co-uděláte">Co uděláte</h3>
+<p>Zmapujete vše, co jste se naučili a vytvořili v Cvičeních 0–8, a sestavíte z toho svůj osobní AI toolkit.</p>
+<h3 class="subsection-title" id="postup">Postup</h3>
+<p><strong>1. Zmapujte, co máte (10 min)</strong></p>
+<p>Na základě předchozích cvičení sepište:</p>
+<div class="table-wrapper"><table class="data-table">
+<thead><tr>
+  <th>Oblast</th>
+  <th>Nástroj / výstup</th>
+  <th>Na co ho používám</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td>Hlavní AI chat</td>
+  <td><em>(z Cvičení 5)</em></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Druhý AI chat</td>
+  <td><em>(z Cvičení 5)</em></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Poznámkový blok</td>
+  <td><em>(z Cvičení 7)</em></td>
+  <td></td>
+</tr>
+<tr>
+  <td>To-do list</td>
+  <td><em>(z Cvičení 7)</em></td>
+  <td></td>
+</tr>
+<tr>
+  <td>AI asistent</td>
+  <td><em>(z Cvičení 8)</em></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Prompt Generator</td>
+  <td><em>(z Cvičení 2)</em></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Pokročilé nástroje</td>
+  <td><em>(z Cvičení 6)</em></td>
+  <td></td>
+</tr>
+<tr>
+  <td>Specializovaný nástroj</td>
+  <td><em>(z Cvičení 4)</em></td>
+  <td></td>
+</tr>
+</tbody></table></div>
+<p><strong>2. Sepište svoje funkční prompty (5 min)</strong></p>
+<p>Projděte si cvičení a zkopírujte si prompty, které vám fungovaly:</p>
+<ul class="bullet-list">
+  <li>Prompt z Cvičení 0 (první problém — co jste zadali a fungovalo)</li>
+  <li>Prompt z Cvičení 4 (hledání nástroje)</li>
+  <li>Prompt z Cvičení 5 (porovnání nástrojů)</li>
+  <li>Prompt z Cvičení 6 (zpracování dokumentu)</li>
+</ul>
+<p>Uložte je do svého poznámkového nástroje z Cvičení 7 (3C — Capture!).</p>
+<p><strong>3. Sepište pravidla pro práci s AI (3 min)</strong></p>
+<ul class="bullet-list">
+  <li>Vaše 3 pravidla pro ověřování AI výstupů (z Cvičení 3)</li>
+  <li>Rozhodnutí, kdy který nástroj (z Cvičení 5)</li>
+  <li>Kdy chat a kdy pokročilé nástroje (z Cvičení 6)</li>
+</ul>
+<p><strong>4. Definujte workflow (5 min)</strong></p>
+<p>Napište si jednoduchá pravidla pro sebe:</p>
+<ul class="bullet-list">
+  <li>Když potřebuji rychlou odpověď → <em>[nástroj]</em></li>
+  <li>Když potřebuji analyzovat dokument → <em>[nástroj]</em></li>
+  <li>Když potřebuji najít nový nástroj → <em>[postup z Cvičení 4]</em></li>
+  <li>Když dostanu AI výstup → <em>[ověřovací pravidla z Cvičení 3]</em></li>
+  <li>Když chci kvalitní prompt → <em>[Prompt Generator z Cvičení 2]</em></li>
+</ul>
+<p><strong>5. Naplánujte další kroky (5 min)</strong></p>
+<p>Na základě zkušeností z celého sešitu:</p>
+<ul class="bullet-list">
+  <li>Co chcete vyzkoušet příště?</li>
+  <li>Jaký asistent by vám ještě pomohl?</li>
+  <li>Jakou automatizaci byste chtěli vytvořit?</li>
+  <li>Chtěli byste projít Sešit 2 (pro manažery)?</li>
+</ul>
+<p><strong>6. Sdílejte zkušenosti</strong></p>
+<p>Diskutujte s kolegy o tom, co jste se naučili. Inspirujte se navzájem — to je podstata IES frameworku.</p>
+<h3 class="subsection-title" id="váš-výstup">Váš výstup</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Kompletní tabulka vašeho AI toolkitu</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Seznam funkčních promptů uložený v poznámkovém nástroji</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Pravidla pro práci s AI (ověřování, workflow)</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Plán dalších kroků</label></li>
+</ul>
+<h3 class="subsection-title" id="ies-co-si-odnášíte">IES — Co si odnášíte</h3>
+<ul class="bullet-list">
+  <li>💡 <strong>Inspirace:</strong> Co mě zaujalo:</li>
+  <li>🧪 <strong>Experiment:</strong> Co zkusím zítra v práci:</li>
+  <li>💬 <strong>Sdílení:</strong> Komu o tom řeknu:</li>
+</ul>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<div class="resources-section" id="další-zdroje">
+<h2 class="resources-title">📚 Další zdroje</h2>
+<h3 class="subsection-title" id="průvodce-pro-ai-nástroje">Průvodce pro AI nástroje</h3>
+<ul class="bullet-list">
+  <li><strong>ChatGPT GPTs</strong> — Kompletní průvodce vytvářením vlastních GPTs</li>
+  <li><strong>Claude Projects</strong> — Kompletní průvodce prací s Claude Projects</li>
+  <li><strong>Gemini Gems</strong> — Kompletní průvodce vytvářením Gems</li>
+  <li><strong>Microsoft Copilot Agents</strong> — Kompletní průvodce prací s Copilot Agents</li>
+</ul>
+<h3 class="subsection-title" id="3c-framework-podrobné-materiály">3C Framework — podrobné materiály</h3>
+<ul class="bullet-list">
+  <li><strong>CAPTURE</strong> — Ukládání informací (5 cvičení)</li>
+  <li><strong>CLEAN</strong> — Zpracování informací (6 cvičení)</li>
+  <li><strong>CONNECT</strong> — Propojování informací (6 cvičení)</li>
+</ul>
+<h3 class="subsection-title" id="specializovaní-ai-agenti">Specializovaní AI agenti</h3>
+<ul class="bullet-list">
+  <li><strong>Context Builder</strong> — Vytváření kontextových dokumentů</li>
+  <li><strong>Knowledge Extractor</strong> — Extrakce znalostí z dokumentů</li>
+  <li><strong>Product Architect</strong> — Architektura produktů</li>
+  <li><strong>Prompt Architect</strong> — Tvorba promptů</li>
+  <li><strong>Research to Prompt</strong> — Výzkum a tvorba promptů</li>
+  <li><strong>Expert Panel</strong> — Panel expertů pro diskusi</li>
+  <li><strong>Work Breakdown Structure</strong> — Rozpad projektů</li>
+</ul>
+<h3 class="subsection-title" id="metodiky">Metodiky</h3>
+<ul class="bullet-list">
+  <li><strong>Kdy použít chat vs. skripty</strong> — Rozhodování o nástrojích pro data a dokumenty</li>
+  <li><strong>Jak na druhý mozek s AI</strong> — Kompletní přehled nástrojů</li>
+</ul>
+<h3 class="subsection-title" id="odkazy-k-doplnění-veřejně-dostupné">Odkazy k doplnění (veřejně dostupné)</h3>
+<ul class="bullet-list">
+  <li><strong>Elite Prompt Engineer (Markdown, CZ):</strong> <a href="https://drimalka.com/wp-content/uploads/2025/09/Elite-Prompt-Engineer_CZ.md" target="_blank">https://drimalka.com/wp-content/uploads/2025/09/Elite-Prompt-Engineer_CZ.md</a> — k cvičení „AI Prompt Generator"</li>
+  <li><strong>Filip Dřímalka — web s články a materiály k AI:</strong> <a href="https://www.drimalka.com" target="_blank">https://www.drimalka.com</a></li>
+</ul>
+<p><em>Poznámka:</em> Rozšířené texty průvodců (ChatGPT GPTs, Claude Projects, Gemini Gems, Copilot Agents), metodiky a agentní prompty máte v interní znalostní bázi / balíčku k programu FAIL — v tomto sešitu jsou názvy a úkoly; plné dokumenty používejte jako podklady při práci s asistenty.</p>
+</div><!-- /resources -->
+<hr class="divider">
+<div class="conclusion-section" id="závěr">
+<div class="conclusion-icon">🎓</div>
+<h2 class="conclusion-heading">Závěr</h2>
+<p>Gratulujeme — prošli jste celým (ne)pracovním sešitem.</p>
+<p>Na konci byste měli mít:</p>
+<ul class="bullet-list">
+  <li>✅ <strong>AI toolkit</strong> — kompletní přehled vašich nástrojů a promptů</li>
+  <li>✅ <strong>Pravidla</strong> — kdy který nástroj, jak ověřovat výstupy</li>
+  <li>✅ <strong>AI asistent</strong> — vlastní specializovaný asistent pro vaši práci</li>
+  <li>✅ <strong>Druhý mozek</strong> — systém pro ukládání a propojování informací</li>
+  <li>✅ <strong>Plán</strong> — co vyzkoušet dál</li>
+</ul>
+<p><strong>Pamatujte:</strong></p>
+<ul class="bullet-list">
+  <li>AI je nástroj, ne náhrada — používejte ho k rozšíření svých schopností</li>
+  <li>Začněte malé — i malé automatizace přinášejí hodnotu</li>
+  <li>Experimentujte — FAIL = First Attempt In Learning</li>
+  <li>Sdílejte — IES: Inspirace → Experiment → Sdílení</li>
+</ul>
+<p><strong>Další kroky:</strong></p>
+<ul class="bullet-list">
+  <li>Pokračujte v experimentování s AI</li>
+  <li>Rozšiřujte své dovednosti a sdílejte zkušenosti s týmem</li>
+  <li>Vytvářejte nové automatizace a asistenty</li>
+  <li>Zvažte pokročilé nástroje (Replit, Cursor) pro větší projekty</li>
+  <li>Projděte si <strong>Sešit 2 (Pro manažery)</strong>, pokud vedete tým</li>
+</ul>
+<p>Hodně úspěchů na vaší cestě s AI.</p>
+<hr class="divider">
+<p><em>Budoucnost nepráce — (ne)pracovní sešit · Pro každého · v2 · © 2025 Filip Dřímalka</em></p>
+    </div>
+
+    <div class="footer">
+        <p>Budoucnost nepráce — (ne)pracovní sešit · Pro každého · v2 · Od teorie k praxi</p>
+        <p>© 2025 Filip Dřímalka · Všechna práva vyhrazena</p>
+    </div>
+</div>
+</body>
+</html>

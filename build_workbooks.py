@@ -2,6 +2,7 @@
 """Build both workbook HTMLs from Markdown sources."""
 
 import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -178,6 +179,18 @@ SESIT1_IMAGES = {
     8: ("accent-image", "images/24.png"),       # Cvičení 8 – setup
 }
 
+# For Sešit 1 v2 (exercises 0–9, decorative images reused)
+SESIT1_V2_IMAGES = {
+    1: ("accent-image", "images/01.png"),
+    2: ("accent-image-left", "images/05.png"),
+    3: ("accent-image", "images/09.png"),
+    5: ("accent-image-left", "images/14.png"),
+    6: ("accent-image", "images/17.png"),
+    7: ("accent-image-left", "images/20.png"),
+    8: ("accent-image", "images/24.png"),
+    9: ("accent-image-left", "images/03.png"),
+}
+
 # For Sešit 2
 SESIT2_IMAGES = {
     1: ("accent-image", "images/03.png"),
@@ -252,8 +265,13 @@ def convert_md_to_html(
     locale="cs",
     cover_title=None,
     preface_html=None,
+    nav_home_href="workbook-repo/index.html",
 ):
-    """Convert a workbook Markdown to styled HTML. locale: 'cs' or 'en'."""
+    """Convert a workbook Markdown to styled HTML. locale: 'cs' or 'en'.
+
+    nav_home_href: link for the workbook title in the top nav (rozcestník).
+    Default points from WORKBOOKS/*.html to workbook-repo/index.html; use index.html for files deployed inside workbook-repo.
+    """
     lines = md_content.split('\n')
     if cover_title is None:
         cover_title = "Budoucnost nepráce" if locale == "cs" else "The Future of No Work"
@@ -544,8 +562,8 @@ def convert_md_to_html(
 
     body_html = '\n'.join(html_parts)
 
-    # Build navigation
-    nav_html = f'<a href="#" class="nav-brand">📖 {badge}</a>\n'
+    # Build navigation (brand → rozcestník / hub)
+    nav_html = f'<a href="{nav_home_href}" class="nav-brand">📖 {badge}</a>\n'
     for slug, label in nav_items:
         nav_html += f'    <a href="#{slug}">{label}</a>\n'
 
@@ -602,6 +620,11 @@ def convert_md_to_html(
     return html
 
 
+def _html_for_repo_deploy(html: str) -> str:
+    """Paths inside workbook-repo: hub is index.html at the same level as sešit HTML."""
+    return html.replace('href="workbook-repo/index.html"', 'href="index.html"')
+
+
 def main():
     # Read Markdown sources (same folder as this script)
     base = Path(__file__).resolve().parent
@@ -622,6 +645,26 @@ def main():
     out1 = base / 'SESIT 1 - Pro kazdeho - KOMPLETNI.html'
     out1.write_text(html1, encoding='utf-8')
     print(f'✅ Sešit 1: {out1}  ({len(html1)} chars, {html1.count(chr(10))} lines)')
+
+    # Build Sešit 1 v2
+    md1v2_path = base / 'SESIT 1 - Pro kazdeho - v2.md'
+    html1v2 = None
+    if md1v2_path.is_file():
+        md1v2 = md1v2_path.read_text(encoding='utf-8')
+        html1v2 = convert_md_to_html(
+            md1v2,
+            images_map=SESIT1_V2_IMAGES,
+            title='Budoucnost nepráce — (ne)pracovní sešit · Pro každého · v2',
+            subtitle='(ne)pracovní sešit — od teorie k praxi · vylepšená verze',
+            badge='Pro každého · v2',
+            footer_text='Budoucnost nepráce — (ne)pracovní sešit · Pro každého · v2 · Od teorie k praxi'
+        )
+        out1v2 = base / 'SESIT 1 - Pro kazdeho - v2 - KOMPLETNI.html'
+        out1v2.write_text(html1v2, encoding='utf-8')
+        print(f'✅ Sešit 1 v2: {out1v2}  ({len(html1v2)} chars, {html1v2.count(chr(10))} lines)')
+        deploy_v2 = base / 'sesit-1-pro-kazdeho-v2.html'
+        deploy_v2.write_text(_html_for_repo_deploy(html1v2), encoding='utf-8')
+        print(f'📎 Deploy: {deploy_v2.name}')
 
     # Build Sešit 2
     html2 = convert_md_to_html(
@@ -667,6 +710,29 @@ def main():
         out2e = base / 'SESIT 2 - For managers - COMPLETE.html'
         out2e.write_text(html2_en, encoding='utf-8')
         print(f'✅ Workbook 2 (EN): {out2e}')
+
+    # Deploy copies: same HTML as canonical names in workbook-repo/ (direct URLs on Vercel)
+    repo = base / 'workbook-repo'
+    if repo.is_dir():
+        deploy = [
+            (html1, 'sesit-1-pro-kazdeho.html'),
+            (html2, 'sesit-2-pro-manazery.html'),
+        ]
+        if html1v2:
+            deploy.append((html1v2, 'sesit-1-pro-kazdeho-v2.html'))
+        if md1_en.is_file():
+            deploy.append((html1_en, 'sesit-1-for-everyone.html'))
+        if md2_en.is_file():
+            deploy.append((html2_en, 'sesit-2-for-managers.html'))
+        for content, name in deploy:
+            dest = repo / name
+            dest.write_text(_html_for_repo_deploy(content), encoding='utf-8')
+            print(f'📎 Repo: {dest.name}')
+        images_src = base / 'images'
+        images_dst = repo / 'images'
+        if images_src.is_dir():
+            shutil.copytree(images_src, images_dst, dirs_exist_ok=True)
+            print(f'📎 Repo: images/ synced')
 
 
 if __name__ == '__main__':
