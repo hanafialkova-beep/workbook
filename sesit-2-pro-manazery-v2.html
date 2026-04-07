@@ -170,6 +170,7 @@ a:hover { border-bottom-color: #E53935; }
     <a href="#cviceni-4">Cv. 4</a>
     <a href="#cviceni-5">Cv. 5</a>
     <a href="#cviceni-6">Cv. 6</a>
+    <a href="#cviceni-7">Cv. 7</a>
 
     </nav>
 
@@ -201,8 +202,9 @@ a:hover { border-bottom-color: #E53935; }
   <li><a href="#cviceni-2">Cvičení 2: Nastartujte AI adopci v týmu</a></li>
   <li><a href="#cviceni-3">Cvičení 3: Najděte svého AI šampióna</a></li>
   <li><a href="#cviceni-4">Cvičení 4: Vytvořte aplikaci nebo automatizaci pro tým</a></li>
-  <li><a href="#cviceni-5">Cvičení 5: Práce s AI agenty</a></li>
-  <li><a href="#cviceni-6">Cvičení 6: Zhodnoťte pokrok a plánujte</a></li>
+  <li><a href="#cviceni-5">Cvičení 5: Automatizujte opakující se procesy</a></li>
+  <li><a href="#cviceni-6">Cvičení 6: Práce s AI agenty</a></li>
+  <li><a href="#cviceni-7">Cvičení 7: Zhodnoťte pokrok a plánujte</a></li>
 </ol>
 </div>
 
@@ -251,11 +253,16 @@ a:hover { border-bottom-color: #E53935; }
 </tr>
 <tr>
   <td>5</td>
+  <td><strong>Automatizujte opakující se procesy</strong></td>
+  <td>45–60 min</td>
+</tr>
+<tr>
+  <td>6</td>
   <td><strong>Práce s AI agenty</strong></td>
   <td>30–45 min</td>
 </tr>
 <tr>
-  <td>6</td>
+  <td>7</td>
   <td><strong>Zhodnoťte pokrok a plánujte</strong></td>
   <td>30–45 min</td>
 </tr>
@@ -623,7 +630,107 @@ Formát: HTML report, který můžu vložit do prezentace.</code></pre></div>
 <hr class="divider">
 <div class="exercise-card" id="cviceni-5">
 <div class="accent-image"><img src="images/22.png" alt="" loading="lazy"></div>
-<h2 class="exercise-title">Cvičení 5: Práce s AI agenty</h2>
+<h2 class="exercise-title">Cvičení 5: Automatizujte opakující se procesy</h2>
+<div class="selling-line"><p><strong>💡 Automatizujte rutinní procesy a ušetřete celému týmu desítky hodin měsíčně.</strong></p></div>
+<p><strong>⏱️ 45–60 minut · Úroveň: Pokročilá</strong></p>
+<p><strong>Cíl:</strong> Identifikovat a navrhnout komplexní automatizaci, která propojí více kroků a nástrojů.</p>
+<h3 class="subsection-title" id="co-uděláte">Co uděláte</h3>
+<p>Zmapujete opakující se proces krok po kroku, rozhodnete, co lze automatizovat, a implementujete alespoň jeden krok.</p>
+<h3 class="subsection-title" id="kdy-se-automatizace-vyplatí">Kdy se automatizace vyplatí</h3>
+<p>Automatizace dává smysl, když:</p>
+<ul class="bullet-list">
+  <li>Proces se opakuje min. 1× týdně</li>
+  <li>Obsahuje 3+ kroky</li>
+  <li>Kroky jsou předvídatelné (jasná pravidla)</li>
+  <li>Proces zabírá 30+ minut při manuálním zpracování</li>
+</ul>
+<h3 class="subsection-title" id="postup">Postup</h3>
+<p><strong>1. Zmapujte proces</strong></p>
+<p>Vyberte opakující se proces a zapište každý krok:</p>
+<p><strong>Příklad — Měsíční reporting:</strong></p>
+<ol class="numbered-list">
+  <li>Stáhni data z CRM</li>
+  <li>Exportuj data z účetnictví</li>
+  <li>Spoj obě tabulky</li>
+  <li>Spočítej KPIs (obrat, marže, konverze)</li>
+  <li>Vytvoř graf a tabulky</li>
+  <li>Napiš komentář k výsledkům</li>
+  <li>Vlož do PowerPoint šablony</li>
+  <li>Pošli emailem managementu</li>
+</ol>
+<p><strong>2. Identifikujte, co lze automatizovat</strong></p>
+<p>Pro každý krok zhodnoťte:</p>
+<ul class="bullet-list">
+  <li>Lze ho automatizovat? (stažení dat, výpočty — ano; strategický komentář — spíše ne)</li>
+  <li>Jaký nástroj na to použít?</li>
+</ul>
+<div class="table-wrapper"><table class="data-table">
+<thead><tr>
+  <th>Typ úkolu</th>
+  <th>Nástroj/Přístup</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td><strong>Stahování dat</strong></td>
+  <td>API, Power Automate, skripty</td>
+</tr>
+<tr>
+  <td><strong>Zpracování tabulek</strong></td>
+  <td>ChatGPT Code Interpreter, Python, Excel macros</td>
+</tr>
+<tr>
+  <td><strong>Generování textu</strong></td>
+  <td>ChatGPT, Claude, Copilot</td>
+</tr>
+<tr>
+  <td><strong>Prezentace</strong></td>
+  <td>Gamma, Beautiful.ai, Copilot v PowerPointu</td>
+</tr>
+<tr>
+  <td><strong>Odesílání</strong></td>
+  <td>Power Automate, Gmail automation</td>
+</tr>
+<tr>
+  <td><strong>Celý workflow</strong></td>
+  <td>Make.com, Zapier, n8n</td>
+</tr>
+</tbody></table></div>
+<p><strong>3. Začněte s jedním krokem</strong></p>
+<p>Neautomatizujte vše najednou. Vyberte jeden krok a automatizujte ho:</p>
+<p><strong>Příklad — Automatický report:</strong></p>
+<p>Nahrajte surová data do ChatGPT (Code Interpreter) a požádejte:</p>
+<div class="code-block"><pre><code>Analyzuj tato data a vytvoř:
+1. Tabulku s klíčovými KPIs (obrat, růst MoM, počet zákazníků)
+2. Grafy: obrat po měsících, top 5 produktů
+3. Komentář ke každému KPI (2–3 věty)
+Formát: HTML report, který můžu vložit do prezentace.</code></pre></div>
+<p><strong>4. Postupně rozšiřujte</strong></p>
+<p>Jakmile funguje jeden krok, přidejte další. Postupně propojte kroky do workflow.</p>
+<div class="tip-block"><p>💡 <strong>Tip:</strong> Dokumentujte každý automatizovaný krok — kdo ho vytvořil, jak funguje, co dělat, když selže.</p></div>
+<div class="warning-block"><p>⚠️ <strong>BEZPEČNOST:</strong></p></div>
+<ul class="bullet-list">
+  <li>Automatizace s firemními daty musí být schválena IT</li>
+  <li>Výstupy AI vždy kontrolujte před odesláním</li>
+  <li>Mějte záložní manuální postup pro případ výpadku</li>
+</ul>
+<h3 class="subsection-title" id="váš-výstup">Váš výstup</h3>
+<ul class="checklist">
+  <li class="checklist-item"><label><input type="checkbox"> Zmapovaný proces krok po kroku</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Identifikované kroky pro automatizaci</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Automatizovaný alespoň jeden krok</label></li>
+  <li class="checklist-item"><label><input type="checkbox"> Dokumentace postupu</label></li>
+</ul>
+<h3 class="subsection-title" id="co-si-odnášíte">Co si odnášíte</h3>
+<ul class="bullet-list">
+  <li>💡 <strong>Inspirace:</strong> Co mě zaujalo:</li>
+  <li>🧪 <strong>Experiment:</strong> Co zkusím zítra v práci:</li>
+  <li>💬 <strong>Sdílení:</strong> Komu o tom řeknu:</li>
+</ul>
+</div><!-- /exercise-card -->
+<hr class="divider">
+<div class="exercise-card" id="cviceni-6">
+<div class="accent-image-left"><img src="images/26.png" alt="" loading="lazy"></div>
+<h2 class="exercise-title">Cvičení 6: Práce s AI agenty</h2>
 <div class="selling-line"><p><strong>💡 Využijte specializované AI agenty pro manažerské úkoly — od plánování projektů po extrakci znalostí.</strong></p></div>
 <p><strong>⏱️ 30–45 minut · Úroveň: Pokročilá</strong></p>
 <p><strong>Cíl:</strong> Vyzkoušet a nasadit specializované AI agenty pro konkrétní manažerské úkoly.</p>
@@ -724,9 +831,8 @@ Chci slyšet pohledy: CTO, CFO, CISO, Head of HR, Line Manager.</code></pre></di
 </ul>
 </div><!-- /exercise-card -->
 <hr class="divider">
-<div class="exercise-card" id="cviceni-6">
-<div class="accent-image-left"><img src="images/26.png" alt="" loading="lazy"></div>
-<h2 class="exercise-title">Cvičení 6: Zhodnoťte pokrok a plánujte</h2>
+<div class="exercise-card" id="cviceni-7">
+<h2 class="exercise-title">Cvičení 7: Zhodnoťte pokrok a plánujte</h2>
 <div class="selling-line"><p><strong>💡 Změřte, co AI přineslo, a naplánujte další kroky — data přesvědčí i největší skeptiky.</strong></p></div>
 <p><strong>⏱️ 30–45 minut · Úroveň: Manažerská</strong></p>
 <p><strong>Cíl:</strong> Zhodnotit dosavadní AI adopci, změřit přínosy a vytvořit plán dalšího rozvoje.</p>
@@ -846,7 +952,7 @@ Struktura: Co jsme vyzkoušeli → Co to přineslo → Co plánujeme dál → Co
 </ul>
 <p><strong>Další kroky:</strong></p>
 <ul class="bullet-list">
-  <li>Implementujte plán z Cvičení 6</li>
+  <li>Implementujte plán z Cvičení 7</li>
   <li>Rozšiřujte automatizace</li>
   <li>Sdílejte zkušenosti napříč organizací</li>
   <li>Sledujte nové nástroje a trendy</li>

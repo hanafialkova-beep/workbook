@@ -30,8 +30,9 @@ Doporučujeme nejprve absolvovat Sešit 1 („Pro každého"), abyste měli prak
 | 2 | **Nastartujte AI adopci v týmu** | 45–60 min |
 | 3 | **Najděte svého AI šampióna** | 15–20 min |
 | 4 | **Vytvořte aplikaci nebo automatizaci pro tým** | 45–60 min |
-| 5 | **Práce s AI agenty** | 30–45 min |
-| 6 | **Zhodnoťte pokrok a plánujte** | 30–45 min |
+| 5 | **Automatizujte opakující se procesy** | 45–60 min |
+| 6 | **Práce s AI agenty** | 30–45 min |
+| 7 | **Zhodnoťte pokrok a plánujte** | 30–45 min |
 
 ---
 
@@ -349,7 +350,98 @@ Jakmile funguje jeden krok, přidejte další. Postupně propojte kroky do workf
 
 ---
 
-## Cvičení 5: Práce s AI agenty
+## Cvičení 5: Automatizujte opakující se procesy
+
+> **💡 Automatizujte rutinní procesy a ušetřete celému týmu desítky hodin měsíčně.**
+
+**⏱️ 45–60 minut · Úroveň: Pokročilá**
+
+**Cíl:** Identifikovat a navrhnout komplexní automatizaci, která propojí více kroků a nástrojů.
+
+### Co uděláte
+
+Zmapujete opakující se proces krok po kroku, rozhodnete, co lze automatizovat, a implementujete alespoň jeden krok.
+
+### Kdy se automatizace vyplatí
+
+Automatizace dává smysl, když:
+- Proces se opakuje min. 1× týdně
+- Obsahuje 3+ kroky
+- Kroky jsou předvídatelné (jasná pravidla)
+- Proces zabírá 30+ minut při manuálním zpracování
+
+### Postup
+
+**1. Zmapujte proces**
+
+Vyberte opakující se proces a zapište každý krok:
+
+**Příklad — Měsíční reporting:**
+1. Stáhni data z CRM
+2. Exportuj data z účetnictví
+3. Spoj obě tabulky
+4. Spočítej KPIs (obrat, marže, konverze)
+5. Vytvoř graf a tabulky
+6. Napiš komentář k výsledkům
+7. Vlož do PowerPoint šablony
+8. Pošli emailem managementu
+
+**2. Identifikujte, co lze automatizovat**
+
+Pro každý krok zhodnoťte:
+- Lze ho automatizovat? (stažení dat, výpočty — ano; strategický komentář — spíše ne)
+- Jaký nástroj na to použít?
+
+| Typ úkolu | Nástroj/Přístup |
+|-----------|-----------------|
+| **Stahování dat** | API, Power Automate, skripty |
+| **Zpracování tabulek** | ChatGPT Code Interpreter, Python, Excel macros |
+| **Generování textu** | ChatGPT, Claude, Copilot |
+| **Prezentace** | Gamma, Beautiful.ai, Copilot v PowerPointu |
+| **Odesílání** | Power Automate, Gmail automation |
+| **Celý workflow** | Make.com, Zapier, n8n |
+
+**3. Začněte s jedním krokem**
+
+Neautomatizujte vše najednou. Vyberte jeden krok a automatizujte ho:
+
+**Příklad — Automatický report:**
+Nahrajte surová data do ChatGPT (Code Interpreter) a požádejte:
+```
+Analyzuj tato data a vytvoř:
+1. Tabulku s klíčovými KPIs (obrat, růst MoM, počet zákazníků)
+2. Grafy: obrat po měsících, top 5 produktů
+3. Komentář ke každému KPI (2–3 věty)
+Formát: HTML report, který můžu vložit do prezentace.
+```
+
+**4. Postupně rozšiřujte**
+
+Jakmile funguje jeden krok, přidejte další. Postupně propojte kroky do workflow.
+
+💡 **Tip:** Dokumentujte každý automatizovaný krok — kdo ho vytvořil, jak funguje, co dělat, když selže.
+
+⚠️ **BEZPEČNOST:**
+- Automatizace s firemními daty musí být schválena IT
+- Výstupy AI vždy kontrolujte před odesláním
+- Mějte záložní manuální postup pro případ výpadku
+
+### Váš výstup
+
+- [ ] Zmapovaný proces krok po kroku
+- [ ] Identifikované kroky pro automatizaci
+- [ ] Automatizovaný alespoň jeden krok
+- [ ] Dokumentace postupu
+
+### Co si odnášíte
+
+- 💡 **Inspirace:** Co mě zaujalo:
+- 🧪 **Experiment:** Co zkusím zítra v práci:
+- 💬 **Sdílení:** Komu o tom řeknu:
+
+---
+
+## Cvičení 6: Práce s AI agenty
 
 > **💡 Využijte specializované AI agenty pro manažerské úkoly — od plánování projektů po extrakci znalostí.**
 
@@ -441,7 +533,7 @@ Chci slyšet pohledy: CTO, CFO, CISO, Head of HR, Line Manager.
 
 ---
 
-## Cvičení 6: Zhodnoťte pokrok a plánujte
+## Cvičení 7: Zhodnoťte pokrok a plánujte
 
 > **💡 Změřte, co AI přineslo, a naplánujte další kroky — data přesvědčí i největší skeptiky.**
 
@@ -569,7 +661,7 @@ Na konci byste měli mít:
 - Bezpečnost na prvním místě — jasná pravidla chrání firmu i zaměstnance
 
 **Další kroky:**
-- Implementujte plán z Cvičení 6
+- Implementujte plán z Cvičení 7
 - Rozšiřujte automatizace
 - Sdílejte zkušenosti napříč organizací
 - Sledujte nové nástroje a trendy
