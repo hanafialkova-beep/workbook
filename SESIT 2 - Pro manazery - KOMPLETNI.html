@@ -41,9 +41,10 @@ body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Ne
 .toc-title { font-size: 1.5rem; color: #1a1a1a; margin-bottom: 20px; text-align: center; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
 
 /* EXERCISE CARDS */
-.exercise-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 32px; margin: 28px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: box-shadow 0.2s; page-break-inside: avoid; overflow: hidden; }
+.exercise-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 32px; margin: 28px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: box-shadow 0.2s; page-break-inside: avoid; }
 .exercise-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-.exercise-title { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
+.exercise-header { display: flex; align-items: center; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid #E53935; margin-bottom: 20px; }
+.exercise-title { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0; flex: 1; }
 .exercise-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
 .exercise-meta span { font-size: 0.85rem; color: #666; }
 
@@ -95,12 +96,9 @@ a:hover { border-bottom-color: #E53935; }
 .tip-block p { margin: 0; color: #2e7d32; font-weight: 500; }
 
 /* IMAGES */
-.accent-image { float: right; max-width: 100px; margin: 0 0 16px 20px; opacity: 0.55; transition: opacity 0.3s; }
-.accent-image:hover { opacity: 0.85; }
-.accent-image img { width: 100%; height: auto; }
-.accent-image-left { float: left; max-width: 90px; margin: 0 20px 16px 0; opacity: 0.50; transition: opacity 0.3s; }
-.accent-image-left:hover { opacity: 0.85; }
-.accent-image-left img { width: 100%; height: auto; }
+.accent-image, .accent-image-left { width: 48px; flex-shrink: 0; opacity: 0.45; transition: opacity 0.3s; }
+.accent-image:hover, .accent-image-left:hover { opacity: 0.8; }
+.accent-image img, .accent-image-left img { width: 100%; height: auto; display: block; }
 .diagram-image { text-align: center; margin: 24px auto; max-width: 380px; }
 .diagram-image img { width: 100%; height: auto; opacity: 0.85; border-radius: 4px; }
 .img-caption { font-size: 0.78rem; color: #aaa; text-align: center; margin-top: 4px; font-style: italic; }
@@ -134,7 +132,7 @@ a:hover { border-bottom-color: #E53935; }
     .cover { padding: 40px 24px; }
     .exercise-card { padding: 24px; }
     .about-section, .toc-section, .resources-section { padding: 24px; }
-    .accent-image, .accent-image-left { float: none; max-width: 80px; margin: 12px auto; }
+    .accent-image, .accent-image-left { width: 36px; }
 }
 @media (max-width: 480px) {
     .content { padding: 0 16px 32px; }
@@ -221,8 +219,10 @@ a:hover { border-bottom-color: #E53935; }
 </ol>
 <hr class="divider">
 <div class="exercise-card" id="cviceni-1">
+<div class="exercise-header">
 <div class="accent-image"><img src="images/03.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Cvičení 1: Zmapujte AI nástroje ve firmě</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Zjistěte, jaké AI nástroje už máte k dispozici a jaké vám chybí — možná budete překvapeni.</strong></p></div>
 <p><strong>⏱️ 30–45 minut · Úroveň: Manažerská</strong></p>
 <p><strong>Cíl:</strong> Získat kompletní přehled o AI nástrojích, které máte ve firmě k dispozici, identifikovat mezery a najít příležitosti.</p>
@@ -298,8 +298,10 @@ a:hover { border-bottom-color: #E53935; }
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-2">
+<div class="exercise-header">
 <div class="accent-image-left"><img src="images/07.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Cvičení 2: Nastartujte AI adopci v týmu</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Rozběhněte AI adopci v týmu — systematicky, měřitelně a bez odporu.</strong></p></div>
 <p><strong>⏱️ 45–60 minut · Úroveň: Manažerská</strong></p>
 <p><strong>Cíl:</strong> Vytvořit konkrétní plán pro zavedení AI nástrojů do práce vašeho týmu.</p>
@@ -387,8 +389,10 @@ a:hover { border-bottom-color: #E53935; }
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-3">
+<div class="exercise-header">
 <div class="accent-image"><img src="images/11.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Cvičení 3: Vytvořte aplikaci nebo automatizaci pro tým</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Vytvořte praktický nástroj, který usnadní práci celému týmu — bez programování.</strong></p></div>
 <p><strong>⏱️ 45–60 minut · Úroveň: Střední/Pokročilá</strong></p>
 <p><strong>Cíl:</strong> Vytvořit jednoduchou aplikaci nebo automatizaci, která řeší konkrétní problém vašeho týmu.</p>
@@ -485,8 +489,10 @@ a:hover { border-bottom-color: #E53935; }
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-4">
+<div class="exercise-header">
 <div class="accent-image-left"><img src="images/15.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Cvičení 4: Práce s AI agenty</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Využijte specializované AI agenty pro manažerské úkoly — od plánování projektů po extrakci znalostí.</strong></p></div>
 <p><strong>⏱️ 30–45 minut · Úroveň: Pokročilá</strong></p>
 <p><strong>Cíl:</strong> Vyzkoušet a nasadit specializované AI agenty pro konkrétní manažerské úkoly.</p>
@@ -592,8 +598,10 @@ Chci slyšet pohledy: CTO, CFO, CISO, Head of HR, Line Manager.</code></pre></di
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-5">
+<div class="exercise-header">
 <div class="accent-image"><img src="images/22.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Cvičení 5: Automatizujte opakující se procesy</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Automatizujte rutinní procesy a ušetřete celému týmu desítky hodin měsíčně.</strong></p></div>
 <p><strong>⏱️ 45–60 minut · Úroveň: Pokročilá</strong></p>
 <p><strong>Cíl:</strong> Identifikovat a navrhnout komplexní automatizaci, která propojí více kroků a nástrojů.</p>
@@ -691,8 +699,10 @@ Formát: HTML report, který můžu vložit do prezentace.</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-6">
+<div class="exercise-header">
 <div class="accent-image-left"><img src="images/26.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Cvičení 6: Zhodnoťte pokrok a plánujte</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Změřte, co AI přineslo, a naplánujte další kroky — data přesvědčí i největší skeptiky.</strong></p></div>
 <p><strong>⏱️ 30–45 minut · Úroveň: Manažerská</strong></p>
 <p><strong>Cíl:</strong> Zhodnotit dosavadní AI adopci, změřit přínosy a vytvořit plán dalšího rozvoje.</p>

@@ -46,9 +46,10 @@ body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Ne
 .toc-title { font-size: 1.5rem; color: #1a1a1a; margin-bottom: 20px; text-align: center; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
 
 /* EXERCISE CARDS */
-.exercise-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 32px; margin: 28px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: box-shadow 0.2s; page-break-inside: avoid; overflow: hidden; }
+.exercise-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 32px; margin: 28px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: box-shadow 0.2s; page-break-inside: avoid; }
 .exercise-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-.exercise-title { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
+.exercise-header { display: flex; align-items: center; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid #E53935; margin-bottom: 20px; }
+.exercise-title { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0; flex: 1; }
 .exercise-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
 .exercise-meta span { font-size: 0.85rem; color: #666; }
 
@@ -100,12 +101,9 @@ a:hover { border-bottom-color: #E53935; }
 .tip-block p { margin: 0; color: #2e7d32; font-weight: 500; }
 
 /* IMAGES */
-.accent-image { float: right; max-width: 100px; margin: 0 0 16px 20px; opacity: 0.55; transition: opacity 0.3s; }
-.accent-image:hover { opacity: 0.85; }
-.accent-image img { width: 100%; height: auto; }
-.accent-image-left { float: left; max-width: 90px; margin: 0 20px 16px 0; opacity: 0.50; transition: opacity 0.3s; }
-.accent-image-left:hover { opacity: 0.85; }
-.accent-image-left img { width: 100%; height: auto; }
+.accent-image, .accent-image-left { width: 48px; flex-shrink: 0; opacity: 0.45; transition: opacity 0.3s; }
+.accent-image:hover, .accent-image-left:hover { opacity: 0.8; }
+.accent-image img, .accent-image-left img { width: 100%; height: auto; display: block; }
 .diagram-image { text-align: center; margin: 24px auto; max-width: 380px; }
 .diagram-image img { width: 100%; height: auto; opacity: 0.85; border-radius: 4px; }
 .img-caption { font-size: 0.78rem; color: #aaa; text-align: center; margin-top: 4px; font-style: italic; }
@@ -139,7 +137,7 @@ a:hover { border-bottom-color: #E53935; }
     .cover { padding: 40px 24px; }
     .exercise-card { padding: 24px; }
     .about-section, .toc-section, .resources-section { padding: 24px; }
-    .accent-image, .accent-image-left { float: none; max-width: 80px; margin: 12px auto; }
+    .accent-image, .accent-image-left { width: 36px; }
 }
 @media (max-width: 480px) {
     .content { padding: 0 16px 32px; }
@@ -488,11 +486,13 @@ def convert_md_to_html(
             ex_title = m_ex.group(2)
             slug = f'cviceni-{exercise_num}'
             html_parts.append(f'<div class="exercise-card" id="{slug}">')
-            # Insert decorative image if mapped
+            # Wrap image + title in flex header
+            html_parts.append('<div class="exercise-header">')
             if exercise_num in images_map:
                 img_cls, img_src = images_map[exercise_num]
                 html_parts.append(f'<div class="{img_cls}"><img src="{img_src}" alt="" loading="lazy"></div>')
             html_parts.append(f'<h2 class="exercise-title">{ex_word} {exercise_num}: {md_inline(ex_title)}</h2>')
+            html_parts.append('</div><!-- /exercise-header -->')
             exercise_open = True
             continue
 

@@ -41,9 +41,10 @@ body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Ne
 .toc-title { font-size: 1.5rem; color: #1a1a1a; margin-bottom: 20px; text-align: center; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
 
 /* EXERCISE CARDS */
-.exercise-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 32px; margin: 28px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: box-shadow 0.2s; page-break-inside: avoid; overflow: hidden; }
+.exercise-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 32px; margin: 28px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: box-shadow 0.2s; page-break-inside: avoid; }
 .exercise-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-.exercise-title { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
+.exercise-header { display: flex; align-items: center; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid #E53935; margin-bottom: 20px; }
+.exercise-title { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0; flex: 1; }
 .exercise-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
 .exercise-meta span { font-size: 0.85rem; color: #666; }
 
@@ -95,12 +96,9 @@ a:hover { border-bottom-color: #E53935; }
 .tip-block p { margin: 0; color: #2e7d32; font-weight: 500; }
 
 /* IMAGES */
-.accent-image { float: right; max-width: 100px; margin: 0 0 16px 20px; opacity: 0.55; transition: opacity 0.3s; }
-.accent-image:hover { opacity: 0.85; }
-.accent-image img { width: 100%; height: auto; }
-.accent-image-left { float: left; max-width: 90px; margin: 0 20px 16px 0; opacity: 0.50; transition: opacity 0.3s; }
-.accent-image-left:hover { opacity: 0.85; }
-.accent-image-left img { width: 100%; height: auto; }
+.accent-image, .accent-image-left { width: 48px; flex-shrink: 0; opacity: 0.45; transition: opacity 0.3s; }
+.accent-image:hover, .accent-image-left:hover { opacity: 0.8; }
+.accent-image img, .accent-image-left img { width: 100%; height: auto; display: block; }
 .diagram-image { text-align: center; margin: 24px auto; max-width: 380px; }
 .diagram-image img { width: 100%; height: auto; opacity: 0.85; border-radius: 4px; }
 .img-caption { font-size: 0.78rem; color: #aaa; text-align: center; margin-top: 4px; font-style: italic; }
@@ -134,7 +132,7 @@ a:hover { border-bottom-color: #E53935; }
     .cover { padding: 40px 24px; }
     .exercise-card { padding: 24px; }
     .about-section, .toc-section, .resources-section { padding: 24px; }
-    .accent-image, .accent-image-left { float: none; max-width: 80px; margin: 12px auto; }
+    .accent-image, .accent-image-left { width: 36px; }
 }
 @media (max-width: 480px) {
     .content { padding: 0 16px 32px; }
@@ -280,7 +278,9 @@ a:hover { border-bottom-color: #E53935; }
 </tbody></table></div>
 <hr class="divider">
 <div class="exercise-card" id="cviceni-0">
+<div class="exercise-header">
 <h2 class="exercise-title">Cvičení 0: Vyřešte svůj první problém s AI</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Než se pustíte do nastavování, zažijte na vlastní kůži, co AI umí — na problému, který řešíte právě dnes.</strong></p></div>
 <p><strong>⏱️ 5–10 minut · Úroveň: Základní</strong></p>
 <h3 class="subsection-title" id="co-uděláte">Co uděláte</h3>
@@ -321,8 +321,10 @@ a:hover { border-bottom-color: #E53935; }
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-1">
+<div class="exercise-header">
 <div class="accent-image"><img src="images/01.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Cvičení 1: Nastavte si rychlý přístup k AI nástrojům</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Mějte všechny AI nástroje na dosah jednoho kliknutí — ušetříte si minuty každý den.</strong></p></div>
 <p><strong>⏱️ 15–20 minut · Úroveň: Základní</strong></p>
 <p><strong>Cíl:</strong> Mít všechny důležité AI nástroje a materiály na dosah jednoho kliknutí. Zaregistrovat se, nastavit záložky a být připraveni na další cvičení.</p>
@@ -387,8 +389,10 @@ a:hover { border-bottom-color: #E53935; }
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-2">
+<div class="exercise-header">
 <div class="accent-image-left"><img src="images/05.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Cvičení 2: Vytvořte si AI Prompt Generator</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Vytvořte si asistenta, díky kterému budete dělat daleko lepší prompty — a naučte se klíčovou dovednost: iteraci.</strong></p></div>
 <p><strong>⏱️ 15–20 minut · Úroveň: Základní</strong></p>
 <p><strong>Cíl:</strong> Mít vlastního „generátora zadání", který vám bude vytvářet profesionální prompty pro jakýkoliv AI nástroj.</p>
@@ -465,8 +469,10 @@ Chápeš svou roli? Můžeme začít?</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-3">
+<div class="exercise-header">
 <div class="accent-image"><img src="images/09.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Cvičení 3: Když AI lže — naučte se to poznat</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 AI vám vždy odpoví sebejistě. Naučte se rozlišit, kdy říká pravdu a kdy si vymýšlí — to je nejdůležitější dovednost práce s AI.</strong></p></div>
 <p><strong>⏱️ 10–15 minut · Úroveň: Základní</strong></p>
 <h3 class="subsection-title" id="proč-je-to-důležité">Proč je to důležité</h3>
@@ -519,7 +525,9 @@ Chápeš svou roli? Můžeme začít?</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-4">
+<div class="exercise-header">
 <h2 class="exercise-title">Cvičení 4: Najděte AI nástroj pro vaše potřeby</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Objevte nástroj, který vám ušetří hodiny práce týdně — místo googlu se zeptejte AI.</strong></p></div>
 <p><strong>⏱️ 10–15 minut · Úroveň: Základní</strong></p>
 <p><strong>Cíl:</strong> Najít a vyzkoušet AI nástroj, který vyřeší váš konkrétní pracovní problém.</p>
@@ -577,8 +585,10 @@ z hlediska ceny, funkcí a jednoduchosti použití.</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-5">
+<div class="exercise-header">
 <div class="accent-image-left"><img src="images/14.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Cvičení 5: Porovnejte dva AI nástroje</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Zjistěte, který AI nástroj je pro vás ten pravý — na konkrétním příkladu z vaší práce.</strong></p></div>
 <p><strong>⏱️ 20–30 minut · Úroveň: Základní</strong></p>
 <p><strong>Cíl:</strong> Otestovat dva AI nástroje se stejným zadáním a zjistit, který funguje lépe pro váš typ práce.</p>
@@ -671,8 +681,10 @@ z hlediska ceny, funkcí a jednoduchosti použití.</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-6">
+<div class="exercise-header">
 <div class="accent-image"><img src="images/17.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Cvičení 6: Práce s daty a dokumenty</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Naučte se rozhodnout, kdy stačí chat a kdy potřebujete víc — a připravte si pokročilé nástroje.</strong></p></div>
 <p><strong>⏱️ 30–45 minut · Úroveň: Střední / pokročilé</strong></p>
 <p><strong>Cíl:</strong> Vyzkoušet si práci s daty a dokumenty v chatu, pochopit kdy potřebujete pokročilé nástroje, a připravit si je.</p>
@@ -743,8 +755,10 @@ z hlediska ceny, funkcí a jednoduchosti použití.</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-7">
+<div class="exercise-header">
 <div class="accent-image-left"><img src="images/20.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Cvičení 7: Vybudujte si druhý mozek (3C Framework)</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Vybudujte si systém, kde žádná informace nezapadne — zachyťte, zpracujte, propojte.</strong></p></div>
 <p><strong>⏱️ 30–45 minut · Úroveň: Střední</strong></p>
 <p><strong>Cíl:</strong> Nastavit si kompletní systém pro práci s informacemi podle 3C Frameworku: <strong>Capture</strong> (zachytit) → <strong>Clean</strong> (zpracovat) → <strong>Connect</strong> (propojit).</p>
@@ -873,8 +887,10 @@ z hlediska ceny, funkcí a jednoduchosti použití.</code></pre></div>
 </ul>
 <hr class="divider">
 <div class="exercise-card" id="cviceni-8">
+<div class="exercise-header">
 <div class="accent-image"><img src="images/24.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Cvičení 8: Vytvořte si vlastního AI asistenta</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Vytvořte si AI, který zná vaši práci, váš styl a vaše potřeby — a používejte ho každý den.</strong></p></div>
 <p><strong>⏱️ 20–30 minut · Úroveň: Střední</strong></p>
 <p><strong>Cíl:</strong> Vytvořit specializovaného AI asistenta, který řeší konkrétní úkol z vaší práce.</p>
@@ -932,8 +948,10 @@ z hlediska ceny, funkcí a jednoduchosti použití.</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-9">
+<div class="exercise-header">
 <div class="accent-image-left"><img src="images/03.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Cvičení 9: Sestavte si svůj osobní AI setup</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Shrňte vše, co jste se naučili, do jednoho přehledu — vašeho osobního AI toolkitu, který budete používat každý den.</strong></p></div>
 <p><strong>⏱️ 20–30 minut · Úroveň: Všechny</strong></p>
 <p><strong>Cíl:</strong> Projít si výstupy ze všech předchozích cvičení a sestavit kompletní přehled vašeho AI setupu — jaké nástroje používáte, na co, jaké prompty vám fungují, jakého asistenta máte.</p>

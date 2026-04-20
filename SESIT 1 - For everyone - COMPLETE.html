@@ -41,9 +41,10 @@ body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Ne
 .toc-title { font-size: 1.5rem; color: #1a1a1a; margin-bottom: 20px; text-align: center; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
 
 /* EXERCISE CARDS */
-.exercise-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 32px; margin: 28px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: box-shadow 0.2s; page-break-inside: avoid; overflow: hidden; }
+.exercise-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 32px; margin: 28px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: box-shadow 0.2s; page-break-inside: avoid; }
 .exercise-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-.exercise-title { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
+.exercise-header { display: flex; align-items: center; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid #E53935; margin-bottom: 20px; }
+.exercise-title { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0; flex: 1; }
 .exercise-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
 .exercise-meta span { font-size: 0.85rem; color: #666; }
 
@@ -95,12 +96,9 @@ a:hover { border-bottom-color: #E53935; }
 .tip-block p { margin: 0; color: #2e7d32; font-weight: 500; }
 
 /* IMAGES */
-.accent-image { float: right; max-width: 100px; margin: 0 0 16px 20px; opacity: 0.55; transition: opacity 0.3s; }
-.accent-image:hover { opacity: 0.85; }
-.accent-image img { width: 100%; height: auto; }
-.accent-image-left { float: left; max-width: 90px; margin: 0 20px 16px 0; opacity: 0.50; transition: opacity 0.3s; }
-.accent-image-left:hover { opacity: 0.85; }
-.accent-image-left img { width: 100%; height: auto; }
+.accent-image, .accent-image-left { width: 48px; flex-shrink: 0; opacity: 0.45; transition: opacity 0.3s; }
+.accent-image:hover, .accent-image-left:hover { opacity: 0.8; }
+.accent-image img, .accent-image-left img { width: 100%; height: auto; display: block; }
 .diagram-image { text-align: center; margin: 24px auto; max-width: 380px; }
 .diagram-image img { width: 100%; height: auto; opacity: 0.85; border-radius: 4px; }
 .img-caption { font-size: 0.78rem; color: #aaa; text-align: center; margin-top: 4px; font-style: italic; }
@@ -134,7 +132,7 @@ a:hover { border-bottom-color: #E53935; }
     .cover { padding: 40px 24px; }
     .exercise-card { padding: 24px; }
     .about-section, .toc-section, .resources-section { padding: 24px; }
-    .accent-image, .accent-image-left { float: none; max-width: 80px; margin: 12px auto; }
+    .accent-image, .accent-image-left { width: 36px; }
 }
 @media (max-width: 480px) {
     .content { padding: 0 16px 32px; }
@@ -230,8 +228,10 @@ a:hover { border-bottom-color: #E53935; }
 </ol>
 <hr class="divider">
 <div class="exercise-card" id="cviceni-1">
+<div class="exercise-header">
 <div class="accent-image"><img src="images/01.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Exercise 1: Set up quick access to AI tools</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Have all AI tools at your fingertips — save minutes every day.</strong></p></div>
 <p><strong>⏱️ 15-20 minutes · Level: Basic</strong></p>
 <p><strong>Goal:</strong> Have all the important AI tools and materials at your fingertips. Register, set bookmarks and try the first tasks.</p>
@@ -303,8 +303,10 @@ a:hover { border-bottom-color: #E53935; }
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-2">
+<div class="exercise-header">
 <div class="accent-image-left"><img src="images/05.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Exercise 2: Create an AI Prompt Generator</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Create an assistant that will make you do much better prompts.</strong></p></div>
 <p><strong>⏱️ 15-20 minutes · Level: Basic</strong></p>
 <p><strong>Goal:</strong> Have your own "assignment generator" that will create professional prompts for any AI tool.</p>
@@ -711,8 +713,10 @@ Goal: Have a system where you can quickly store anything important.
 </ul>
 <hr class="divider">
 <div class="exercise-card" id="cviceni-7">
+<div class="exercise-header">
 <div class="accent-image-left"><img src="images/20.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Exercise 7: Create your own AI assistant</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Create an AI that knows your work, your style, and your needs — and use it every day.</strong></p></div>
 <p><strong>⏱️ 30-45 minutes · Level: Medium</strong></p>
 <p><strong>Goal:</strong> Create a specialized AI assistant that solves a specific task from your work.</p>
@@ -785,8 +789,10 @@ Goal: Have a system where you can quickly store anything important.
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-8">
+<div class="exercise-header">
 <div class="accent-image"><img src="images/24.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Exercise 8: Your personal AI setup</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Build a complete AI setup tailored to your work — and be clear when to use what.</strong></p></div>
 <p><strong>⏱️ 30-45 minutes · Level: All</strong></p>
 <p><strong>Goal:</strong> Create a complete personal system of AI tools and assistants for your work. Combine everything from the previous exercises.</p>

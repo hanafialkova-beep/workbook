@@ -41,9 +41,10 @@ body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Ne
 .toc-title { font-size: 1.5rem; color: #1a1a1a; margin-bottom: 20px; text-align: center; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
 
 /* EXERCISE CARDS */
-.exercise-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 32px; margin: 28px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: box-shadow 0.2s; page-break-inside: avoid; overflow: hidden; }
+.exercise-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 32px; margin: 28px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: box-shadow 0.2s; page-break-inside: avoid; }
 .exercise-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-.exercise-title { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
+.exercise-header { display: flex; align-items: center; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid #E53935; margin-bottom: 20px; }
+.exercise-title { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0; flex: 1; }
 .exercise-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
 .exercise-meta span { font-size: 0.85rem; color: #666; }
 
@@ -95,12 +96,9 @@ a:hover { border-bottom-color: #E53935; }
 .tip-block p { margin: 0; color: #2e7d32; font-weight: 500; }
 
 /* IMAGES */
-.accent-image { float: right; max-width: 100px; margin: 0 0 16px 20px; opacity: 0.55; transition: opacity 0.3s; }
-.accent-image:hover { opacity: 0.85; }
-.accent-image img { width: 100%; height: auto; }
-.accent-image-left { float: left; max-width: 90px; margin: 0 20px 16px 0; opacity: 0.50; transition: opacity 0.3s; }
-.accent-image-left:hover { opacity: 0.85; }
-.accent-image-left img { width: 100%; height: auto; }
+.accent-image, .accent-image-left { width: 48px; flex-shrink: 0; opacity: 0.45; transition: opacity 0.3s; }
+.accent-image:hover, .accent-image-left:hover { opacity: 0.8; }
+.accent-image img, .accent-image-left img { width: 100%; height: auto; display: block; }
 .diagram-image { text-align: center; margin: 24px auto; max-width: 380px; }
 .diagram-image img { width: 100%; height: auto; opacity: 0.85; border-radius: 4px; }
 .img-caption { font-size: 0.78rem; color: #aaa; text-align: center; margin-top: 4px; font-style: italic; }
@@ -134,7 +132,7 @@ a:hover { border-bottom-color: #E53935; }
     .cover { padding: 40px 24px; }
     .exercise-card { padding: 24px; }
     .about-section, .toc-section, .resources-section { padding: 24px; }
-    .accent-image, .accent-image-left { float: none; max-width: 80px; margin: 12px auto; }
+    .accent-image, .accent-image-left { width: 36px; }
 }
 @media (max-width: 480px) {
     .content { padding: 0 16px 32px; }
@@ -259,8 +257,10 @@ a:hover { border-bottom-color: #E53935; }
 </tbody></table></div>
 <hr class="divider">
 <div class="exercise-card" id="cviceni-1">
+<div class="exercise-header">
 <div class="accent-image"><img src="images/03.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Exercise 1: Map AI Tools in Your Company</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Find out which AI tools you already have available and which ones you're missing — you might be surprised.</strong></p></div>
 <p><strong>⏱️ 30–45 minutes · Level: Managerial</strong></p>
 <p><strong>Goal:</strong> Get a complete picture of the AI tools available in your company, identify gaps, and find opportunities.</p>
@@ -337,8 +337,10 @@ a:hover { border-bottom-color: #E53935; }
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-2">
+<div class="exercise-header">
 <div class="accent-image-left"><img src="images/07.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Exercise 2: Launch AI Adoption in Your Team</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Kick off AI adoption in your team — systematically, measurably, and without resistance.</strong></p></div>
 <p><strong>⏱️ 45–60 minutes · Level: Managerial</strong></p>
 <p><strong>Goal:</strong> Create a concrete plan for introducing AI tools into your team's work.</p>
@@ -426,8 +428,10 @@ a:hover { border-bottom-color: #E53935; }
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-3">
+<div class="exercise-header">
 <div class="accent-image"><img src="images/11.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Exercise 3: Find Your AI Champion</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Every team needs someone to drive AI adoption. You might already have them — you just don't know it yet.</strong></p></div>
 <p><strong>⏱️ 15–20 minutes · Level: Managerial</strong></p>
 <p><strong>Goal:</strong> Identify people in your team who can become drivers of AI adoption and agree on next steps with them.</p>
@@ -501,8 +505,10 @@ a:hover { border-bottom-color: #E53935; }
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-4">
+<div class="exercise-header">
 <div class="accent-image-left"><img src="images/15.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Exercise 4: Build an App or Automation for Your Team</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Create a practical tool that makes work easier for the whole team — no coding required.</strong></p></div>
 <p><strong>⏱️ 45–60 minutes · Level: Intermediate/Advanced</strong></p>
 <p><strong>Goal:</strong> Create a simple application or automation that solves a specific recurring problem for your team.</p>
@@ -619,8 +625,10 @@ Format: HTML report that I can embed in a presentation.</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-5">
+<div class="exercise-header">
 <div class="accent-image"><img src="images/22.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Exercise 5: Automate Recurring Processes</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Automate routine processes and save your entire team dozens of hours every month.</strong></p></div>
 <p><strong>⏱️ 45–60 minutes · Level: Advanced</strong></p>
 <p><strong>Goal:</strong> Identify and design a comprehensive automation that connects multiple steps and tools.</p>
@@ -719,8 +727,10 @@ Format: HTML report that I can embed in a presentation.</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-6">
+<div class="exercise-header">
 <div class="accent-image-left"><img src="images/26.png" alt="" loading="lazy"></div>
 <h2 class="exercise-title">Exercise 6: Working with AI Agents</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Use specialized AI agents for managerial tasks — from project planning to knowledge extraction.</strong></p></div>
 <p><strong>⏱️ 30–45 minutes · Level: Advanced</strong></p>
 <p><strong>Goal:</strong> Try and deploy specialized AI agents for specific managerial tasks.</p>
@@ -822,7 +832,9 @@ I want perspectives from: CTO, CFO, CISO, Head of HR, Line Manager.</code></pre>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-7">
+<div class="exercise-header">
 <h2 class="exercise-title">Exercise 7: Evaluate Progress and Plan Ahead</h2>
+</div><!-- /exercise-header -->
 <div class="selling-line"><p><strong>💡 Measure what AI has delivered and plan next steps — data will convince even the biggest skeptics.</strong></p></div>
 <p><strong>⏱️ 30–45 minutes · Level: Managerial</strong></p>
 <p><strong>Goal:</strong> Evaluate AI adoption so far, measure the benefits, and create a plan for the next quarter.</p>
