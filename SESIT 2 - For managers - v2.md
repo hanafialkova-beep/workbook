@@ -670,4 +670,4 @@ Good luck on your AI journey.
 
 ---
 
-*The Future of No Work — Workbook · For Managers and Leaders · v2 · © 2026 Filip Drimalka*
+*The Future of No Work — Workbook · For Managers and Leaders · © 2026 Filip Drimalka*

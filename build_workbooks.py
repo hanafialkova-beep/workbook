@@ -764,7 +764,7 @@ def main():
             title='The Future of No Work — Workbook · For Everyone · v2',
             subtitle='Workbook — from theory to practice · improved edition',
             badge='For Everyone · v2',
-            footer_text='The Future of No Work — Workbook · For Everyone · v2 · From theory to practice',
+            footer_text='The Future of No Work — Workbook · For Everyone · From theory to practice',
             locale='en',
         )
         out1e_v2 = base / 'SESIT 1 - For everyone - v2 - COMPLETE.html'
@@ -781,7 +781,7 @@ def main():
             title='The Future of No Work — Workbook · For Managers and Leaders · v2',
             subtitle='Workbook — for managers and leaders · improved edition',
             badge='For Managers · v2',
-            footer_text='The Future of No Work — Workbook · For Managers and Leaders · v2 · From theory to practice',
+            footer_text='The Future of No Work — Workbook · For Managers and Leaders · From theory to practice',
             locale='en',
         )
         out2e_v2 = base / 'SESIT 2 - For managers - v2 - COMPLETE.html'
