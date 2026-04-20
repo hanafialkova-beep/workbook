@@ -44,7 +44,6 @@ This workbook is a practical companion to the book **"The Future of Non-Work" (B
 ## Exercise 0: Solve Your First Problem with AI
 
 > **💡 Before setting anything up, experience what AI can do for you — on a problem you're actually dealing with today.**
-> 📚 *Book concept: Three Levels of AI Use — Level 1 (personal productivity)*
 
 **⏱️ 5–10 minutes · Level: Beginner**
 
@@ -95,7 +94,6 @@ This is the key skill: if the response didn't help 100%, **tell the AI what's mi
 ## Exercise 1: Set Up Quick Access to AI Tools
 
 > **💡 Have all your AI tools one click away — save yourself minutes every day.**
-> 📚 *Book concept: AI-first mindset*
 
 **⏱️ 15–20 minutes · Level: Beginner**
 
@@ -153,7 +151,6 @@ Open ChatGPT or Claude and try:
 ## Exercise 2: Create Your AI Prompt Generator
 
 > **💡 Build an assistant that helps you write far better prompts — and learn the key skill: iteration.**
-> 📚 *Book concept: Vibe Working — collaborating with AI*
 
 **⏱️ 15–20 minutes · Level: Beginner**
 
@@ -255,7 +252,6 @@ This "back-and-forth" is the key skill for working with AI (same as in Exercise 
 ## Exercise 3: When AI Lies — Learn to Spot It
 
 > **💡 AI always answers with confidence. Learn to tell when it's right and when it's making things up — this is the most important skill for working with AI.**
-> 📚 *Book concept: FAIL = First Attempt In Learning*
 
 **⏱️ 10–15 minutes · Level: Beginner**
 
@@ -319,7 +315,6 @@ Based on what you found, write down 3 rules for working with AI output. Examples
 ## Exercise 4: Find an AI Tool for Your Needs
 
 > **💡 Discover a tool that will save you hours of work every week — ask AI instead of Googling.**
-> 📚 *Book concept: Just-in-time Learning*
 
 **⏱️ 10–15 minutes · Level: Beginner**
 
@@ -400,7 +395,6 @@ AI will usually recommend 2–5 tools with descriptions, pricing, and who they'r
 ## Exercise 5: Compare Two AI Tools
 
 > **💡 Find out which AI tool is right for you — with a concrete example from your work.**
-> 📚 *Book concept: IES — Inspiration, Experiment, Sharing*
 
 **⏱️ 20–30 minutes · Level: Beginner**
 
@@ -474,7 +468,6 @@ Open two different tools, paste the same prompt, and observe:
 ## Exercise 6: Working with Data and Documents
 
 > **💡 Learn to decide when chat is enough and when you need more — and set up the advanced tools.**
-> 📚 *Book concept: OHIO — Only Handle It Once*
 
 **⏱️ 30–45 minutes · Level: Intermediate / Advanced**
 
@@ -544,7 +537,6 @@ If yes — continue to step 3.
 ## Exercise 7: Build Your Second Brain (3C Framework)
 
 > **💡 Build a system where no information gets lost — capture, clean, connect.**
-> 📚 *Book concept: 3C Framework — Capture, Clean, Connect*
 
 **⏱️ 30–45 minutes · Level: Intermediate**
 
@@ -656,7 +648,6 @@ Goal: Connect saved information using AI assistants and knowledge bases.
 ## Exercise 8: Create Your Own AI Assistant
 
 > **💡 Build an AI that knows your work, your style, and your needs — and use it every day.**
-> 📚 *Book concept: Superpowered Professionals*
 
 **⏱️ 20–30 minutes · Level: Intermediate**
 
@@ -726,7 +717,6 @@ Adjust the instructions and try again. Repeat until you're satisfied.
 ## Exercise 9: Build Your Personal AI Setup
 
 > **💡 Consolidate everything you've learned into one overview — your personal AI toolkit that you'll use every day.**
-> 📚 *Book concept: Digital Leader — the person who combines expertise with technology*
 
 **⏱️ 20–30 minutes · Level: All levels**
 

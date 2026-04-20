@@ -39,7 +39,6 @@ We recommend completing Workbook 1 ("For Everyone") first, so you have hands-on 
 ## Exercise 1: Map AI Tools in Your Company
 
 > **💡 Find out which AI tools you already have available and which ones you're missing — you might be surprised.**
-> 📚 *Book concept: AI-first mindset*
 
 **⏱️ 30–45 minutes · Level: Managerial**
 
@@ -107,7 +106,6 @@ Write your findings into a simple document:
 ## Exercise 2: Launch AI Adoption in Your Team
 
 > **💡 Kick off AI adoption in your team — systematically, measurably, and without resistance.**
-> 📚 *Book concept: IES Framework — Inspiration, Experiment, Sharing*
 
 **⏱️ 45–60 minutes · Level: Managerial**
 
@@ -185,7 +183,6 @@ For Horizon 1, prepare:
 ## Exercise 3: Find Your AI Champion
 
 > **💡 Every team needs someone to drive AI adoption. You might already have them — you just don't know it yet.**
-> 📚 *Book concept: Digital Leader / 10x Employees*
 
 **⏱️ 15–20 minutes · Level: Managerial**
 
@@ -256,7 +253,6 @@ An AI champion should:
 ## Exercise 4: Build an App or Automation for Your Team
 
 > **💡 Create a practical tool that makes work easier for the whole team — no coding required.**
-> 📚 *Book concept: Three Levels of AI Use — Level 2 and 3*
 
 **⏱️ 45–60 minutes · Level: Intermediate/Advanced**
 
@@ -357,7 +353,6 @@ Once one step works, add another. Gradually connect the steps into a workflow.
 ## Exercise 5: Automate Recurring Processes
 
 > **💡 Automate routine processes and save your entire team dozens of hours every month.**
-> 📚 *Book concept: OHIO — Only Handle It Once*
 
 **⏱️ 45–60 minutes · Level: Advanced**
 
@@ -449,7 +444,6 @@ Once one step works, add the next. Gradually connect the steps into a workflow.
 ## Exercise 6: Working with AI Agents
 
 > **💡 Use specialized AI agents for managerial tasks — from project planning to knowledge extraction.**
-> 📚 *Book concept: Superpowered Professionals*
 
 **⏱️ 30–45 minutes · Level: Advanced**
 
@@ -542,7 +536,6 @@ I want perspectives from: CTO, CFO, CISO, Head of HR, Line Manager.
 ## Exercise 7: Evaluate Progress and Plan Ahead
 
 > **💡 Measure what AI has delivered and plan next steps — data will convince even the biggest skeptics.**
-> 📚 *Book concept: BUFF — brutally honest feedback*
 
 **⏱️ 30–45 minutes · Level: Managerial**
 

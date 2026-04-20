@@ -39,7 +39,6 @@ Doporučujeme nejprve absolvovat Sešit 1 („Pro každého"), abyste měli prak
 ## Cvičení 1: Zmapujte AI nástroje ve firmě
 
 > **💡 Zjistěte, jaké AI nástroje už máte k dispozici a jaké vám chybí — možná budete překvapeni.**
-> 📚 *Koncept z knihy: AI-first mindset*
 
 **⏱️ 30–45 minut · Úroveň: Manažerská**
 
@@ -107,7 +106,6 @@ Sepište zjištění do jednoduchého dokumentu:
 ## Cvičení 2: Nastartujte AI adopci v týmu
 
 > **💡 Rozběhněte AI adopci v týmu — systematicky, měřitelně a bez odporu.**
-> 📚 *Koncept z knihy: IES Framework — Inspirace, Experiment, Sdílení*
 
 **⏱️ 45–60 minut · Úroveň: Manažerská**
 
@@ -185,7 +183,6 @@ Pro Horizont 1 připravte:
 ## Cvičení 3: Najděte svého AI šampióna
 
 > **💡 Každý tým potřebuje člověka, který AI adopci potáhne. Možná ho už máte — jen o tom nevíte.**
-> 📚 *Koncept z knihy: Digital Leader / 10x Employees*
 
 **⏱️ 15–20 minut · Úroveň: Manažerská**
 
@@ -256,7 +253,6 @@ AI šampión by měl:
 ## Cvičení 4: Vytvořte aplikaci nebo automatizaci pro tým
 
 > **💡 Vytvořte praktický nástroj, který usnadní práci celému týmu — bez programování.**
-> 📚 *Koncept z knihy: Three Levels of AI Use — Level 2 a 3*
 
 **⏱️ 45–60 minut · Úroveň: Střední/Pokročilá**
 
@@ -357,7 +353,6 @@ Jakmile funguje jeden krok, přidejte další. Postupně propojte kroky do workf
 ## Cvičení 5: Automatizujte opakující se procesy
 
 > **💡 Automatizujte rutinní procesy a ušetřete celému týmu desítky hodin měsíčně.**
-> 📚 *Koncept z knihy: OHIO — Only Handle It Once*
 
 **⏱️ 45–60 minut · Úroveň: Pokročilá**
 
@@ -449,7 +444,6 @@ Jakmile funguje jeden krok, přidejte další. Postupně propojte kroky do workf
 ## Cvičení 6: Práce s AI agenty
 
 > **💡 Využijte specializované AI agenty pro manažerské úkoly — od plánování projektů po extrakci znalostí.**
-> 📚 *Koncept z knihy: Superpowered Professionals*
 
 **⏱️ 30–45 minut · Úroveň: Pokročilá**
 
@@ -542,7 +536,6 @@ Chci slyšet pohledy: CTO, CFO, CISO, Head of HR, Line Manager.
 ## Cvičení 7: Zhodnoťte pokrok a plánujte
 
 > **💡 Změřte, co AI přineslo, a naplánujte další kroky — data přesvědčí i největší skeptiky.**
-> 📚 *Koncept z knihy: BUFF — brutálně upřímný feedback*
 
 **⏱️ 30–45 minut · Úroveň: Manažerská**
 
