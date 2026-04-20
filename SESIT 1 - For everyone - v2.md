@@ -842,4 +842,4 @@ Good luck on your AI journey.
 
 ---
 
-*The Future of No Work — Workbook · For Everyone · v2 · © 2025 Filip Dřímalka*
+*The Future of No Work — Workbook · For Everyone · v2 · © 2026 Filip Drimalka*
