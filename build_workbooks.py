@@ -117,10 +117,10 @@ a:hover { border-bottom-color: #E53935; }
 .resources-title { margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
 
 /* CONCLUSION */
-.conclusion-section { margin: 48px 0 0; padding: 48px 40px 40px; background: #fafafa; border-top: 3px solid #E53935; text-align: center; }
-.conclusion-icon { font-size: 2.4rem; margin-bottom: 8px; }
-.conclusion-heading { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; margin-bottom: 8px; letter-spacing: -0.3px; }
-.conclusion-lead { color: #555; font-size: 1.05rem; margin-bottom: 32px; }
+.conclusion-section { margin: 48px 0 0; padding: 48px 40px 40px; background: #fafafa; border-top: 3px solid #E53935; }
+.conclusion-icon { font-size: 2.4rem; margin-bottom: 8px; text-align: center; }
+.conclusion-heading { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; margin-bottom: 8px; letter-spacing: -0.3px; text-align: center; }
+.conclusion-lead { color: #555; font-size: 1.05rem; margin-bottom: 32px; text-align: center; }
 .conclusion-columns { display: flex; gap: 32px; text-align: left; max-width: 560px; margin: 0 auto 32px; }
 .conclusion-col { flex: 1; }
 .conclusion-col h4 { font-size: 0.9rem; font-weight: 700; color: #E53935; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #e0e0e0; }
@@ -280,7 +280,7 @@ def convert_md_to_html(
     nav_prefix = "Cv." if locale == "cs" else "Ex."
     toc_title = "📋 Obsah" if locale == "cs" else "📋 Contents"
     conclusion_heading = "Závěr" if locale == "cs" else "Conclusion"
-    rights = "© 2025 Filip Dřímalka · Všechna práva vyhrazena" if locale == "cs" else "© 2025 Filip Dřímalka · All rights reserved"
+    rights = "© 2025 Filip Dřímalka · Všechna práva vyhrazena" if locale == "cs" else "© 2026 Filip Drimalka · All rights reserved"
     html_parts = []
     
     in_code_block = False
