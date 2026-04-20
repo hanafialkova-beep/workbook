@@ -1,11 +1,11 @@
-# The Future of Non-Work — Workbook
+# The Future of No Work — Workbook
 ## For Everyone · From Theory to Practice · v2
 
 ---
 
 ## 📖 About This Workbook
 
-This workbook is a practical companion to the book **"The Future of Non-Work" (Budoucnost nepráce)** by Filip Dřímalka. While the book provides the theoretical foundations and frameworks, this workbook walks you through concrete exercises — from your first AI experiment to setting up your own AI assistant.
+This workbook is a practical companion to the book **"The Future of No Work" (Budoucnost nepráce)** by Filip Dřímalka. While the book provides the theoretical foundations and frameworks, this workbook walks you through concrete exercises — from your first AI experiment to setting up your own AI assistant.
 
 ✅ Develop practical skills for working with AI tools
 ✅ Try different approaches on real work tasks
@@ -842,4 +842,4 @@ Good luck on your AI journey.
 
 ---
 
-*The Future of Non-Work — Workbook · For Everyone · v2 · © 2025 Filip Dřímalka*
+*The Future of No Work — Workbook · For Everyone · v2 · © 2025 Filip Dřímalka*

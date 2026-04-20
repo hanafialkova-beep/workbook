@@ -100,10 +100,10 @@ a:hover { border-bottom-color: #E53935; }
 .tip-block p { margin: 0; color: #2e7d32; font-weight: 500; }
 
 /* IMAGES */
-.accent-image { float: right; max-width: 120px; margin: -8px -12px 12px 20px; opacity: 0.55; transition: opacity 0.3s; }
+.accent-image { float: right; max-width: 100px; margin: 0 0 16px 20px; opacity: 0.55; transition: opacity 0.3s; }
 .accent-image:hover { opacity: 0.85; }
 .accent-image img { width: 100%; height: auto; }
-.accent-image-left { float: left; max-width: 110px; margin: -4px 20px 12px -12px; opacity: 0.50; transition: opacity 0.3s; }
+.accent-image-left { float: left; max-width: 90px; margin: 0 20px 16px 0; opacity: 0.50; transition: opacity 0.3s; }
 .accent-image-left:hover { opacity: 0.85; }
 .accent-image-left img { width: 100%; height: auto; }
 .diagram-image { text-align: center; margin: 24px auto; max-width: 380px; }
@@ -297,6 +297,7 @@ def convert_md_to_html(
     exercise_num = 0
     exercise_open = False
     in_resources = False
+    in_toc_section = False
 
     def flush_list():
         nonlocal in_list, list_type, list_items
@@ -342,8 +343,17 @@ def convert_md_to_html(
         for row in table_rows[2:]:
             cells = [c.strip() for c in row.strip('|').split('|')]
             html_parts.append('<tr>')
-            for c in cells:
-                html_parts.append(f'  <td>{md_inline(c)}</td>')
+            for col_idx, c in enumerate(cells):
+                # In TOC section: make the exercise name column (index 1) a link
+                if in_toc_section and col_idx == 1 and len(cells) >= 2:
+                    # Determine exercise number from first cell
+                    try:
+                        ex_n = int(cells[0].strip())
+                        html_parts.append(f'  <td><a href="#cviceni-{ex_n}" style="color:#E53935;text-decoration:none;font-weight:600;">{md_inline(c)}</a></td>')
+                    except ValueError:
+                        html_parts.append(f'  <td>{md_inline(c)}</td>')
+                else:
+                    html_parts.append(f'  <td>{md_inline(c)}</td>')
             html_parts.append('</tr>')
         html_parts.append('</tbody></table></div>')
         in_table = False
@@ -409,6 +419,7 @@ def convert_md_to_html(
             if in_resources:
                 html_parts.append('</div><!-- /resources -->')
                 in_resources = False
+            in_toc_section = False
             html_parts.append('<hr class="divider">')
             continue
 
@@ -472,6 +483,7 @@ def convert_md_to_html(
             flush_table()
             if exercise_open:
                 html_parts.append('</div><!-- /exercise-card -->')
+            in_toc_section = False
             exercise_num = int(m_ex.group(1))
             ex_title = m_ex.group(2)
             slug = f'cviceni-{exercise_num}'
@@ -497,11 +509,19 @@ def convert_md_to_html(
             flush_checklist()
             heading = m_h3.group(1).strip()
             slug = slugify(heading)
-            if heading.startswith('💭'):
+            if heading.startswith('📋'):
+                # TOC table section — enable clickable rows
+                in_toc_section = True
+                html_parts.append(f'<div class="toc-section" id="{slug}">')
+                html_parts.append(f'<h3 class="toc-title" style="font-size:1.3rem">{md_inline(heading)}</h3>')
+            elif heading.startswith('💭'):
+                in_toc_section = False
                 html_parts.append(f'<h3 class="detail-title" id="{slug}">{md_inline(heading)}</h3>')
             elif heading.startswith('Krok') or heading.startswith('Step '):
+                in_toc_section = False
                 html_parts.append(f'<h3 class="subsection-title" id="{slug}">{md_inline(heading)}</h3>')
             else:
+                in_toc_section = False
                 html_parts.append(f'<h3 class="subsection-title" id="{slug}">{md_inline(heading)}</h3>')
             continue
 
@@ -520,13 +540,16 @@ def convert_md_to_html(
             if heading.startswith('📖'):
                 html_parts.append(f'<div class="about-section" id="{slug}">')
                 html_parts.append(f'<h2 class="about-title">{md_inline(heading)}</h2>')
+                in_toc_section = False
                 # Auto-close later
             elif heading.startswith('📋'):
                 html_parts.append(f'<div class="toc-section" id="{slug}">')
                 html_parts.append(f'<h2 class="toc-title">{md_inline(heading)}</h2>')
+                in_toc_section = True
             elif heading.startswith('📚'):
                 if in_resources:
                     html_parts.append('</div>')
+                in_toc_section = False
                 in_resources = True
                 html_parts.append(f'<div class="resources-section" id="{slug}">')
                 html_parts.append(f'<h2 class="resources-title">{md_inline(heading)}</h2>')
@@ -567,13 +590,9 @@ def convert_md_to_html(
     for slug, label in nav_items:
         nav_html += f'    <a href="#{slug}">{label}</a>\n'
 
-    # Build TOC
+    # TOC is rendered inline from the ## 📋 section in the markdown (with clickable links).
+    # No separate auto-generated TOC block needed.
     toc_html = ''
-    if toc_items:
-        toc_html = f'<div class="toc-section" id="obsah">\n<h2 class="toc-title">{toc_title}</h2>\n<ol class="numbered-list">\n'
-        for slug, label in toc_items:
-            toc_html += f'  <li><a href="#{slug}">{label}</a></li>\n'
-        toc_html += '</ol>\n</div>\n'
 
     # Assemble full HTML
     html = f"""<!DOCTYPE html>
@@ -742,10 +761,10 @@ def main():
         html1_en_v2 = convert_md_to_html(
             md1_en_v2.read_text(encoding='utf-8'),
             images_map=SESIT1_V2_IMAGES,
-            title='The Future of Non-Work — Workbook · For Everyone · v2',
+            title='The Future of No Work — Workbook · For Everyone · v2',
             subtitle='Workbook — from theory to practice · improved edition',
             badge='For Everyone · v2',
-            footer_text='The Future of Non-Work — Workbook · For Everyone · v2 · From theory to practice',
+            footer_text='The Future of No Work — Workbook · For Everyone · v2 · From theory to practice',
             locale='en',
         )
         out1e_v2 = base / 'SESIT 1 - For everyone - v2 - COMPLETE.html'
@@ -759,10 +778,10 @@ def main():
         html2_en_v2 = convert_md_to_html(
             md2_en_v2.read_text(encoding='utf-8'),
             images_map=SESIT2_IMAGES,
-            title='The Future of Non-Work — Workbook · For Managers and Leaders · v2',
+            title='The Future of No Work — Workbook · For Managers and Leaders · v2',
             subtitle='Workbook — for managers and leaders · improved edition',
             badge='For Managers · v2',
-            footer_text='The Future of Non-Work — Workbook · For Managers and Leaders · v2 · From theory to practice',
+            footer_text='The Future of No Work — Workbook · For Managers and Leaders · v2 · From theory to practice',
             locale='en',
         )
         out2e_v2 = base / 'SESIT 2 - For managers - v2 - COMPLETE.html'

@@ -1,11 +1,11 @@
-# The Future of Non-Work — Workbook
+# The Future of No Work — Workbook
 ## For Managers and Leaders · From Theory to Practice · v2
 
 ---
 
 ## 📖 About This Workbook
 
-This workbook is a practical companion to the book **"The Future of Non-Work" (Budoucnost nepráce)** by Filip Dřímalka, focused on managers, team leaders, and everyone who drives AI adoption within their teams and organizations. While Workbook 1 ("For Everyone") focuses on personal productivity, this workbook addresses:
+This workbook is a practical companion to the book **"The Future of No Work" (Budoucnost nepráce)** by Filip Dřímalka, focused on managers, team leaders, and everyone who drives AI adoption within their teams and organizations. While Workbook 1 ("For Everyone") focuses on personal productivity, this workbook addresses:
 
 ✅ How to map and leverage AI tools in your company
 ✅ How to systematically introduce AI into your team's work
@@ -670,4 +670,4 @@ Good luck on your AI journey.
 
 ---
 
-*The Future of Non-Work — Workbook · For Managers and Leaders · v2 · © 2025 Filip Dřímalka*
+*The Future of No Work — Workbook · For Managers and Leaders · v2 · © 2025 Filip Dřímalka*
