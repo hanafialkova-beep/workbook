@@ -700,9 +700,11 @@ def main():
         deploy_v2_2.write_text(_html_for_repo_deploy(html2v2), encoding='utf-8')
         print(f'📎 Deploy: {deploy_v2_2.name}')
 
-    # English HTML (from SESIT 1 - For everyone.md / SESIT 2 - For managers.md)
+    # English HTML v1 (from SESIT 1 - For everyone.md / SESIT 2 - For managers.md)
     md1_en = base / 'SESIT 1 - For everyone.md'
     md2_en = base / 'SESIT 2 - For managers.md'
+    html1_en = None
+    html2_en = None
     if md1_en.is_file():
         html1_en = convert_md_to_html(
             md1_en.read_text(encoding='utf-8'),
@@ -731,6 +733,45 @@ def main():
         out2e.write_text(html2_en, encoding='utf-8')
         print(f'✅ Workbook 2 (EN): {out2e}')
 
+    # English HTML v2
+    md1_en_v2 = base / 'SESIT 1 - For everyone - v2.md'
+    md2_en_v2 = base / 'SESIT 2 - For managers - v2.md'
+    html1_en_v2 = None
+    html2_en_v2 = None
+    if md1_en_v2.is_file():
+        html1_en_v2 = convert_md_to_html(
+            md1_en_v2.read_text(encoding='utf-8'),
+            images_map=SESIT1_V2_IMAGES,
+            title='The Future of Non-Work — Workbook · For Everyone · v2',
+            subtitle='Workbook — from theory to practice · improved edition',
+            badge='For Everyone · v2',
+            footer_text='The Future of Non-Work — Workbook · For Everyone · v2 · From theory to practice',
+            locale='en',
+        )
+        out1e_v2 = base / 'SESIT 1 - For everyone - v2 - COMPLETE.html'
+        out1e_v2.write_text(html1_en_v2, encoding='utf-8')
+        print(f'✅ Workbook 1 v2 (EN): {out1e_v2}  ({len(html1_en_v2)} chars)')
+        deploy_en_v2_1 = base / 'sesit-1-for-everyone-v2.html'
+        deploy_en_v2_1.write_text(_html_for_repo_deploy(html1_en_v2), encoding='utf-8')
+        print(f'📎 Deploy: {deploy_en_v2_1.name}')
+
+    if md2_en_v2.is_file():
+        html2_en_v2 = convert_md_to_html(
+            md2_en_v2.read_text(encoding='utf-8'),
+            images_map=SESIT2_IMAGES,
+            title='The Future of Non-Work — Workbook · For Managers and Leaders · v2',
+            subtitle='Workbook — for managers and leaders · improved edition',
+            badge='For Managers · v2',
+            footer_text='The Future of Non-Work — Workbook · For Managers and Leaders · v2 · From theory to practice',
+            locale='en',
+        )
+        out2e_v2 = base / 'SESIT 2 - For managers - v2 - COMPLETE.html'
+        out2e_v2.write_text(html2_en_v2, encoding='utf-8')
+        print(f'✅ Workbook 2 v2 (EN): {out2e_v2}  ({len(html2_en_v2)} chars)')
+        deploy_en_v2_2 = base / 'sesit-2-for-managers-v2.html'
+        deploy_en_v2_2.write_text(_html_for_repo_deploy(html2_en_v2), encoding='utf-8')
+        print(f'📎 Deploy: {deploy_en_v2_2.name}')
+
     # Deploy copies: same HTML as canonical names in workbook-repo/ (direct URLs on Vercel)
     repo = base / 'workbook-repo'
     if repo.is_dir():
@@ -740,10 +781,14 @@ def main():
         ]
         if html1v2:
             deploy.append((html1v2, 'sesit-1-pro-kazdeho-v2.html'))
-        if md1_en.is_file():
+        if html1_en:
             deploy.append((html1_en, 'sesit-1-for-everyone.html'))
-        if md2_en.is_file():
+        if html2_en:
             deploy.append((html2_en, 'sesit-2-for-managers.html'))
+        if html1_en_v2:
+            deploy.append((html1_en_v2, 'sesit-1-for-everyone-v2.html'))
+        if html2_en_v2:
+            deploy.append((html2_en_v2, 'sesit-2-for-managers-v2.html'))
         for content, name in deploy:
             dest = repo / name
             dest.write_text(_html_for_repo_deploy(content), encoding='utf-8')
