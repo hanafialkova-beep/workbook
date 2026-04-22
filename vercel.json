@@ -5,6 +5,12 @@
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" }
       ]
+    },
+    {
+      "source": "/workbook-(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
     }
   ],
   "rewrites": [
@@ -13,6 +19,8 @@
     { "source": "/sesit-2", "destination": "/sesit-2-pro-manazery.html" },
     { "source": "/sesit-2-v2", "destination": "/sesit-2-pro-manazery-v2.html" },
     { "source": "/workbook-1", "destination": "/sesit-1-for-everyone.html" },
-    { "source": "/workbook-2", "destination": "/sesit-2-for-managers.html" }
+    { "source": "/workbook-2", "destination": "/sesit-2-for-managers.html" },
+    { "source": "/workbook-for-everyone", "destination": "/workbook-for-everyone.html" },
+    { "source": "/workbook-for-managers", "destination": "/workbook-for-managers.html" }
   ]
 }
