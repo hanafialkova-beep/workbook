@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Future of No Work — Workbook · For Everyone · v2</title>
+    <meta name="robots" content="noindex, nofollow">
+    <title>The Future of No Work Workbook — Volume 1 · For everyone</title>
     <style>
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,8 +44,7 @@ body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Ne
 /* EXERCISE CARDS */
 .exercise-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 32px; margin: 28px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: box-shadow 0.2s; page-break-inside: avoid; }
 .exercise-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-.exercise-header { display: flex; align-items: center; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid #E53935; margin-bottom: 20px; }
-.exercise-title { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0; flex: 1; }
+.exercise-title { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
 .exercise-meta { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
 .exercise-meta span { font-size: 0.85rem; color: #666; }
 
@@ -96,9 +96,12 @@ a:hover { border-bottom-color: #E53935; }
 .tip-block p { margin: 0; color: #2e7d32; font-weight: 500; }
 
 /* IMAGES */
-.accent-image, .accent-image-left { width: 48px; flex-shrink: 0; opacity: 0.45; transition: opacity 0.3s; }
-.accent-image:hover, .accent-image-left:hover { opacity: 0.8; }
-.accent-image img, .accent-image-left img { width: 100%; height: auto; display: block; }
+.accent-image { float: right; max-width: 120px; margin: -8px -12px 12px 20px; opacity: 0.55; transition: opacity 0.3s; }
+.accent-image:hover { opacity: 0.85; }
+.accent-image img { width: 100%; height: auto; }
+.accent-image-left { float: left; max-width: 110px; margin: -4px 20px 12px -12px; opacity: 0.50; transition: opacity 0.3s; }
+.accent-image-left:hover { opacity: 0.85; }
+.accent-image-left img { width: 100%; height: auto; }
 .diagram-image { text-align: center; margin: 24px auto; max-width: 380px; }
 .diagram-image img { width: 100%; height: auto; opacity: 0.85; border-radius: 4px; }
 .img-caption { font-size: 0.78rem; color: #aaa; text-align: center; margin-top: 4px; font-style: italic; }
@@ -112,10 +115,10 @@ a:hover { border-bottom-color: #E53935; }
 .resources-title { margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #E53935; }
 
 /* CONCLUSION */
-.conclusion-section { margin: 48px 0 0; padding: 48px 40px 40px; background: #fafafa; border-top: 3px solid #E53935; }
-.conclusion-icon { font-size: 2.4rem; margin-bottom: 8px; text-align: center; }
-.conclusion-heading { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; margin-bottom: 8px; letter-spacing: -0.3px; text-align: center; }
-.conclusion-lead { color: #555; font-size: 1.05rem; margin-bottom: 32px; text-align: center; }
+.conclusion-section { margin: 48px 0 0; padding: 48px 40px 40px; background: #fafafa; border-top: 3px solid #E53935; text-align: center; }
+.conclusion-icon { font-size: 2.4rem; margin-bottom: 8px; }
+.conclusion-heading { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; margin-bottom: 8px; letter-spacing: -0.3px; }
+.conclusion-lead { color: #555; font-size: 1.05rem; margin-bottom: 32px; }
 .conclusion-columns { display: flex; gap: 32px; text-align: left; max-width: 560px; margin: 0 auto 32px; }
 .conclusion-col { flex: 1; }
 .conclusion-col h4 { font-size: 0.9rem; font-weight: 700; color: #E53935; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #e0e0e0; }
@@ -132,7 +135,7 @@ a:hover { border-bottom-color: #E53935; }
     .cover { padding: 40px 24px; }
     .exercise-card { padding: 24px; }
     .about-section, .toc-section, .resources-section { padding: 24px; }
-    .accent-image, .accent-image-left { width: 36px; }
+    .accent-image, .accent-image-left { float: none; max-width: 80px; margin: 12px auto; }
 }
 @media (max-width: 480px) {
     .content { padding: 0 16px 32px; }
@@ -142,12 +145,17 @@ a:hover { border-bottom-color: #E53935; }
     .conclusion-columns { flex-direction: column; gap: 20px; }
 }
 
+/* PDF BUTTON */
+.btn-pdf { margin-left: auto; background: #E53935; color: #fff !important; border: none; padding: 5px 14px; border-radius: 4px; font-size: 0.78rem; font-weight: 600; cursor: pointer; white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; }
+.btn-pdf:hover { background: #c62828; border-bottom: none !important; }
+
 /* PRINT */
 @page { size: A4; margin: 20mm 15mm 25mm 15mm; @bottom-center { content: counter(page); font-size: 9pt; color: #999; } }
 @media print {
     body { background: #fff; }
     .page-container { max-width: 100%; box-shadow: none; }
     .nav { display: none; }
+    .btn-pdf { display: none; }
     .content { padding: 0 10px 20px; }
     .cover { padding: 40px 20px; page-break-after: always; }
     .exercise-card { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
@@ -161,7 +169,7 @@ a:hover { border-bottom-color: #E53935; }
 <body>
 <div class="page-container">
     <nav class="nav">
-        <a href="index.html" class="nav-brand">📖 For Everyone · v2</a>
+        <span class="nav-brand">📖 Volume 1 · For everyone</span>
     <a href="#cviceni-0">Ex. 0</a>
     <a href="#cviceni-1">Ex. 1</a>
     <a href="#cviceni-2">Ex. 2</a>
@@ -172,14 +180,14 @@ a:hover { border-bottom-color: #E53935; }
     <a href="#cviceni-7">Ex. 7</a>
     <a href="#cviceni-8">Ex. 8</a>
     <a href="#cviceni-9">Ex. 9</a>
-
+    <button class="btn-pdf" onclick="window.print()">⬇ Download PDF</button>
     </nav>
 
     <div class="cover">
         <h1 class="cover-title">The Future of No Work</h1>
-        <p class="cover-subtitle">Workbook — from theory to practice · improved edition</p>
+        <p class="cover-subtitle">The Future of No Work Workbook</p>
         <div class="cover-line"></div>
-        <div class="cover-badge">For Everyone · v2</div>
+        <div class="cover-badge">Volume 1 · For everyone</div>
     </div>
 
     <div class="content">
@@ -192,22 +200,37 @@ a:hover { border-bottom-color: #E53935; }
             <p>You don’t have to follow the exercises in perfect order. Skip what you already know. Come back to what hurts. The point is to walk away with something <em>concrete</em> — a bookmark, a template, a working automation — not just the feeling that you “read something about AI.”</p>
             <p>And if it doesn’t work on the first try? Totally normal. AI is a tool — and like any tool, you learn where it saves you time and where it steals your attention.</p>
             <p>Here’s to small wins, a few surprises, and the habit of learning in practice.</p>
-            <p class="author">— Filip Dřímalka</p>
+            <p class="author">— Filip Drimalka</p>
 
         </div>
 
-        
+        <div class="toc-section" id="obsah">
+<h2 class="toc-title">📋 Contents</h2>
+<ol class="numbered-list">
+  <li><a href="#cviceni-0">Exercise 0: Solve your first problem with AI</a></li>
+  <li><a href="#cviceni-1">Exercise 1: Set up quick access to AI tools</a></li>
+  <li><a href="#cviceni-2">Exercise 2: Create your AI prompt generator</a></li>
+  <li><a href="#cviceni-3">Exercise 3: When AI lies — learn to spot it</a></li>
+  <li><a href="#cviceni-4">Exercise 4: Find an AI tool for your needs</a></li>
+  <li><a href="#cviceni-5">Exercise 5: Compare two AI tools</a></li>
+  <li><a href="#cviceni-6">Exercise 6: Working with data and documents</a></li>
+  <li><a href="#cviceni-7">Exercise 7: Build your second brain (3C Framework)</a></li>
+  <li><a href="#cviceni-8">Exercise 8: Create your own AI assistant</a></li>
+  <li><a href="#cviceni-9">Exercise 9: Build your personal AI setup</a></li>
+</ol>
+</div>
 
-        <h2 class="subsection-title" id="for-everyone-from-theory-to-practice-v2">For Everyone · From Theory to Practice · v2</h2>
+
+        <h2 class="subsection-title" id="for-everyone-from-theory-to-practice">Volume 1 — For everyone</h2>
 <hr class="divider">
 <div class="about-section" id="about-this-workbook">
-<h2 class="about-title">📖 About This Workbook</h2>
-<p>This workbook is a practical companion to the book <strong>"The Future of No Work" (Budoucnost nepráce)</strong> by Filip Dřímalka. While the book provides the theoretical foundations and frameworks, this workbook walks you through concrete exercises — from your first AI experiment to setting up your own AI assistant.</p>
+<h2 class="about-title">📖 About this workbook</h2>
+<p>This workbook is a practical companion to the book <strong>"The Future of No Work" (Budoucnost nepráce)</strong> by Filip Drimalka. While the book provides the theoretical foundations and frameworks, this workbook walks you through concrete exercises — from your first AI experiment to setting up your own AI assistant.</p>
 <p>✅ Develop practical skills for working with AI tools</p>
 <p>✅ Try different approaches on real work tasks</p>
 <p>✅ Gradually build your AI competencies</p>
 <p>✅ Apply insights from the book in practice</p>
-<h3 class="subsection-title" id="how-to-use-this-workbook">🎯 How to Use This Workbook</h3>
+<h3 class="subsection-title" id="how-to-use-this-workbook">🎯 How to use this workbook</h3>
 <ol class="numbered-list">
   <li><strong>Start with Exercise 0</strong> — experience AI hands-on before you start setting anything up</li>
   <li><strong>Work at your own pace</strong> — each exercise has an estimated time, but don't rush</li>
@@ -215,10 +238,9 @@ a:hover { border-bottom-color: #E53935; }
   <li><strong>Save what works</strong> — prompts, templates, rules. By the end, you'll build your personal AI toolkit</li>
   <li><strong>Share</strong> — discuss with colleagues and share your experiences</li>
 </ol>
-<h3 class="subsection-title" id="golden-safety-rule">🔒 Golden Safety Rule</h3>
+<h3 class="subsection-title" id="golden-safety-rule">🔒 Golden safety rule</h3>
 <div class="selling-line"><p>For the experiments in this workbook, use publicly available data and a personal email account (Gmail, etc.). Sensitive company data belongs only in tools approved by your organization (Microsoft Copilot, Google Workspace AI, etc.). This rule applies to all exercises — we won't repeat it.</p></div>
-<div class="toc-section" id="exercise-overview">
-<h3 class="toc-title" style="font-size:1.3rem">📋 Exercise Overview</h3>
+<h3 class="subsection-title" id="exercise-overview">📋 Exercise overview</h3>
 <div class="table-wrapper"><table class="data-table">
 <thead><tr>
   <th>#</th>
@@ -228,63 +250,62 @@ a:hover { border-bottom-color: #E53935; }
 <tbody>
 <tr>
   <td>0</td>
-  <td><a href="#cviceni-0" style="color:#E53935;text-decoration:none;font-weight:600;"><strong>Solve your first problem with AI</strong></a></td>
+  <td><strong>Solve your first problem with AI</strong></td>
   <td>5–10 min</td>
 </tr>
 <tr>
   <td>1</td>
-  <td><a href="#cviceni-1" style="color:#E53935;text-decoration:none;font-weight:600;"><strong>Set up quick access to AI tools</strong></a></td>
+  <td><strong>Set up quick access to AI tools</strong></td>
   <td>15–20 min</td>
 </tr>
 <tr>
   <td>2</td>
-  <td><a href="#cviceni-2" style="color:#E53935;text-decoration:none;font-weight:600;"><strong>Create your AI Prompt Generator</strong></a></td>
+  <td><strong>Create your AI Prompt Generator</strong></td>
   <td>15–20 min</td>
 </tr>
 <tr>
   <td>3</td>
-  <td><a href="#cviceni-3" style="color:#E53935;text-decoration:none;font-weight:600;"><strong>When AI lies — learn to spot it</strong></a></td>
+  <td><strong>When AI lies — learn to spot it</strong></td>
   <td>10–15 min</td>
 </tr>
 <tr>
   <td>4</td>
-  <td><a href="#cviceni-4" style="color:#E53935;text-decoration:none;font-weight:600;"><strong>Find an AI tool for your needs</strong></a></td>
+  <td><strong>Find an AI tool for your needs</strong></td>
   <td>10–15 min</td>
 </tr>
 <tr>
   <td>5</td>
-  <td><a href="#cviceni-5" style="color:#E53935;text-decoration:none;font-weight:600;"><strong>Compare two AI tools</strong></a></td>
+  <td><strong>Compare two AI tools</strong></td>
   <td>20–30 min</td>
 </tr>
 <tr>
   <td>6</td>
-  <td><a href="#cviceni-6" style="color:#E53935;text-decoration:none;font-weight:600;"><strong>Working with data and documents</strong></a></td>
+  <td><strong>Working with data and documents</strong></td>
   <td>30–45 min</td>
 </tr>
 <tr>
   <td>7</td>
-  <td><a href="#cviceni-7" style="color:#E53935;text-decoration:none;font-weight:600;"><strong>Build your second brain (3C Framework)</strong></a></td>
+  <td><strong>Build your second brain (3C Framework)</strong></td>
   <td>30–45 min</td>
 </tr>
 <tr>
   <td>8</td>
-  <td><a href="#cviceni-8" style="color:#E53935;text-decoration:none;font-weight:600;"><strong>Create your own AI assistant</strong></a></td>
+  <td><strong>Create your own AI assistant</strong></td>
   <td>20–30 min</td>
 </tr>
 <tr>
   <td>9</td>
-  <td><a href="#cviceni-9" style="color:#E53935;text-decoration:none;font-weight:600;"><strong>Build your personal AI setup</strong></a></td>
+  <td><strong>Build your personal AI setup</strong></td>
   <td>20–30 min</td>
 </tr>
 </tbody></table></div>
 <hr class="divider">
 <div class="exercise-card" id="cviceni-0">
-<div class="exercise-header">
-<h2 class="exercise-title">Exercise 0: Solve Your First Problem with AI</h2>
-</div><!-- /exercise-header -->
+<h2 class="exercise-title">Exercise 0: Solve your first problem with AI</h2>
 <div class="selling-line"><p><strong>💡 Before setting anything up, experience what AI can do for you — on a problem you're actually dealing with today.</strong></p></div>
+<div class="selling-line"><p>📚 <em>Book concept: Three Levels of AI Use — Level 1 (personal productivity)</em></p></div>
 <p><strong>⏱️ 5–10 minutes · Level: Beginner</strong></p>
-<h3 class="subsection-title" id="what-youll-do">What You'll Do</h3>
+<h3 class="subsection-title" id="what-youll-do">What you'll do</h3>
 <p>Open any AI tool and solve a problem you have on your desk right now. You don't need to write a "perfect prompt" — just describe what you need, like you would to a colleague.</p>
 <h3 class="subsection-title" id="steps">Steps</h3>
 <p><strong>1. Open an AI tool</strong></p>
@@ -308,12 +329,12 @@ a:hover { border-bottom-color: #E53935; }
   <li><em>"Add some concrete numbers."</em></li>
   <li><em>"That's not quite what I meant. What I actually need is..."</em></li>
 </ul>
-<h3 class="subsection-title" id="your-output">Your Output</h3>
+<h3 class="subsection-title" id="your-output">Your output</h3>
 <ul class="checklist">
   <li class="checklist-item"><label><input type="checkbox"> A usable result for today's work (email, structure, summary, plan...)</label></li>
   <li class="checklist-item"><label><input type="checkbox"> First experience with how AI responds to your task and how to "iterate"</label></li>
 </ul>
-<h3 class="subsection-title" id="what-you-take-away">What You Take Away</h3>
+<h3 class="subsection-title" id="what-you-take-away">What you take away</h3>
 <ul class="bullet-list">
   <li>💡 <strong>Inspiration:</strong> What caught my attention:</li>
   <li>🧪 <strong>Experiment:</strong> What I'll try at work tomorrow:</li>
@@ -322,14 +343,13 @@ a:hover { border-bottom-color: #E53935; }
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-1">
-<div class="exercise-header">
 <div class="accent-image"><img src="images/01.png" alt="" loading="lazy"></div>
-<h2 class="exercise-title">Exercise 1: Set Up Quick Access to AI Tools</h2>
-</div><!-- /exercise-header -->
+<h2 class="exercise-title">Exercise 1: Set up quick access to AI tools</h2>
 <div class="selling-line"><p><strong>💡 Have all your AI tools one click away — save yourself minutes every day.</strong></p></div>
+<div class="selling-line"><p>📚 <em>Book concept: AI-first mindset</em></p></div>
 <p><strong>⏱️ 15–20 minutes · Level: Beginner</strong></p>
 <p><strong>Goal:</strong> Have all important AI tools and materials one click away. Register, set up bookmarks, and be ready for the next exercises.</p>
-<h3 class="subsection-title" id="what-youll-do">What You'll Do</h3>
+<h3 class="subsection-title" id="what-youll-do">What you'll do</h3>
 <p>In Exercise 0 you experienced what AI can do. Now you'll set up your tools so you can use them quickly and comfortably — every day.</p>
 <h3 class="subsection-title" id="steps">Steps</h3>
 <p><strong>1. Show the bookmarks bar in your browser</strong></p>
@@ -375,13 +395,13 @@ a:hover { border-bottom-color: #E53935; }
   <li><strong>Summary:</strong> Find an article, copy the text into AI and ask: <em>"Summarize this into 5 key points."</em></li>
   <li><strong>Presentation:</strong> <em>"Create a structure for a 10-minute presentation on [your topic]. Introduction, 3 main points, conclusion."</em></li>
 </ul>
-<h3 class="subsection-title" id="your-output">Your Output</h3>
+<h3 class="subsection-title" id="your-output">Your output</h3>
 <ul class="checklist">
   <li class="checklist-item"><label><input type="checkbox"> Four AI tools registered and added to the bookmarks bar</label></li>
   <li class="checklist-item"><label><input type="checkbox"> Materials folder created</label></li>
   <li class="checklist-item"><label><input type="checkbox"> At least one practical task tried (from Exercise 0 or now)</label></li>
 </ul>
-<h3 class="subsection-title" id="what-you-take-away">What You Take Away</h3>
+<h3 class="subsection-title" id="what-you-take-away">What you take away</h3>
 <ul class="bullet-list">
   <li>💡 <strong>Inspiration:</strong> What caught my attention:</li>
   <li>🧪 <strong>Experiment:</strong> What I'll try at work tomorrow:</li>
@@ -390,16 +410,15 @@ a:hover { border-bottom-color: #E53935; }
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-2">
-<div class="exercise-header">
 <div class="accent-image-left"><img src="images/05.png" alt="" loading="lazy"></div>
-<h2 class="exercise-title">Exercise 2: Create Your AI Prompt Generator</h2>
-</div><!-- /exercise-header -->
+<h2 class="exercise-title">Exercise 2: Create your AI prompt generator</h2>
 <div class="selling-line"><p><strong>💡 Build an assistant that helps you write far better prompts — and learn the key skill: iteration.</strong></p></div>
+<div class="selling-line"><p>📚 <em>Book concept: Vibe Working — collaborating with AI</em></p></div>
 <p><strong>⏱️ 15–20 minutes · Level: Beginner</strong></p>
 <p><strong>Goal:</strong> Have your own "prompt generator" that creates professional AI prompts for any task.</p>
-<h3 class="subsection-title" id="what-youll-do">What You'll Do</h3>
+<h3 class="subsection-title" id="what-youll-do">What you'll do</h3>
 <p>You'll create a specialized AI assistant (or save a template) that will write complete, high-quality prompts for you. Instead of thinking about how to phrase things, you let the generator handle it.</p>
-<h3 class="subsection-title" id="why-this-matters">Why This Matters</h3>
+<h3 class="subsection-title" id="why-this-matters">Why this matters</h3>
 <ul class="bullet-list">
   <li>Quality of prompt = quality of output</li>
   <li>You don't have to think about structure, just describe what you need</li>
@@ -450,7 +469,7 @@ Understood? Shall we begin?</code></pre></div>
   <li><em>"Make it simpler — it should be more concise."</em></li>
 </ul>
 <p>This "back-and-forth" is the key skill for working with AI (same as in Exercise 0).</p>
-<h3 class="subsection-title" id="your-output">Your Output</h3>
+<h3 class="subsection-title" id="your-output">Your output</h3>
 <ul class="checklist">
   <li class="checklist-item"><label><input type="checkbox"> AI Prompt Generator saved (in notes, as an assistant, or as a shortcut)</label></li>
   <li class="checklist-item"><label><input type="checkbox"> Tested on one test prompt</label></li>
@@ -462,7 +481,7 @@ Understood? Shall we begin?</code></pre></div>
 <div class="selling-line"><p>- <strong>Gemini Gems:</strong> Gems → New Gem → paste the prompt into instructions.</p></div>
 <div class="selling-line"><p>- <strong>Copilot Agents:</strong> Create Agent → paste the prompt into instructions.</p></div>
 <div class="selling-line"><p>- <strong>Keyboard shortcut:</strong> Mac: Settings → Keyboard → Text Substitutions → <span class="inline-code">;;prompt</span>. Windows: PowerToys → Text Expander.</p></div>
-<h3 class="subsection-title" id="what-you-take-away">What You Take Away</h3>
+<h3 class="subsection-title" id="what-you-take-away">What you take away</h3>
 <ul class="bullet-list">
   <li>💡 <strong>Inspiration:</strong> What caught my attention:</li>
   <li>🧪 <strong>Experiment:</strong> What I'll try at work tomorrow:</li>
@@ -471,15 +490,14 @@ Understood? Shall we begin?</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-3">
-<div class="exercise-header">
 <div class="accent-image"><img src="images/09.png" alt="" loading="lazy"></div>
-<h2 class="exercise-title">Exercise 3: When AI Lies — Learn to Spot It</h2>
-</div><!-- /exercise-header -->
+<h2 class="exercise-title">Exercise 3: When AI lies — learn to spot it</h2>
 <div class="selling-line"><p><strong>💡 AI always answers with confidence. Learn to tell when it's right and when it's making things up — this is the most important skill for working with AI.</strong></p></div>
+<div class="selling-line"><p>📚 <em>Book concept: FAIL = First Attempt In Learning</em></p></div>
 <p><strong>⏱️ 10–15 minutes · Level: Beginner</strong></p>
-<h3 class="subsection-title" id="why-this-matters">Why This Matters</h3>
+<h3 class="subsection-title" id="why-this-matters">Why this matters</h3>
 <p>AI is a tool, not an authority. The key skill is not "knowing how to write a prompt" — it's knowing how to evaluate the output. Without this, you can't trust AI in your work.</p>
-<h3 class="subsection-title" id="what-youll-do">What You'll Do</h3>
+<h3 class="subsection-title" id="what-youll-do">What you'll do</h3>
 <p>You'll intentionally test where AI is accurate and where it makes things up. You'll learn to recognize so-called "hallucinations" — situations where AI generates plausible but false text.</p>
 <h3 class="subsection-title" id="steps">Steps</h3>
 <p><strong>1. Ask about something you know (3 min)</strong></p>
@@ -512,13 +530,13 @@ Understood? Shall we begin?</code></pre></div>
   <li><em>"If AI claims something specific about our company, I'll check it."</em></li>
   <li><em>"A confident tone from AI doesn't mean the answer is correct."</em></li>
 </ul>
-<h3 class="subsection-title" id="your-output">Your Output</h3>
+<h3 class="subsection-title" id="your-output">Your output</h3>
 <ul class="checklist">
   <li class="checklist-item"><label><input type="checkbox"> Tested AI on a question where you know the answer</label></li>
   <li class="checklist-item"><label><input type="checkbox"> Uncovered at least one hallucination or inaccuracy</label></li>
   <li class="checklist-item"><label><input type="checkbox"> 📌 <strong>3 personal rules for verifying AI outputs</strong> — save these, you'll always need them</label></li>
 </ul>
-<h3 class="subsection-title" id="what-you-take-away">What You Take Away</h3>
+<h3 class="subsection-title" id="what-you-take-away">What you take away</h3>
 <ul class="bullet-list">
   <li>💡 <strong>Inspiration:</strong> What caught my attention:</li>
   <li>🧪 <strong>Experiment:</strong> What I'll try at work tomorrow:</li>
@@ -527,13 +545,12 @@ Understood? Shall we begin?</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-4">
-<div class="exercise-header">
-<h2 class="exercise-title">Exercise 4: Find an AI Tool for Your Needs</h2>
-</div><!-- /exercise-header -->
+<h2 class="exercise-title">Exercise 4: Find an AI tool for your needs</h2>
 <div class="selling-line"><p><strong>💡 Discover a tool that will save you hours of work every week — ask AI instead of Googling.</strong></p></div>
+<div class="selling-line"><p>📚 <em>Book concept: Just-in-time Learning</em></p></div>
 <p><strong>⏱️ 10–15 minutes · Level: Beginner</strong></p>
 <p><strong>Goal:</strong> Find and try an AI tool that solves a specific work problem for you.</p>
-<h3 class="subsection-title" id="what-youll-do">What You'll Do</h3>
+<h3 class="subsection-title" id="what-youll-do">What you'll do</h3>
 <p>You'll identify a concrete problem from your work, ask AI for recommendations, and try out the recommended tool.</p>
 <h3 class="subsection-title" id="steps">Steps</h3>
 <p><strong>1. Identify the problem</strong></p>
@@ -572,13 +589,13 @@ Compare them on price, features, and ease of use.</code></pre></div>
   <li>Try it on a <strong>specific task</strong> from your work (not generically!)</li>
   <li>Evaluate: Is it worth paying for premium? Could the whole team benefit? How often will I use this?</li>
 </ol>
-<h3 class="subsection-title" id="your-output">Your Output</h3>
+<h3 class="subsection-title" id="your-output">Your output</h3>
 <ul class="checklist">
   <li class="checklist-item"><label><input type="checkbox"> Identified a specific problem</label></li>
   <li class="checklist-item"><label><input type="checkbox"> List of AI-recommended tools (verified — see Exercise 3)</label></li>
   <li class="checklist-item"><label><input type="checkbox"> Tried at least one tool on a real task</label></li>
 </ul>
-<h3 class="subsection-title" id="what-you-take-away">What You Take Away</h3>
+<h3 class="subsection-title" id="what-you-take-away">What you take away</h3>
 <ul class="bullet-list">
   <li>💡 <strong>Inspiration:</strong> What caught my attention:</li>
   <li>🧪 <strong>Experiment:</strong> What I'll try at work tomorrow:</li>
@@ -587,14 +604,13 @@ Compare them on price, features, and ease of use.</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-5">
-<div class="exercise-header">
 <div class="accent-image-left"><img src="images/14.png" alt="" loading="lazy"></div>
-<h2 class="exercise-title">Exercise 5: Compare Two AI Tools</h2>
-</div><!-- /exercise-header -->
+<h2 class="exercise-title">Exercise 5: Compare two AI tools</h2>
 <div class="selling-line"><p><strong>💡 Find out which AI tool is right for you — with a concrete example from your work.</strong></p></div>
+<div class="selling-line"><p>📚 <em>Book concept: IES — Inspiration, Experiment, Sharing</em></p></div>
 <p><strong>⏱️ 20–30 minutes · Level: Beginner</strong></p>
 <p><strong>Goal:</strong> Test two AI tools with the same prompt and find out which works better for your type of work.</p>
-<h3 class="subsection-title" id="what-youll-do">What You'll Do</h3>
+<h3 class="subsection-title" id="what-youll-do">What you'll do</h3>
 <p>You'll choose a work task, write a prompt, and give it to two different AI tools. You'll compare results and learn when to use which tool.</p>
 <h3 class="subsection-title" id="steps">Steps</h3>
 <p><strong>1. Choose a task from your work</strong></p>
@@ -668,13 +684,13 @@ Compare them on price, features, and ease of use.</code></pre></div>
   <li>For this type of task — which tool will you use next time?</li>
 </ul>
 <div class="tip-block"><p>💡 <strong>Trust your instincts</strong> — it's your work task and you know best what helps you.</p></div>
-<h3 class="subsection-title" id="your-output">Your Output</h3>
+<h3 class="subsection-title" id="your-output">Your output</h3>
 <ul class="checklist">
   <li class="checklist-item"><label><input type="checkbox"> Same task tested in two AI tools</label></li>
   <li class="checklist-item"><label><input type="checkbox"> Comparison of results</label></li>
   <li class="checklist-item"><label><input type="checkbox"> 📌 <strong>Decision: when to use which tool</strong> — save this, you'll use it in Exercise 9</label></li>
 </ul>
-<h3 class="subsection-title" id="what-you-take-away">What You Take Away</h3>
+<h3 class="subsection-title" id="what-you-take-away">What you take away</h3>
 <ul class="bullet-list">
   <li>💡 <strong>Inspiration:</strong> What caught my attention:</li>
   <li>🧪 <strong>Experiment:</strong> What I'll try at work tomorrow:</li>
@@ -683,14 +699,13 @@ Compare them on price, features, and ease of use.</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-6">
-<div class="exercise-header">
 <div class="accent-image"><img src="images/17.png" alt="" loading="lazy"></div>
-<h2 class="exercise-title">Exercise 6: Working with Data and Documents</h2>
-</div><!-- /exercise-header -->
+<h2 class="exercise-title">Exercise 6: Working with data and documents</h2>
 <div class="selling-line"><p><strong>💡 Learn to decide when chat is enough and when you need more — and set up the advanced tools.</strong></p></div>
+<div class="selling-line"><p>📚 <em>Book concept: OHIO — Only Handle It Once</em></p></div>
 <p><strong>⏱️ 30–45 minutes · Level: Intermediate / Advanced</strong></p>
 <p><strong>Goal:</strong> Try working with data and documents in chat, understand when you need advanced tools, and set them up.</p>
-<h3 class="subsection-title" id="what-youll-do">What You'll Do</h3>
+<h3 class="subsection-title" id="what-youll-do">What you'll do</h3>
 <p>First you'll try what a regular chat (ChatGPT, Claude) can handle. Then you'll look at the differences between "when chat is enough and when you need more." Finally, you'll set up advanced tools for more complex tasks.</p>
 <h3 class="subsection-title" id="steps">Steps</h3>
 <p><strong>1. Try chat on your own document (10 min)</strong></p>
@@ -741,14 +756,14 @@ Compare them on price, features, and ease of use.</code></pre></div>
 <div class="tip-block"><p>💡 <strong>Cursor</strong> looks like a code editor, but you don't need to know how to code. Just type commands in natural language.</p></div>
 <div class="tip-block"><p>💡 <strong>Corporate tip:</strong> GitHub Copilot is often included in your company's license. Ask your IT department.</p></div>
 <p><strong>Optionally:</strong> <strong>Relay.app</strong> or <strong>n8n</strong> for workflow automation — only if you're interested in connecting apps.</p>
-<h3 class="subsection-title" id="your-output">Your Output</h3>
+<h3 class="subsection-title" id="your-output">Your output</h3>
 <ul class="checklist">
   <li class="checklist-item"><label><input type="checkbox"> Tried chat on your own document or data</label></li>
   <li class="checklist-item"><label><input type="checkbox"> Understood the differences between chat and advanced tools</label></li>
   <li class="checklist-item"><label><input type="checkbox"> Tried Replit or Lovable <strong>and</strong> Cursor or Copilot (or noted you'll return to this)</label></li>
   <li class="checklist-item"><label><input type="checkbox"> Identified cases from your work where you need more than chat</label></li>
 </ul>
-<h3 class="subsection-title" id="what-you-take-away">What You Take Away</h3>
+<h3 class="subsection-title" id="what-you-take-away">What you take away</h3>
 <ul class="bullet-list">
   <li>💡 <strong>Inspiration:</strong> What caught my attention:</li>
   <li>🧪 <strong>Experiment:</strong> What I'll try at work tomorrow:</li>
@@ -757,18 +772,17 @@ Compare them on price, features, and ease of use.</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-7">
-<div class="exercise-header">
 <div class="accent-image-left"><img src="images/20.png" alt="" loading="lazy"></div>
-<h2 class="exercise-title">Exercise 7: Build Your Second Brain (3C Framework)</h2>
-</div><!-- /exercise-header -->
+<h2 class="exercise-title">Exercise 7: Build your second brain (3C Framework)</h2>
 <div class="selling-line"><p><strong>💡 Build a system where no information gets lost — capture, clean, connect.</strong></p></div>
+<div class="selling-line"><p>📚 <em>Book concept: 3C Framework — Capture, Clean, Connect</em></p></div>
 <p><strong>⏱️ 30–45 minutes · Level: Intermediate</strong></p>
 <p><strong>Goal:</strong> Set up a complete system for working with information using the 3C Framework: <strong>Capture</strong> → <strong>Clean</strong> → <strong>Connect</strong>.</p>
-<h3 class="subsection-title" id="what-youll-do">What You'll Do</h3>
+<h3 class="subsection-title" id="what-youll-do">What you'll do</h3>
 <p>You'll go through the three pillars of information management, choose the right tools, and set up a working system. To start: remember the prompts and rules from the previous exercises? Those will be the first things you save into your system.</p>
 </div><!-- /exercise-card -->
 <hr class="divider">
-<h3 class="subsection-title" id="step-1-capture-capturing-information">Step 1: CAPTURE — Capturing Information</h3>
+<h3 class="subsection-title" id="step-1-capture-capturing-information">Step 1: CAPTURE — Capturing information</h3>
 <p>Goal: Have a system where you can quickly save anything important.</p>
 <p><strong>Choose your tools:</strong></p>
 <div class="table-wrapper"><table class="data-table">
@@ -819,7 +833,7 @@ Compare them on price, features, and ease of use.</code></pre></div>
   📁 Ideas
   📁 Learning</code></pre></div>
 <hr class="divider">
-<h3 class="subsection-title" id="step-2-clean-processing-information">Step 2: CLEAN — Processing Information</h3>
+<h3 class="subsection-title" id="step-2-clean-processing-information">Step 2: CLEAN — Processing information</h3>
 <p>Goal: Learn to efficiently process saved information using AI.</p>
 <p><strong>Format conversion:</strong></p>
 <ul class="bullet-list">
@@ -844,7 +858,7 @@ Compare them on price, features, and ease of use.</code></pre></div>
   <li>Create a template from existing documents</li>
 </ol>
 <hr class="divider">
-<h3 class="subsection-title" id="step-3-connect-connecting-information">Step 3: CONNECT — Connecting Information</h3>
+<h3 class="subsection-title" id="step-3-connect-connecting-information">Step 3: CONNECT — Connecting information</h3>
 <p>Goal: Connect saved information using AI assistants and knowledge bases.</p>
 <p><strong>Create an AI assistant with your documents:</strong></p>
 <div class="table-wrapper"><table class="data-table">
@@ -873,7 +887,7 @@ Compare them on price, features, and ease of use.</code></pre></div>
   <li>Check if the answers match the content (Exercise 3!)</li>
   <li>Optionally: create an FAQ chatbot — gather FAQ and answers, create a GPT/Project/Gem from them</li>
 </ol>
-<h3 class="subsection-title" id="full-exercise-output">Full Exercise Output</h3>
+<h3 class="subsection-title" id="full-exercise-output">Full exercise output</h3>
 <ul class="checklist">
   <li class="checklist-item"><label><input type="checkbox"> Set up a system for capturing information (to-do + notes)</label></li>
   <li class="checklist-item"><label><input type="checkbox"> Saved outputs from previous exercises (prompts, rules, decisions)</label></li>
@@ -881,7 +895,7 @@ Compare them on price, features, and ease of use.</code></pre></div>
   <li class="checklist-item"><label><input type="checkbox"> Created an AI assistant with your documents</label></li>
   <li class="checklist-item"><label><input type="checkbox"> Basic structure for organizing information</label></li>
 </ul>
-<h3 class="subsection-title" id="what-you-take-away">What You Take Away</h3>
+<h3 class="subsection-title" id="what-you-take-away">What you take away</h3>
 <ul class="bullet-list">
   <li>💡 <strong>Inspiration:</strong> What caught my attention:</li>
   <li>🧪 <strong>Experiment:</strong> What I'll try at work tomorrow:</li>
@@ -889,16 +903,15 @@ Compare them on price, features, and ease of use.</code></pre></div>
 </ul>
 <hr class="divider">
 <div class="exercise-card" id="cviceni-8">
-<div class="exercise-header">
 <div class="accent-image"><img src="images/24.png" alt="" loading="lazy"></div>
-<h2 class="exercise-title">Exercise 8: Create Your Own AI Assistant</h2>
-</div><!-- /exercise-header -->
+<h2 class="exercise-title">Exercise 8: Create your own AI assistant</h2>
 <div class="selling-line"><p><strong>💡 Build an AI that knows your work, your style, and your needs — and use it every day.</strong></p></div>
+<div class="selling-line"><p>📚 <em>Book concept: Superpowered Professionals</em></p></div>
 <p><strong>⏱️ 20–30 minutes · Level: Intermediate</strong></p>
 <p><strong>Goal:</strong> Create a specialized AI assistant that handles a specific task from your work.</p>
-<h3 class="subsection-title" id="what-youll-do">What You'll Do</h3>
+<h3 class="subsection-title" id="what-youll-do">What you'll do</h3>
 <p>You'll create your own AI assistant on one of the main platforms. The assistant will be focused on a specific task — from analyzing reports to writing emails to brainstorming.</p>
-<h3 class="subsection-title" id="why-this-matters">Why This Matters</h3>
+<h3 class="subsection-title" id="why-this-matters">Why this matters</h3>
 <ul class="bullet-list">
   <li><strong>Specialization</strong> — the assistant is focused on your specific task</li>
   <li><strong>Consistency</strong> — the same style and approach every time</li>
@@ -931,7 +944,7 @@ Compare them on price, features, and ease of use.</code></pre></div>
   <li>What is it missing?</li>
 </ul>
 <p>Adjust the instructions and try again. Repeat until you're satisfied.</p>
-<h3 class="subsection-title" id="your-output">Your Output</h3>
+<h3 class="subsection-title" id="your-output">Your output</h3>
 <ul class="checklist">
   <li class="checklist-item"><label><input type="checkbox"> Created your own AI assistant on one of the platforms</label></li>
   <li class="checklist-item"><label><input type="checkbox"> Tested on real tasks</label></li>
@@ -941,7 +954,7 @@ Compare them on price, features, and ease of use.</code></pre></div>
 <div class="selling-line"><p>- <strong>Claude Projects:</strong> Great for working with documents, large context (200k tokens), Artifacts. Projects → New Project → Custom Instructions + documents.</p></div>
 <div class="selling-line"><p>- <strong>Gemini Gems:</strong> Google Workspace integration. Gems → New Gem → paste instructions.</p></div>
 <div class="selling-line"><p>- <strong>Microsoft Copilot Agents:</strong> M365 integration. Create Agent → paste instructions.</p></div>
-<h3 class="subsection-title" id="what-you-take-away">What You Take Away</h3>
+<h3 class="subsection-title" id="what-you-take-away">What you take away</h3>
 <ul class="bullet-list">
   <li>💡 <strong>Inspiration:</strong> What caught my attention:</li>
   <li>🧪 <strong>Experiment:</strong> What I'll try at work tomorrow:</li>
@@ -950,14 +963,13 @@ Compare them on price, features, and ease of use.</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="exercise-card" id="cviceni-9">
-<div class="exercise-header">
 <div class="accent-image-left"><img src="images/03.png" alt="" loading="lazy"></div>
-<h2 class="exercise-title">Exercise 9: Build Your Personal AI Setup</h2>
-</div><!-- /exercise-header -->
+<h2 class="exercise-title">Exercise 9: Build your personal AI setup</h2>
 <div class="selling-line"><p><strong>💡 Consolidate everything you've learned into one overview — your personal AI toolkit that you'll use every day.</strong></p></div>
+<div class="selling-line"><p>📚 <em>Book concept: Digital Leader — the person who combines expertise with technology</em></p></div>
 <p><strong>⏱️ 20–30 minutes · Level: All levels</strong></p>
 <p><strong>Goal:</strong> Review the outputs from all previous exercises and put together a complete picture of your AI setup — what tools you use, for what, which prompts work for you, which assistant you have.</p>
-<h3 class="subsection-title" id="what-youll-do">What You'll Do</h3>
+<h3 class="subsection-title" id="what-youll-do">What you'll do</h3>
 <p>You'll map everything you've learned and built in Exercises 0–8, and turn it into your personal AI toolkit.</p>
 <h3 class="subsection-title" id="steps">Steps</h3>
 <p><strong>1. Map what you have (10 min)</strong></p>
@@ -1044,14 +1056,14 @@ Compare them on price, features, and ease of use.</code></pre></div>
 </ul>
 <p><strong>6. Share your experience</strong></p>
 <p>Talk with colleagues about what you've learned. Inspire each other.</p>
-<h3 class="subsection-title" id="your-output">Your Output</h3>
+<h3 class="subsection-title" id="your-output">Your output</h3>
 <ul class="checklist">
   <li class="checklist-item"><label><input type="checkbox"> Complete table of your AI toolkit</label></li>
   <li class="checklist-item"><label><input type="checkbox"> List of working prompts saved in your note-taking tool</label></li>
   <li class="checklist-item"><label><input type="checkbox"> AI rules (verification, workflow)</label></li>
   <li class="checklist-item"><label><input type="checkbox"> Plan for next steps</label></li>
 </ul>
-<h3 class="subsection-title" id="what-you-take-away">What You Take Away</h3>
+<h3 class="subsection-title" id="what-you-take-away">What you take away</h3>
 <ul class="bullet-list">
   <li>💡 <strong>Inspiration:</strong> What caught my attention:</li>
   <li>🧪 <strong>Experiment:</strong> What I'll try at work tomorrow:</li>
@@ -1060,8 +1072,8 @@ Compare them on price, features, and ease of use.</code></pre></div>
 </div><!-- /exercise-card -->
 <hr class="divider">
 <div class="resources-section" id="further-resources">
-<h2 class="resources-title">📚 Further Resources</h2>
-<h3 class="subsection-title" id="ai-tool-guides">AI Tool Guides</h3>
+<h2 class="resources-title">📚 Further resources</h2>
+<h3 class="subsection-title" id="ai-tool-guides">AI tool guides</h3>
 <ul class="bullet-list">
   <li><strong>ChatGPT GPTs</strong> — Complete guide to creating your own GPTs</li>
   <li><strong>Claude Projects</strong> — Complete guide to working with Claude Projects</li>
@@ -1077,7 +1089,7 @@ Compare them on price, features, and ease of use.</code></pre></div>
 <h3 class="subsection-title" id="links">Links</h3>
 <ul class="bullet-list">
   <li><strong>Elite Prompt Engineer:</strong> <a href="https://drimalka.com/wp-content/uploads/2025/09/Elite-Prompt-Engineer_CZ.md" target="_blank">https://drimalka.com/wp-content/uploads/2025/09/Elite-Prompt-Engineer_CZ.md</a></li>
-  <li><strong>Filip Dřímalka — website with articles and AI materials:</strong> <a href="https://www.drimalka.com" target="_blank">https://www.drimalka.com</a></li>
+  <li><strong>Filip Drimalka — website with articles and AI materials:</strong> <a href="https://www.drimalka.com" target="_blank">https://www.drimalka.com</a></li>
 </ul>
 </div><!-- /resources -->
 <hr class="divider">
@@ -1108,12 +1120,12 @@ Compare them on price, features, and ease of use.</code></pre></div>
 </ul>
 <p>Good luck on your AI journey.</p>
 <hr class="divider">
-<p><em>The Future of No Work — Workbook · For Everyone · © 2026 Filip Drimalka</em></p>
+<p><em>The Future of No Work Workbook · Volume 1 · For everyone · © 2025 Filip Drimalka</em></p>
     </div>
 
     <div class="footer">
-        <p>The Future of No Work — Workbook · For Everyone · From theory to practice</p>
-        <p>© 2026 Filip Drimalka · All rights reserved</p>
+        <p>The Future of No Work Workbook · Volume 1 · For everyone</p>
+        <p>© 2025 Filip Drimalka · All rights reserved</p>
     </div>
 </div>
 </body>
