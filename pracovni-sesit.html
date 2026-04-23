@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100' rx='20'/><text x='50' y='72' font-size='65' font-weight='800' fill='white' text-anchor='middle' font-family='system-ui'>n</text></svg>">
+    <title>Budoucnost nepráce — (ne)pracovní sešit | nowork.ai</title>
+    <meta name="description" content="Praktický doplněk ke knize Filipa Dřímalky. Dva sešity s praktickými AI cvičeními — jeden pro každého, jeden pro manažery. Náhled zdarma.">
+    <meta property="og:title" content="Budoucnost nepráce — (ne)pracovní sešit">
+    <meta property="og:description" content="Praktická AI cvičení, která zvládnete dnes odpoledne. Dva sešity. Náhled zdarma.">
+    <meta property="og:locale" content="cs_CZ">
+    <style>
+        /* =========================================================
+           TOKENS — matched to nowork.ai
+           ========================================================= */
+        :root {
+            --black: #000;
+            --white: #fff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+            --gray-600: #6c757d;
+            --gray-700: #495057;
+            --gray-800: #343a40;
+            --gray-900: #212529;
+            --navy: #06163e;
+            --red: #e24345;
+            --red-dark: #dc483c;
+            --cyan: #21bad1;
+            --yellow: #f2d17b;
+            --yellow-light: #fef9e7;
+
+            --text-xs: .75rem;
+            --text-sm: .875rem;
+            --text-base: 1rem;
+            --text-lg: 1.1rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 2rem;
+            --text-4xl: 2.5rem;
+            --text-5xl: 3.5rem;
+
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 40px;
+            --space-xl: 60px;
+            --space-2xl: 100px;
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            color: var(--gray-900);
+            background: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(255,255,255,.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 16px 0;
+        }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--black); letter-spacing: -.03em; }
+        .logo span { color: var(--red); }
+        .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+        .nav-links a { color: var(--gray-700); font-size: var(--text-sm); transition: color .2s; }
+        .nav-links a:hover { color: var(--black); }
+        .nav-links a.active { color: var(--black); font-weight: 600; }
+        .nav-cta {
+            background: var(--red); color: var(--white);
+            padding: 10px 20px; border-radius: var(--radius-full);
+            font-weight: 600; font-size: var(--text-sm); transition: all .2s;
+        }
+        .nav-cta:hover { background: var(--red-dark); transform: translateY(-1px); }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .lang-switch { font-size: var(--text-sm); font-weight: 500; color: var(--gray-400); }
+        .lang-switch a { color: var(--gray-400); }
+        .lang-switch a:hover { color: var(--gray-900); }
+        .lang-active { color: var(--gray-900) !important; font-weight: 600; }
+        .hamburger { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 8px; }
+        .hamburger span { width: 22px; height: 2px; background: var(--gray-900); transition: all .2s; }
+        .mobile-menu { display: none; position: fixed; top: 62px; left: 0; right: 0; bottom: 0; background: #fff; padding: 32px 24px; flex-direction: column; gap: 20px; z-index: 99; }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: var(--gray-900); font-size: 1.2rem; font-weight: 500; }
+        .mobile-cta { background: var(--red); color: #fff !important; padding: 14px 24px; border-radius: var(--radius-full); text-align: center; }
+        .mobile-lang { color: var(--gray-500); margin-top: auto; }
+        @media (max-width: 820px) {
+            .nav-links, .nav-right .lang-switch { display: none; }
+            .hamburger { display: flex; }
+        }
+        .skip-to-content { position: absolute; left: -9999px; }
+        .skip-to-content:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: var(--navy); color: #fff; padding: 8px 16px; border-radius: 8px; }
+
+        /* ========================================================
+           HERO
+           ======================================================== */
+        .hero {
+            padding: 130px 0 80px;
+            background: var(--navy);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute;
+            top: -120px; right: -120px;
+            width: 500px; height: 500px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(226,67,69,0.22) 0%, transparent 70%);
+            pointer-events: none; z-index: 0;
+        }
+        .hero::after {
+            content: ''; position: absolute;
+            bottom: -80px; left: -80px;
+            width: 360px; height: 360px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(226,67,69,0.12) 0%, transparent 70%);
+            pointer-events: none; z-index: 0;
+        }
+        .hero > .container { position: relative; z-index: 1; }
+        .hero-inner { display: grid; grid-template-columns: 1fr 360px; gap: 60px; align-items: center; }
+        @media (max-width: 960px) { .hero-inner { grid-template-columns: 1fr; gap: 40px; } }
+
+        .hero-visual {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-xl);
+            padding: 28px 24px;
+        }
+        .hero-visual-label { font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--red); margin-bottom: 20px; }
+        .vol-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+        .vol-item { display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 16px 18px; }
+        .vol-num { width: 36px; height: 36px; border-radius: 50%; background: var(--red); color: #fff; font-weight: 800; font-size: .85rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .vol-item strong { display: block; font-size: .95rem; font-weight: 700; color: #fff; line-height: 1.3; }
+        .vol-item span { display: block; font-size: var(--text-xs); color: rgba(255,255,255,0.5); margin-top: 2px; }
+        .hero-visual-note { font-size: var(--text-xs); color: rgba(255,255,255,0.4); text-align: center; margin: 0; }
+
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(226,67,69,0.15);
+            border: 1px solid rgba(226,67,69,0.35);
+            color: var(--red);
+            font-size: var(--text-sm); font-weight: 600;
+            text-transform: uppercase; letter-spacing: .08em;
+            padding: 6px 16px; border-radius: var(--radius-full);
+            margin-bottom: var(--space-sm);
+        }
+        .hero-eyebrow-dot { width: 7px; height: 7px; background: var(--red); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(1.3); } }
+
+        .hero h1 {
+            font-size: clamp(2.25rem, 5vw, var(--text-5xl));
+            font-weight: 800;
+            letter-spacing: -.03em; line-height: 1.05;
+            margin-bottom: var(--space-sm);
+            color: var(--white);
+        }
+        .hero h1 em { font-style: normal; color: var(--red); }
+        .hero-subtitle {
+            font-size: var(--text-lg);
+            color: rgba(255,255,255,0.68);
+            max-width: 580px; margin: 0 0 var(--space-lg);
+        }
+        .hero-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+        .hero-meta-chip {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            color: rgba(255,255,255,0.75);
+        }
+        .hero-meta-chip strong { color: var(--white); font-weight: 700; }
+
+        /* ========================================================
+           VARIANT GRID — dvě dlaždice sešitů
+           ======================================================== */
+        .variants {
+            padding: var(--space-xl) 0 var(--space-lg);
+            background: var(--gray-100);
+        }
+        .variants-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md);
+        }
+        @media (max-width: 820px) { .variants-grid { grid-template-columns: 1fr; } }
+
+        .variant-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            display: flex; flex-direction: column; gap: 16px;
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        }
+        .variant-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(6,22,62,.10);
+            border-color: var(--navy);
+        }
+        .variant-eyebrow {
+            font-size: var(--text-xs); font-weight: 700;
+            text-transform: uppercase; letter-spacing: .1em;
+            color: var(--red);
+        }
+        .variant-icon { font-size: 2.5rem; line-height: 1; }
+        .variant-title {
+            font-size: var(--text-2xl); font-weight: 800;
+            letter-spacing: -.02em; line-height: 1.2; color: var(--navy);
+        }
+        .variant-tagline {
+            font-size: var(--text-base); line-height: 1.6; color: var(--gray-600);
+        }
+        .variant-meta {
+            display: flex; gap: 8px; flex-wrap: wrap;
+            padding: 12px 0;
+            border-top: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .variant-meta-chip {
+            font-size: var(--text-xs);
+            padding: 4px 10px; border-radius: var(--radius-full);
+            background: var(--gray-100); color: var(--gray-700);
+        }
+        .variant-benefits { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .variant-benefits li {
+            position: relative; padding-left: 22px;
+            font-size: var(--text-sm); line-height: 1.55; color: var(--gray-700);
+        }
+        .variant-benefits li::before {
+            content: '→'; position: absolute; left: 0; top: 0; font-weight: 700; color: var(--red);
+        }
+        .variant-footer {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: var(--space-sm); flex-wrap: wrap; margin-top: auto; padding-top: var(--space-sm);
+        }
+        .variant-price {
+            display: flex; flex-direction: column;
+            font-size: var(--text-2xl); font-weight: 800; color: var(--navy);
+            letter-spacing: -.02em; line-height: 1;
+        }
+        .variant-price small {
+            font-size: var(--text-xs); font-weight: 500; color: var(--gray-500);
+            margin-top: 4px; letter-spacing: .02em;
+        }
+        .variant-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        .btn-primary {
+            background: var(--red); color: var(--white);
+            padding: 12px 24px; border-radius: var(--radius-full);
+            font-weight: 700; font-size: var(--text-sm);
+            border: 0; cursor: pointer; transition: all .2s;
+            font-family: inherit; display: inline-block;
+        }
+        .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(226,67,69,.25); }
+
+        .btn-ghost {
+            background: transparent; color: var(--navy);
+            padding: 12px 20px; border-radius: var(--radius-full);
+            font-weight: 600; font-size: var(--text-sm);
+            border: 1px solid var(--gray-300);
+            transition: all .2s;
+            font-family: inherit; cursor: pointer; display: inline-block;
+        }
+        .btn-ghost:hover { border-color: var(--navy); background: var(--gray-100); }
+
+        /* ========================================================
+           BUNDLE
+           ======================================================== */
+        .bundle {
+            padding: 0 0 var(--space-xl);
+            background: var(--gray-100);
+        }
+        .bundle-card {
+            position: relative;
+            background: var(--navy); color: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            display: grid; grid-template-columns: 1.2fr .8fr; gap: var(--space-lg);
+            align-items: center; overflow: hidden;
+        }
+        .bundle-card::before {
+            content: 'NEJLEPŠÍ HODNOTA';
+            position: absolute; top: 20px; right: 20px;
+            background: var(--red); color: #fff;
+            padding: 6px 14px; border-radius: var(--radius-full);
+            font-size: var(--text-xs); font-weight: 700; letter-spacing: .08em;
+        }
+        @media (max-width: 820px) {
+            .bundle-card { grid-template-columns: 1fr; padding: var(--space-lg); }
+            .bundle-card::before { top: 12px; right: 12px; }
+        }
+        .bundle-eyebrow {
+            font-size: var(--text-xs); font-weight: 700;
+            text-transform: uppercase; letter-spacing: .1em;
+            color: var(--red); margin-bottom: 8px;
+        }
+        .bundle-title {
+            font-size: clamp(1.75rem, 3vw, var(--text-3xl));
+            font-weight: 800; letter-spacing: -.02em; line-height: 1.15;
+            margin-bottom: 12px; color: #fff;
+        }
+        .bundle-tagline {
+            font-size: var(--text-base); line-height: 1.6; color: var(--gray-300);
+            margin-bottom: var(--space-sm);
+        }
+        .bundle-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+        .bundle-list li {
+            position: relative; padding-left: 22px;
+            font-size: var(--text-sm); line-height: 1.55; color: var(--gray-300);
+        }
+        .bundle-list li::before {
+            content: '✓'; position: absolute; left: 0; top: 0; font-weight: 700; color: var(--red);
+        }
+        .bundle-offer {
+            display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
+            padding: 24px; background: rgba(255,255,255,.06); border-radius: var(--radius-lg);
+            border: 1px solid rgba(255,255,255,.1);
+        }
+        .bundle-price-row { display: flex; align-items: baseline; gap: 10px; }
+        .bundle-price { font-size: var(--text-4xl); font-weight: 800; color: #fff; letter-spacing: -.02em; line-height: 1; }
+        .bundle-old { font-size: var(--text-lg); color: var(--gray-500); text-decoration: line-through; }
+        .bundle-save {
+            font-size: var(--text-xs); font-weight: 700; letter-spacing: .08em;
+            color: var(--red); text-transform: uppercase;
+        }
+        .bundle-note { font-size: var(--text-xs); color: var(--gray-400); }
+
+        /* ========================================================
+           CO JE UVNITŘ
+           ======================================================== */
+        .inside { padding: var(--space-xl) 0; }
+        .inside .container { max-width: 820px; }
+        .section-eyebrow {
+            display: inline-block;
+            font-size: var(--text-xs); font-weight: 700;
+            text-transform: uppercase; letter-spacing: .1em;
+            color: var(--red); margin-bottom: var(--space-sm);
+        }
+        .section-title {
+            font-size: clamp(1.75rem, 3vw, var(--text-3xl));
+            font-weight: 800; font-style: italic;
+            letter-spacing: -.03em; line-height: 1.1;
+            margin-bottom: var(--space-sm); color: var(--navy);
+        }
+        .section-subtitle {
+            font-size: var(--text-lg); color: var(--gray-600);
+            margin-bottom: var(--space-lg);
+        }
+        .inside-columns {
+            display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);
+        }
+        @media (max-width: 820px) { .inside-columns { grid-template-columns: 1fr; } }
+        .inside-col h3 {
+            font-size: var(--text-xl); font-weight: 700;
+            margin-bottom: 12px; color: var(--navy);
+        }
+        .inside-col ol {
+            list-style: none; counter-reset: step; padding: 0;
+            display: flex; flex-direction: column; gap: 8px;
+        }
+        .inside-col ol li {
+            counter-increment: step;
+            position: relative; padding: 10px 0 10px 44px;
+            font-size: var(--text-sm); line-height: 1.55; color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .inside-col ol li::before {
+            content: counter(step);
+            position: absolute; left: 0; top: 10px;
+            width: 28px; height: 28px; border-radius: 50%;
+            background: var(--gray-100); color: var(--navy);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: var(--text-xs);
+            border: 1px solid var(--gray-200);
+        }
+
+        /* ========================================================
+           FAQ
+           ======================================================== */
+        .faq { padding: var(--space-xl) 0; background: var(--gray-100); }
+        .faq .container { max-width: 760px; }
+        .faq-list { display: flex; flex-direction: column; gap: 12px; }
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+        }
+        .faq-q {
+            font-size: var(--text-base); font-weight: 700;
+            color: var(--navy); margin-bottom: 8px;
+        }
+        .faq-a { font-size: var(--text-sm); line-height: 1.65; color: var(--gray-700); }
+        .faq-a a { color: var(--red); text-decoration: underline; }
+
+        /* ========================================================
+           CTA STRIP + FOOTER
+           ======================================================== */
+        .cta-strip {
+            padding: var(--space-xl) 0; background: var(--navy); color: #fff; text-align: center;
+        }
+        .cta-strip-inner { max-width: 640px; margin: 0 auto; }
+        .cta-strip h2 {
+            font-size: var(--text-3xl); font-weight: 800; letter-spacing: -.02em;
+            margin-bottom: 12px; color: #fff;
+        }
+        .cta-strip p { color: var(--gray-300); margin-bottom: var(--space-md); font-size: var(--text-base); }
+        .cta-strip-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .cta-strip a.btn-primary { display: inline-block; }
+        .cta-strip a.btn-ghost-white {
+            display: inline-block;
+            background: transparent; color: rgba(255,255,255,.8);
+            padding: 14px 28px; border-radius: var(--radius-full);
+            font-weight: 600; font-size: var(--text-sm);
+            border: 1px solid rgba(255,255,255,.25);
+            transition: all .2s;
+        }
+        .cta-strip a.btn-ghost-white:hover { border-color: #fff; color: #fff; }
+
+        footer { background: var(--gray-900); color: var(--gray-500); padding: var(--space-xl) 0 var(--space-md); }
+        .footer-grid {
+            display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: var(--space-lg);
+            padding-bottom: var(--space-lg); border-bottom: 1px solid rgba(255,255,255,.1);
+            margin-bottom: var(--space-md);
+        }
+        @media (max-width: 820px) { .footer-grid { grid-template-columns: 1fr; } }
+        .footer-brand .logo { color: #fff; margin-bottom: 12px; display: inline-block; }
+        .footer-tagline { color: var(--gray-500); font-size: var(--text-sm); margin-bottom: var(--space-sm); }
+        .footer-col h4 { color: var(--white); font-size: var(--text-sm); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px; }
+        .footer-col a { display: block; color: var(--gray-400); font-size: var(--text-sm); padding: 4px 0; transition: color .15s; }
+        .footer-col a:hover { color: var(--white); }
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: var(--space-sm);
+        }
+        .footer-copy { font-size: var(--text-xs); color: var(--gray-500); }
+        .footer-legal { display: flex; gap: 20px; }
+        .footer-legal a { color: var(--gray-500); font-size: var(--text-xs); }
+        .footer-legal a:hover { color: var(--white); }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Přeskočit na obsah</a>
+
+    <!-- NAV -->
+    <nav>
+        <div class="container nav-inner">
+            <a href="https://nowork.ai" class="logo">nowork<span>.ai</span></a>
+            <ul class="nav-links">
+                <li><a href="https://nowork.ai/#autor">O autorovi</a></li>
+                <li><a href="https://nowork.ai/#kniha">Kniha</a></li>
+                <li><a href="https://nowork.ai/ai-essentials">AI Essentials</a></li>
+                <li><a href="https://nowork.ai/future-ai-leader">Future AI Leader</a></li>
+                <li><a href="https://nowork.ai/open-library">Open Library</a></li>
+            </ul>
+            <div class="nav-right">
+                <span class="lang-switch"><a href="#" class="lang-active">CZ</a> | <a href="workbook-for-everyone.html">EN</a></span>
+                <a href="https://nowork.ai/quiz" class="nav-cta">Spustit kvíz</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="https://nowork.ai/#autor">O autorovi</a>
+        <a href="https://nowork.ai/#kniha">Kniha</a>
+        <a href="https://nowork.ai/ai-essentials">AI Essentials</a>
+        <a href="https://nowork.ai/future-ai-leader">Future AI Leader</a>
+        <a href="https://nowork.ai/open-library">Open Library</a>
+        <a href="https://nowork.ai/quiz" class="mobile-cta">Spustit kvíz</a>
+        <div class="mobile-lang"><a href="#" class="lang-active">CZ</a> | <a href="workbook-for-everyone.html">EN</a></div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="main-content">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <span class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Placené &middot; Praktické &middot; Dva sešity</span>
+                    <h1>Budoucnost nepráce — <em>(ne)pracovní sešit</em></h1>
+                    <p class="hero-subtitle">Praktický doplněk ke knize Filipa Dřímalky. Dva sešity s praktickými AI cvičeními — jeden pro každého, jeden pro manažery a lídry. Náhled zdarma.</p>
+                    <div class="hero-meta">
+                        <span class="hero-meta-chip"><strong>17</strong>&nbsp;cvičení celkem</span>
+                        <span class="hero-meta-chip"><strong>PDF + Web</strong>&nbsp;formáty</span>
+                        <span class="hero-meta-chip"><strong>Trvalý</strong>&nbsp;přístup</span>
+                        <span class="hero-meta-chip"><strong>299 Kč</strong>&nbsp;za sešit</span>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-visual-label">Dva sešity</div>
+                    <div class="vol-list">
+                        <div class="vol-item">
+                            <div class="vol-num">01</div>
+                            <div>
+                                <strong>Pro každého</strong>
+                                <span>Vybudujte si vlastní AI workflow</span>
+                            </div>
+                        </div>
+                        <div class="vol-item">
+                            <div class="vol-num">02</div>
+                            <div>
+                                <strong>Pro manažery a lídry</strong>
+                                <span>Veďte svůj tým do světa AI</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="hero-visual-note">Náhled zdarma &middot; Plný sešit 499 Kč &middot; Trvalý přístup</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VARIANT CARDS / DLAŽDICE -->
+    <section class="variants">
+        <div class="container">
+            <div class="variants-grid">
+
+                <!-- SEŠIT 1 — PRO KAŽDÉHO -->
+                <article class="variant-card" id="pro-kazdeho">
+                    <span class="variant-eyebrow">Sešit 1 · Pro každého</span>
+                    <div class="variant-icon">📘</div>
+                    <h2 class="variant-title">Začněte pracovat s AI — prakticky</h2>
+                    <p class="variant-tagline">Pro každého, kdo teprve začíná. Nastavte si správné nástroje, pište prompty, které fungují, a vytvořte si vlastního AI asistenta.</p>
+                    <div class="variant-meta">
+                        <span class="variant-meta-chip">⏱️ cca 3 hodiny celkem</span>
+                        <span class="variant-meta-chip">🎯 10 cvičení</span>
+                        <span class="variant-meta-chip">📘 PDF + Web</span>
+                    </div>
+                    <ul class="variant-benefits">
+                        <li>Vyřešte svůj první reálný problém s AI za 10 minut</li>
+                        <li>Vytvořte si generátor promptů, který budete skutečně používat (Elite Prompt Engineer)</li>
+                        <li>Porovnejte dva AI nástroje na vašem konkrétním zadání a vyberte si svůj</li>
+                        <li>Pracujte s vlastními daty, dokumenty a druhým mozkem (3C framework)</li>
+                        <li>Vytvořte si vlastního AI asistenta pro každodenní úkoly</li>
+                    </ul>
+                    <div class="variant-footer">
+                        <span class="variant-price">299 Kč<small>jednorázově &middot; trvalý přístup</small></span>
+                        <div class="variant-actions">
+                            <a href="SESIT 1 - Pro kazdeho - v2 - KOMPLETNI.html" class="btn-ghost">Náhled zdarma →</a>
+                            <a href="#" class="btn-primary">Získat sešit 1</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- SEŠIT 2 — PRO MANAŽERY -->
+                <article class="variant-card" id="pro-manazery">
+                    <span class="variant-eyebrow">Sešit 2 · Pro manažery a lídry</span>
+                    <div class="variant-icon">👔</div>
+                    <h2 class="variant-title">Veďte svůj tým do světa AI</h2>
+                    <p class="variant-tagline">Pro manažery a lídry. Zmapujte AI nástroje ve firmě, najděte šampióny, automatizujte procesy a měřte skutečný dopad.</p>
+                    <div class="variant-meta">
+                        <span class="variant-meta-chip">⏱️ cca 4 hodiny celkem</span>
+                        <span class="variant-meta-chip">🎯 7 hloubkových cvičení</span>
+                        <span class="variant-meta-chip">📘 PDF + Web</span>
+                    </div>
+                    <ul class="variant-benefits">
+                        <li>Zmapujte AI nástroje ve vaší organizaci</li>
+                        <li>Nastartujte AI adopci v týmu s jasným plánem</li>
+                        <li>Najděte a aktivujte svého AI šampióna</li>
+                        <li>Automatizujte opakující se procesy týmu pomocí agentů</li>
+                        <li>Změřte a vyhodnoťte skutečný pokrok v AI adopci</li>
+                    </ul>
+                    <div class="variant-footer">
+                        <span class="variant-price">299 Kč<small>jednorázově &middot; trvalý přístup</small></span>
+                        <div class="variant-actions">
+                            <a href="SESIT 2 - Pro manazery - v2 - KOMPLETNI.html" class="btn-ghost">Náhled zdarma →</a>
+                            <a href="#" class="btn-primary">Získat sešit 2</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BUNDLE -->
+    <section class="bundle">
+        <div class="container">
+            <div class="bundle-card" id="balicek">
+                <div class="bundle-content">
+                    <span class="bundle-eyebrow">Balíček &middot; Nejlepší hodnota</span>
+                    <h2 class="bundle-title">Získejte oba sešity — 499 Kč</h2>
+                    <p class="bundle-tagline">Pokud s AI pracujete sami <em>a</em> zároveň vedete tým, potřebujete oba sešity. Ušetříte 99 Kč oproti samostatnému nákupu.</p>
+                    <ul class="bundle-list">
+                        <li>Sešit 1 — Pro každého (10 cvičení)</li>
+                        <li>Sešit 2 — Pro manažery a lídry (7 cvičení)</li>
+                        <li>Obojí jako PDF + webová verze</li>
+                        <li>Trvalý přístup &middot; jednorázová platba</li>
+                    </ul>
+                </div>
+                <div class="bundle-offer">
+                    <div class="bundle-price-row">
+                        <span class="bundle-price">499 Kč</span>
+                        <span class="bundle-old">598 Kč</span>
+                    </div>
+                    <span class="bundle-save">Ušetříte 99 Kč &middot; cca 17 % sleva</span>
+                    <a href="#" class="btn-primary" style="width:100%;text-align:center;">Získat balíček →</a>
+                    <span class="bundle-note">Jednorázová platba &middot; okamžitý přístup &middot; bez předplatného</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CO JE UVNITŘ -->
+    <section class="inside">
+        <div class="container">
+            <span class="section-eyebrow">Co je uvnitř</span>
+            <h2 class="section-title">Cvičení, ne teorie</h2>
+            <p class="section-subtitle">Každé cvičení je samostatné: jasný problém k vyřešení, prompt nebo šablona, kterou použijete, a konkrétní výstup. Udělejte jedno dnes odpoledne. Vraťte se k dalšímu, až budete připraveni.</p>
+            <div class="inside-columns">
+                <div class="inside-col">
+                    <h3>📘 Sešit 1 — Pro každého</h3>
+                    <ol>
+                        <li>Vyřešte svůj první problém s AI</li>
+                        <li>Nastavte si rychlý přístup k AI nástrojům</li>
+                        <li>Vytvořte si AI Prompt Generator</li>
+                        <li>Když AI lže — naučte se to poznat</li>
+                        <li>Najděte AI nástroj pro vaše potřeby</li>
+                        <li>Porovnejte dva AI nástroje</li>
+                        <li>Práce s daty a dokumenty</li>
+                        <li>Vybudujte si druhý mozek (3C Framework)</li>
+                        <li>Vytvořte si vlastního AI asistenta</li>
+                        <li>Sestavte si svůj osobní AI setup</li>
+                    </ol>
+                </div>
+                <div class="inside-col">
+                    <h3>👔 Sešit 2 — Pro manažery</h3>
+                    <ol>
+                        <li>Zmapujte AI nástroje ve firmě</li>
+                        <li>Nastartujte AI adopci v týmu</li>
+                        <li>Najděte svého AI šampióna</li>
+                        <li>Vytvořte aplikaci nebo automatizaci pro tým</li>
+                        <li>Automatizujte opakující se procesy</li>
+                        <li>Práce s AI agenty</li>
+                        <li>Zhodnoťte pokrok a plánujte</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <span class="section-eyebrow">Časté otázky</span>
+            <h2 class="section-title">Přímé odpovědi</h2>
+            <div class="faq-list">
+
+                <div class="faq-item">
+                    <div class="faq-q">Kterým sešitem mám začít?</div>
+                    <div class="faq-a">Pokud se sami učíte pracovat s AI — Sešitem 1. Pokud vedete tým přes AI adopci — Sešitem 2. Pokud obojí (a většina lidí, kteří toto čtou, obojí je), pořiďte si balíček.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">V jakém formátu sešity dostanu?</div>
+                    <div class="faq-a">V obou. PDF ke stažení, které si uložíte, a hostovanou webovou verzi, kterou si uložíte do záložek a otevřete z jakéhokoliv zařízení. Stejný obsah, dvě možnosti čtení.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Jak dlouho to trvá?</div>
+                    <div class="faq-a">Sešit 1 je cca 3 hodiny celkem v 10 cvičeních. Sešit 2 je cca 4 hodiny v 7 hlubších cvičeních. Jedno zvládnete za odpoledne, nebo jedno za týden. Tempo si určujete sami.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Potřebuji nejdřív přečíst knihu?</div>
+                    <div class="faq-a">Ne. Sešit je soběstačný — každé cvičení obsahuje potřebný kontext. Pokud máte knihu, sešit je její praktický protějšek. Pokud ne, dostanete plnou hodnotu i tak.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Jak dostanu přístup po nákupu?</div>
+                    <div class="faq-a">Okamžitě. Hned po platbě uvidíte stránku s poděkováním s odkazem na webovou verzi a dostanete email s webovou verzí i odkazem ke stažení PDF. Přístup nikdy nevyprší.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Reklamační podmínky?</div>
+                    <div class="faq-a">Protože jde o digitální produkt doručený okamžitě, vzdáte se při pokladně svého práva na 14denní odstoupení od smlouvy EU (standardní souhlas dle čl. 16 písm. m). Pokud ale něco opravdu nefunguje — soubory se neotevřou, odkaz je nefunkční nebo obsah neodpovídá tomu, co stránka slibovala — napište na <a href="mailto:support@nowork.ai">support@nowork.ai</a> a vše napravíme.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">DPH a fakturace?</div>
+                    <div class="faq-a">Ceny jsou uvedeny bez DPH. Po zaplacení obdržíte emailový doklad. Pokud potřebujete firemní fakturu, přepošlete doklad ze Stripe na <a href="mailto:support@nowork.ai">support@nowork.ai</a> s údaji vaší firmy a fakturu vystavíme.</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="cta-strip">
+        <div class="container cta-strip-inner">
+            <h2>Ještě se rozhodujete?</h2>
+            <p>Otevřete jeden z bezplatných náhledů — celé cvičení z každého sešitu, bez nutnosti zadávat email.</p>
+            <div class="cta-strip-actions">
+                <a href="SESIT 1 - Pro kazdeho - v2 - KOMPLETNI.html" class="btn-primary">Náhled Sešitu 1 →</a>
+                <a href="SESIT 2 - Pro manazery - v2 - KOMPLETNI.html" class="btn-ghost-white">Náhled Sešitu 2 →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="https://nowork.ai" class="logo">nowork<span style="color:var(--red)">.ai</span></a>
+                    <p class="footer-tagline">Budoucnost nepráce — praktické kurzy, nástroje a prompty pro práci s AI.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Zdroje</h4>
+                    <a href="https://nowork.ai/ai-essentials">AI Essentials</a>
+                    <a href="https://nowork.ai/open-library">Open Library</a>
+                    <a href="https://nowork.ai/future-ai-leader">Future AI Leader webinář</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <a href="mailto:support@nowork.ai">support@nowork.ai</a>
+                    <a href="workbook-for-everyone.html">🇬🇧 English version</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copy">© 2026 Filip Dřímalka. Všechna práva vyhrazena.</span>
+                <div class="footer-legal">
+                    <a href="#">Ochrana soukromí</a>
+                    <a href="#">Podmínky</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            const open = mobileMenu.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', open);
+        });
+    </script>
+</body>
+</html>

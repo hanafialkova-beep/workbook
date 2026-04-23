@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budoucnost nepráce — (ne)pracovní sešit · Pro manažery a lídry · v2</title>
+    <meta name="robots" content="noindex, nofollow">
+    <title>Budoucnost nepráce — (ne)pracovní sešit · Pro manažery a lídry</title>
     <style>
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -125,6 +126,10 @@ a:hover { border-bottom-color: #E53935; }
 /* FOOTER */
 .footer { text-align: center; padding: 24px; color: #999; font-size: 0.82rem; border-top: 1px solid #eee; margin-top: 40px; }
 
+/* PDF BUTTON */
+.btn-pdf { margin-left: auto; background: #E53935; color: #fff !important; border: none; padding: 5px 14px; border-radius: 4px; font-size: 0.78rem; font-weight: 600; cursor: pointer; white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; }
+.btn-pdf:hover { background: #c62828; }
+
 /* RESPONSIVE */
 @media (max-width: 860px) {
     .content { padding: 0 24px 40px; }
@@ -148,6 +153,7 @@ a:hover { border-bottom-color: #E53935; }
     body { background: #fff; }
     .page-container { max-width: 100%; box-shadow: none; }
     .nav { display: none; }
+    .btn-pdf { display: none; }
     .content { padding: 0 10px 20px; }
     .cover { padding: 40px 20px; page-break-after: always; }
     .exercise-card { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
@@ -161,7 +167,7 @@ a:hover { border-bottom-color: #E53935; }
 <body>
 <div class="page-container">
     <nav class="nav">
-        <a href="workbook-repo/index.html" class="nav-brand">📖 Pro manažery · v2</a>
+        <span class="nav-brand">📖 Pro manažery</span>
     <a href="#cviceni-1">Cv. 1</a>
     <a href="#cviceni-2">Cv. 2</a>
     <a href="#cviceni-3">Cv. 3</a>
@@ -169,14 +175,14 @@ a:hover { border-bottom-color: #E53935; }
     <a href="#cviceni-5">Cv. 5</a>
     <a href="#cviceni-6">Cv. 6</a>
     <a href="#cviceni-7">Cv. 7</a>
-
+    <button class="btn-pdf" onclick="window.print()">⬇ Stáhnout PDF</button>
     </nav>
 
     <div class="cover">
         <h1 class="cover-title">Budoucnost nepráce</h1>
-        <p class="cover-subtitle">(ne)pracovní sešit — pro manažery a lídry · vylepšená verze</p>
+        <p class="cover-subtitle">(ne)pracovní sešit — pro manažery a lídry</p>
         <div class="cover-line"></div>
-        <div class="cover-badge">Pro manažery · v2</div>
+        <div class="cover-badge">Pro manažery a lídry</div>
     </div>
 
     <div class="content">
@@ -960,12 +966,12 @@ Struktura: Co jsme vyzkoušeli → Co to přineslo → Co plánujeme dál → Co
 </ul>
 <p>Hodně úspěchů na vaší cestě s AI.</p>
 <hr class="divider">
-<p><em>Budoucnost nepráce — (ne)pracovní sešit · Pro manažery a lídry · v2 · © 2025 Filip Dřímalka</em></p>
+<p><em>Budoucnost nepráce — (ne)pracovní sešit · Pro manažery a lídry · © 2026 Filip Dřímalka</em></p>
     </div>
 
     <div class="footer">
-        <p>Budoucnost nepráce — (ne)pracovní sešit · Pro manažery a lídry · v2 · Od teorie k praxi</p>
-        <p>© 2025 Filip Dřímalka · Všechna práva vyhrazena</p>
+        <p>Budoucnost nepráce — (ne)pracovní sešit · Pro manažery a lídry · Od teorie k praxi</p>
+        <p>© 2026 Filip Dřímalka · Všechna práva vyhrazena</p>
     </div>
 </div>
 </body>

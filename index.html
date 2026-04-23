@@ -19,7 +19,7 @@
             justify-content: center;
         }
         .container {
-            max-width: 720px;
+            max-width: 760px;
             width: 100%;
             margin: 40px 20px;
             background: #fff;
@@ -58,26 +58,79 @@
             background: #E53935;
             margin: 20px auto 0;
         }
+
+        /* Featured LP tile */
+        .lp-tile {
+            margin: 28px 40px 8px;
+            background: #06163e;
+            border-radius: 14px;
+            padding: 28px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            text-decoration: none;
+            color: #fff;
+            transition: transform .2s, box-shadow .2s;
+        }
+        .lp-tile:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(6,22,62,.25);
+        }
+        .lp-tile-left { flex: 1; }
+        .lp-tile-eyebrow {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: #e24345;
+            margin-bottom: 6px;
+        }
+        .lp-tile-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+        .lp-tile-sub {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,.55);
+        }
+        .lp-tile-price {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #fff;
+            white-space: nowrap;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .lp-tile-price small {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: rgba(255,255,255,.45);
+            margin-top: 2px;
+        }
+
         .section-label {
             padding: 0 40px;
-            margin-top: 8px;
+            margin-top: 24px;
             font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: #E53935;
         }
-        .section-label:first-of-type { margin-top: 0; }
         .cards {
-            padding: 16px 40px 32px;
+            padding: 12px 40px 16px;
             display: flex;
-            gap: 24px;
+            gap: 20px;
         }
         .card {
             flex: 1;
             border: 2px solid #e5e5e5;
             border-radius: 12px;
-            padding: 32px 24px;
+            padding: 24px 20px;
             text-align: center;
             text-decoration: none;
             color: #1a1a1a;
@@ -93,18 +146,18 @@
         }
         .card-icon {
             font-size: 2.4rem;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
         .card h2 {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .card p {
-            font-size: 0.88rem;
+            font-size: 0.84rem;
             color: #666;
             line-height: 1.5;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
         .card .badge {
             display: inline-block;
@@ -118,7 +171,7 @@
         }
         .card .preview-link {
             display: inline-block;
-            margin-top: 12px;
+            margin-top: 10px;
             font-size: 0.78rem;
             font-weight: 600;
             color: #E53935;
@@ -126,20 +179,23 @@
             border-bottom: 1px dashed #E53935;
             transition: all 0.2s;
         }
-        .card .preview-link:hover {
-            border-bottom-style: solid;
-        }
+        .card .preview-link:hover { border-bottom-style: solid; }
+
         .footer {
             text-align: center;
             padding: 20px 40px 28px;
+            margin-top: 16px;
             border-top: 1px solid #eee;
             color: #999;
             font-size: 0.82rem;
         }
         @media (max-width: 600px) {
-            .cards { flex-direction: column; padding: 24px; }
+            .cards { flex-direction: column; padding: 16px 24px; }
+            .lp-tile { flex-direction: column; margin: 20px 24px 4px; text-align: center; }
+            .lp-tile-price { text-align: center; }
             .hero { padding: 36px 24px 32px; }
             .hero h1 { font-size: 1.5rem; }
+            .section-label { padding: 0 24px; }
         }
     </style>
 </head>
@@ -150,71 +206,56 @@
         <p>(ne)pracovní sešity — od teorie k praxi</p>
         <div class="line"></div>
     </div>
+
+    <!-- LP dlaždice -->
+    <a href="pracovni-sesit.html" class="lp-tile">
+        <div class="lp-tile-left">
+            <div class="lp-tile-eyebrow">Nová stránka · Oba sešity</div>
+            <div class="lp-tile-title">Pracovní sešity — přehled &amp; nákup</div>
+            <div class="lp-tile-sub">10 + 7 cvičení · PDF + Web · trvalý přístup</div>
+        </div>
+        <div class="lp-tile-price">
+            od 299 Kč
+            <small>za sešit</small>
+        </div>
+    </a>
+
     <p class="section-label">Česky</p>
     <div class="cards">
-        <a href="sesit-1-pro-kazdeho.html" class="card">
+        <a href="SESIT 1 - Pro kazdeho - v2 - KOMPLETNI.html" class="card">
             <div class="card-icon">🧑‍💻</div>
             <h2>Sešit 1</h2>
             <p>Osobní produktivita, AI nástroje, prompt engineering, 3C Framework, vlastní asistenti</p>
-            <span class="badge">Pro každého · 8 cvičení</span>
+            <span class="badge">Pro každého · 10 cvičení</span>
             <span class="preview-link" onclick="event.preventDefault(); event.stopPropagation(); window.location.href='onepager-sesit-1-pro-kazdeho.html';">📄 Krátká ukázka (1 strana)</span>
         </a>
-        <a href="sesit-2-pro-manazery.html" class="card">
+        <a href="SESIT 2 - Pro manazery - v2 - KOMPLETNI.html" class="card">
             <div class="card-icon">🏢</div>
             <h2>Sešit 2</h2>
             <p>AI adopce v týmu, automatizace procesů, AI agenti, měření úspěchu</p>
-            <span class="badge">Pro manažery · 6 cvičení</span>
+            <span class="badge">Pro manažery · 7 cvičení</span>
             <span class="preview-link" onclick="event.preventDefault(); event.stopPropagation(); window.location.href='onepager-sesit-2-pro-manazery.html';">📄 Krátká ukázka (1 strana)</span>
         </a>
     </div>
-    <p class="section-label">Vylepšené verze (v2)</p>
-    <div class="cards">
-        <a href="sesit-1-pro-kazdeho-v2.html" class="card">
-            <div class="card-icon">🚀</div>
-            <h2>Sešit 1 · v2</h2>
-            <p>Vylepšená verze: wow moment, kritické myšlení, kumulativní AI toolkit</p>
-            <span class="badge">Pro každého · 10 cvičení</span>
-        </a>
-        <a href="sesit-2-pro-manazery-v2.html" class="card">
-            <div class="card-icon">🚀</div>
-            <h2>Sešit 2 · v2</h2>
-            <p>Vylepšená verze: AI šampión, automatizace workflow, prezentace pro vedení</p>
-            <span class="badge">Pro manažery · 7 cvičení</span>
-        </a>
-    </div>
+
     <p class="section-label">English</p>
     <div class="cards">
-        <a href="sesit-1-for-everyone.html" class="card">
+        <a href="workbook-for-everyone.html" class="card">
             <div class="card-icon">🧑‍💻</div>
             <h2>Workbook 1</h2>
             <p>Personal productivity, AI tools, prompts, 3C Framework, custom assistants</p>
-            <span class="badge">For everyone · 8 exercises</span>
+            <span class="badge">For everyone · 10 exercises</span>
         </a>
-        <a href="sesit-2-for-managers.html" class="card">
+        <a href="workbook-for-managers.html" class="card">
             <div class="card-icon">🏢</div>
             <h2>Workbook 2</h2>
             <p>Team AI adoption, automation, agents, measuring progress</p>
-            <span class="badge">For managers · 6 exercises</span>
-        </a>
-    </div>
-    <p class="section-label">English · Improved versions (v2)</p>
-    <div class="cards">
-        <a href="sesit-1-for-everyone-v2.html" class="card">
-            <div class="card-icon">🚀</div>
-            <h2>Workbook 1 · v2</h2>
-            <p>Improved edition: wow moment, critical thinking about AI, cumulative AI toolkit</p>
-            <span class="badge">For everyone · 10 exercises</span>
-        </a>
-        <a href="sesit-2-for-managers-v2.html" class="card">
-            <div class="card-icon">🚀</div>
-            <h2>Workbook 2 · v2</h2>
-            <p>Improved edition: AI champion, workflow automation, leadership presentation</p>
             <span class="badge">For managers · 7 exercises</span>
         </a>
     </div>
+
     <div class="footer">
-        <p style="margin-bottom:12px;font-size:0.78rem;color:#777;line-height:1.5;">Každý sešit jde otevřít <strong>přímo</strong> (bez rozcestníku): např. <code style="background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:0.85em;">/sesit-1-pro-kazdeho.html</code> · na Vercelu také krátké cesty <code style="background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:0.85em;">/sesit-1</code>, <code style="background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:0.85em;">/workbook-1</code> …</p>
-        <p>© 2025 Filip Dřímalka · Všechna práva vyhrazena</p>
+        <p>© 2026 Filip Dřímalka · Všechna práva vyhrazena</p>
     </div>
 </div>
 </body>

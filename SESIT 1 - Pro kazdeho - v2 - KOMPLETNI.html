@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budoucnost nepráce — (ne)pracovní sešit · Pro každého · v2</title>
+    <meta name="robots" content="noindex, nofollow">
+    <title>Budoucnost nepráce — (ne)pracovní sešit · Pro každého</title>
     <style>
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -125,6 +126,10 @@ a:hover { border-bottom-color: #E53935; }
 /* FOOTER */
 .footer { text-align: center; padding: 24px; color: #999; font-size: 0.82rem; border-top: 1px solid #eee; margin-top: 40px; }
 
+/* PDF BUTTON */
+.btn-pdf { margin-left: auto; background: #E53935; color: #fff !important; border: none; padding: 5px 14px; border-radius: 4px; font-size: 0.78rem; font-weight: 600; cursor: pointer; white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; }
+.btn-pdf:hover { background: #c62828; }
+
 /* RESPONSIVE */
 @media (max-width: 860px) {
     .content { padding: 0 24px 40px; }
@@ -148,6 +153,7 @@ a:hover { border-bottom-color: #E53935; }
     body { background: #fff; }
     .page-container { max-width: 100%; box-shadow: none; }
     .nav { display: none; }
+    .btn-pdf { display: none; }
     .content { padding: 0 10px 20px; }
     .cover { padding: 40px 20px; page-break-after: always; }
     .exercise-card { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
@@ -161,7 +167,7 @@ a:hover { border-bottom-color: #E53935; }
 <body>
 <div class="page-container">
     <nav class="nav">
-        <a href="workbook-repo/index.html" class="nav-brand">📖 Pro každého · v2</a>
+        <span class="nav-brand">📖 Pro každého</span>
     <a href="#cviceni-0">Cv. 0</a>
     <a href="#cviceni-1">Cv. 1</a>
     <a href="#cviceni-2">Cv. 2</a>
@@ -172,14 +178,14 @@ a:hover { border-bottom-color: #E53935; }
     <a href="#cviceni-7">Cv. 7</a>
     <a href="#cviceni-8">Cv. 8</a>
     <a href="#cviceni-9">Cv. 9</a>
-
+    <button class="btn-pdf" onclick="window.print()">⬇ Stáhnout PDF</button>
     </nav>
 
     <div class="cover">
         <h1 class="cover-title">Budoucnost nepráce</h1>
-        <p class="cover-subtitle">(ne)pracovní sešit — od teorie k praxi · vylepšená verze</p>
+        <p class="cover-subtitle">(ne)pracovní sešit — od teorie k praxi</p>
         <div class="cover-line"></div>
-        <div class="cover-badge">Pro každého · v2</div>
+        <div class="cover-badge">Pro každého</div>
     </div>
 
     <div class="content">
@@ -287,7 +293,7 @@ a:hover { border-bottom-color: #E53935; }
 <p>Otevřete jakýkoliv AI nástroj a vyřešíte s ním problém, který máte právě dnes na stole. Nemusíte umět formulovat „dokonalý prompt" — prostě napište, co potřebujete, jako byste to říkali kolegovi.</p>
 <h3 class="subsection-title" id="postup">Postup</h3>
 <p><strong>1. Otevřete AI nástroj</strong></p>
-<p>Jděte na <a href="https://chat.openai.com" target="_blank">https://chat.openai.com</a> (funguje i s Google účtem) nebo <a href="https://claude.ai." target="_blank">https://claude.ai.</a> Pokud už máte účet v jiném nástroji, použijte ten.</p>
+<p>Jděte na <a href="https://chat.openai.com" target="_blank">https://chat.openai.com</a> (funguje i s Google účtem) nebo <a href="https://claude.ai" target="_blank">https://claude.ai</a>. Pokud už máte účet v jiném nástroji, použijte ten.</p>
 <p><strong>2. Napište AI o problému, který právě řešíte</strong></p>
 <p>Jakémkoliv. Nemusíte přemýšlet nad formátem — prostě popište situaci:</p>
 <p><strong>Příklady, jak začít:</strong></p>
@@ -1106,12 +1112,12 @@ z hlediska ceny, funkcí a jednoduchosti použití.</code></pre></div>
 </ul>
 <p>Hodně úspěchů na vaší cestě s AI.</p>
 <hr class="divider">
-<p><em>Budoucnost nepráce — (ne)pracovní sešit · Pro každého · v2 · © 2025 Filip Dřímalka</em></p>
+<p><em>Budoucnost nepráce — (ne)pracovní sešit · Pro každého · © 2026 Filip Dřímalka</em></p>
     </div>
 
     <div class="footer">
-        <p>Budoucnost nepráce — (ne)pracovní sešit · Pro každého · v2 · Od teorie k praxi</p>
-        <p>© 2025 Filip Dřímalka · Všechna práva vyhrazena</p>
+        <p>Budoucnost nepráce — (ne)pracovní sešit · Pro každého · Od teorie k praxi</p>
+        <p>© 2026 Filip Dřímalka · Všechna práva vyhrazena</p>
     </div>
 </div>
 </body>
